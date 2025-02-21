@@ -27,7 +27,18 @@ public class ObjectController : BaseController
         base.Initialize();
 
         statHandler = gameObject.GetComponent<StatHandler>();
-        animationHandler = transform.Find(Define.MainRenderer).GetOrAddComponent<AnimationHandler>();
+
+        Transform mainRenderer = transform.Find(Define.MainRenderer);
+        if (mainRenderer == null)
+        {
+            Debug.LogWarning($"Failed to Find({Define.MainRenderer})\nFrom: {gameObject.name}");
+            Destroy(gameObject);
+        }
+        else
+        {
+            animationHandler = mainRenderer.GetOrAddComponent<AnimationHandler>();
+            animationHandler.Destroyed.OnEnter += Destroy;
+        }
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
