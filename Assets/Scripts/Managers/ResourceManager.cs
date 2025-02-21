@@ -30,7 +30,15 @@ public class ResourceManager
             return null;
         }
 
-        @base.Birth();
+        if (@base is UI_Base)
+        {
+            @base.Birth();
+        }
+        else
+        {
+            @base.Stand();
+        }
+
         return @base;
     }
 
