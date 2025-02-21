@@ -9,5 +9,6 @@ public class CameraManager
         Main.transform.SetParent(Managers.Instance.transform);
         Main.transform.position = Vector3.back;
         Main.orthographic = true;
+        Main.orthographicSize = 10;
     }
 }
