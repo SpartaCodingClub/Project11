@@ -7,6 +7,11 @@ public class SceneManager
 
     public T GetCurrentScene<T>() where T : Scene_Base => currentScene as T;
 
+    public void Initialize()
+    {
+        currentScene = Object.FindObjectOfType<Scene_Base>();
+    }
+
     public void LoadScene<T>() where T : Scene_Base
     {
         Managers.Instance.Clear();

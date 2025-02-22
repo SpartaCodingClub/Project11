@@ -28,7 +28,10 @@ public class Pool
 
     private GameObject CreateFunc()
     {
-        return Object.Instantiate(original);
+        GameObject gameObject = Object.Instantiate(original);
+        gameObject.name = original.name;
+
+        return gameObject;
     }
 
     private void ActionOnGet(GameObject gameObject)
