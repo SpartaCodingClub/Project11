@@ -1,6 +1,6 @@
 ﻿using DG.Tweening;
-using System;
 using UnityEngine;
+using VInspector;
 
 public class RainController : MonoBehaviour
 {
@@ -8,18 +8,17 @@ public class RainController : MonoBehaviour
     [SerializeField]
     private Camera worldCamera;
 
-    [SerializeField]
-    [Range(0.0f, 1.0f)]
-    private float rainIntensity;
+    [SerializeField, ReadOnly]
+    private float rainIntensity = 1.0f;
     #endregion
 
-    private ParticleSystem RainParticleSystem;
-
+    private ParticleSystem RainFallParticleSystem;
+    private ParticleSystem RainMistParticleSystem;
+    private ParticleSystem RainExplosionParticleSystem;
     private float initialEmissionRain;
-    private Vector2 initialStartSpeedRain;
-    private Vector2 initialStartSizeRain;
 
-    private float cameraMultiplier;
+    private readonly ParticleSystem.Particle[] particles = new ParticleSystem.Particle[2048];
+
     private Bounds visibleBounds;
     private float visibleWorldWidth;
 
@@ -27,27 +26,39 @@ public class RainController : MonoBehaviour
 
     private void Awake()
     {
-        RainParticleSystem = GetComponent<ParticleSystem>();
-        initialEmissionRain = RainParticleSystem.emission.rateOverTime.constant;
-        initialStartSpeedRain = new Vector2(RainParticleSystem.main.startSpeed.constantMin, RainParticleSystem.main.startSpeed.constantMax);
-        initialStartSizeRain = new Vector2(RainParticleSystem.main.startSize.constantMin, RainParticleSystem.main.startSize.constantMax);
+        RainFallParticleSystem = gameObject.FindComponent<ParticleSystem>(nameof(RainFallParticleSystem));
+        RainMistParticleSystem = gameObject.FindComponent<ParticleSystem>(nameof(RainMistParticleSystem));
+        RainExplosionParticleSystem = gameObject.FindComponent<ParticleSystem>(nameof(RainExplosionParticleSystem));
+        initialEmissionRain = RainFallParticleSystem.emission.rateOverTime.constant;
     }
 
     private void Update()
     {
         CheckForRainChange();
 
-        cameraMultiplier = worldCamera.orthographicSize * 0.25f;
         visibleBounds.min = worldCamera.ViewportToWorldPoint(Vector3.zero);
         visibleBounds.max = worldCamera.ViewportToWorldPoint(Vector3.one);
         visibleWorldWidth = visibleBounds.size.x;
 
-        TransformParticleSystem(RainParticleSystem, initialStartSpeedRain, initialStartSizeRain);
+        TransformParticleSystem(RainFallParticleSystem);
+        TransformParticleSystem(RainMistParticleSystem);
+        TransformParticleSystem(RainExplosionParticleSystem);
+    }
+
+    private void FixedUpdate()
+    {
+        CheckForCollisionsRainParticles();
+        CheckForCollisionsMistParticles();
     }
 
     public void Stop()
     {
+        DontDestroyOnLoad(this);
+
         DOTween.To(() => rainIntensity, value => rainIntensity = value, 0.0f, 1.0f);
+        Managers.Audio.Stop_Ambient();
+
+        DOVirtual.DelayedCall(5.0f, () => Destroy(gameObject));
     }
 
     private void CheckForRainChange()
@@ -58,36 +69,110 @@ public class RainController : MonoBehaviour
         }
         lastRainIntensityValue = rainIntensity;
 
-        if (rainIntensity > 0.0f)
+        if (RainFallParticleSystem != null)
         {
-            ParticleSystem.EmissionModule emission = RainParticleSystem.emission;
+            ParticleSystem.EmissionModule emission = RainFallParticleSystem.emission;
             ParticleSystem.MinMaxCurve rateOverTime = emission.rateOverTime;
-            rateOverTime.constantMin = rateOverTime.constantMax = initialEmissionRain * rainIntensity;
-            emission.rateOverTime = rateOverTime;
 
-            RainParticleSystem.Play();
+            float emissionRate = initialEmissionRain * rainIntensity;
+            rateOverTime.constantMin = rateOverTime.constantMax = emissionRate;
+            emission.rateOverTime = rateOverTime;
         }
-        else
+
+        if (RainMistParticleSystem != null)
         {
-            RainParticleSystem.Stop();
+            ParticleSystem.MainModule main = RainMistParticleSystem.main;
+            ParticleSystem.EmissionModule emission = RainMistParticleSystem.emission;
+            ParticleSystem.MinMaxCurve rateOverTime = emission.rateOverTime;
+
+            float emissionRate = main.maxParticles / main.startLifetime.constant * rainIntensity * rainIntensity;
+            rateOverTime.constantMin = rateOverTime.constantMax = emissionRate;
+            emission.rateOverTime = rateOverTime;
         }
     }
 
-    private void TransformParticleSystem(ParticleSystem particleSystem, Vector2 initialStartSpeed, Vector2 initialStartSize)
+    private void TransformParticleSystem(ParticleSystem particleSystem)
     {
         particleSystem.transform.SetPositionY(visibleBounds.max.y);
-        particleSystem.transform.localScale = new(visibleWorldWidth * 1.5f, 1.0f, 1.0f);
+        particleSystem.transform.localScale = new(visibleWorldWidth * 2.0f, 1.0f, 1.0f);
+    }
 
-        ParticleSystem.MainModule main = particleSystem.main;
-        ParticleSystem.MinMaxCurve startSoeed = main.startSpeed;
-        startSoeed.constantMin = initialStartSpeed.x * cameraMultiplier;
-        startSoeed.constantMax = initialStartSpeed.y * cameraMultiplier;
+    private void CheckForCollisionsRainParticles()
+    {
+        bool isChange = false;
+        int size = RainFallParticleSystem.GetParticles(particles);
 
-        ParticleSystem.MinMaxCurve startSize = main.startSize;
-        startSize.constantMin = initialStartSize.x * cameraMultiplier;
-        startSize.constantMax = initialStartSize.y * cameraMultiplier;
+        for (int i = 0; i < size; i++)
+        {
+            Vector2 origin = particles[i].position + RainFallParticleSystem.transform.position;
+            Vector2 direction = particles[i].velocity.normalized;
+            float distance = particles[i].velocity.magnitude * Time.deltaTime;
+            if (Physics2D.Raycast(origin, direction, distance).collider == null)
+            {
+                continue;
+            }
 
-        main.startSpeed = startSoeed;
-        main.startSize = startSize;
+            particles[i].remainingLifetime = Mathf.Min(particles[i].remainingLifetime, Random.Range(0.01f, 0.04f));
+            isChange = true;
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            if (particles[i].remainingLifetime > 0.2f)
+            {
+                continue;
+            }
+
+            Vector3 position = particles[i].position + RainFallParticleSystem.transform.position;
+            Emit(position);
+        }
+
+        if (isChange)
+        {
+            RainFallParticleSystem.SetParticles(particles, size);
+        }
+    }
+
+    private void CheckForCollisionsMistParticles()
+    {
+        bool isChange = false;
+        int size = RainMistParticleSystem.GetParticles(particles);
+
+        for (int i = 0; i < size; i++)
+        {
+            Vector2 position = particles[i].position + RainMistParticleSystem.transform.position;
+            Vector2 direction = particles[i].velocity.normalized;
+            float distance = particles[i].velocity.magnitude * Time.deltaTime;
+            if (Physics2D.Raycast(position, direction, distance).collider == null)
+            {
+                continue;
+            }
+
+            particles[i].velocity *= 0.5f;
+            isChange = true;
+        }
+
+        if (isChange)
+        {
+            RainMistParticleSystem.SetParticles(particles, size);
+        }
+    }
+
+    private void Emit(Vector3 position)
+    {
+        for (int i = 0; i < Random.Range(2, 5); i++)
+        {
+            float x = Random.Range(-2.0f, 2.0f);
+            float y = Random.Range(1.0f, 3.0f);
+            ParticleSystem.EmitParams emitParams = new()
+            {
+                position = position,
+                velocity = new(x, y, 0.0f),
+                startLifetime = Random.Range(0.1f, 0.2f),
+                startSize = Random.Range(0.05f, 0.1f)
+            };
+
+            RainExplosionParticleSystem.Emit(emitParams, 1);
+        }
     }
 }

@@ -144,9 +144,7 @@ public class UI_Title : UI_Scene
         StopAllCoroutines();
 
         Managers.Audio.Play(Clip.SoundFX_Start);
-        var test = Managers.Scene.GetCurrentScene<Scene_Title>();
-        var test2 = test.RainParticleSystem;
-        test2.Stop();
+        Managers.Scene.GetCurrentScene<Scene_Title>().Clear();
     }
 
     public override void Destroy()
