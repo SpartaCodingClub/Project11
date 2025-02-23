@@ -94,7 +94,7 @@ public class RainController : MonoBehaviour
     private void TransformParticleSystem(ParticleSystem particleSystem)
     {
         particleSystem.transform.SetPositionY(visibleBounds.max.y);
-        particleSystem.transform.localScale = new(visibleWorldWidth * 2.0f, 1.0f, 1.0f);
+        particleSystem.transform.localScale = new(visibleWorldWidth * 4.0f, 1.0f, 1.0f);
     }
 
     private void CheckForCollisionsRainParticles()
