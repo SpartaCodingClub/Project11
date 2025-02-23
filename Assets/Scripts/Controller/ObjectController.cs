@@ -15,6 +15,7 @@ public class ObjectController : BaseController
         Jump,
         Attack
     }
+
     protected Vector2 direction;
 
     protected StatHandler statHandler;

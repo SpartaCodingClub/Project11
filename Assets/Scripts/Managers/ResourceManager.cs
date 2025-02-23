@@ -17,6 +17,7 @@ public class ResourceManager
             }
 
             gameObject = Object.Instantiate(original, parent);
+            gameObject.name = original.name;
         }
         else
         {

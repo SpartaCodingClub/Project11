@@ -1,14 +1,16 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class GameManager
 {
     public void Initialize()
     {
-#if UNITY_EDITOR
+#if DEBUG
         Application.runInBackground = true;
+        SRDebug.Init();
 #endif
 
         Application.targetFrameRate = 60;
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        DOTween.SetTweensCapacity(200, 125);
     }
 }

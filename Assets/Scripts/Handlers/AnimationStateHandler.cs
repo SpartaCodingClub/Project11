@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class StateBehaviour : StateMachineBehaviour
+public class AnimationStateHandler : StateMachineBehaviour
 {
     public event Action OnEnter;
     public event Action OnExit;

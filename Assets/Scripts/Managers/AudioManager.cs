@@ -3,17 +3,30 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Clip
+{
+    Ambient_Rain,
+
+    Music_Title,
+
+    SoundFX_Rain,
+    SoundFX_Start,
+}
+
 public class AudioManager
 {
+    private static readonly float MASTER_VOLUME = 0.2f;
     private static readonly float[] VOLUMES =
     {
-        0.2f,   // Music
-        0.2f,   // MusicFX
-        0.5f,   // SoundFX
+        1.0f * MASTER_VOLUME,   // Ambient
+        0.2f * MASTER_VOLUME,   // Music
+        0.2f * MASTER_VOLUME,   // MusicFX
+        0.6f * MASTER_VOLUME,   // SoundFX
     };
 
     public enum Type
     {
+        Ambient,
         Music,
         MusicFX,
         SoundFX,
@@ -38,15 +51,16 @@ public class AudioManager
             audioSource.loop = (Type)i != Type.SoundFX;
             audioSource.playOnAwake = false;
             audioSource.volume = VOLUMES[i];
+            audioSources[i] = audioSource;
         }
     }
 
-    public void Play(string key)
+    public void Play(Clip key)
     {
         Type type;
         try
         {
-            type = GetType(key);
+            type = GetType(key.ToString());
         }
         catch
         {
@@ -65,6 +79,9 @@ public class AudioManager
         AudioSource audioSource = audioSources[(int)type];
         switch (type)
         {
+            case Type.Ambient:
+                Play_Ambient(audioSource, clip);
+                break;
             case Type.Music:
                 Play_Music(audioSource, clip);
                 break;
@@ -75,6 +92,13 @@ public class AudioManager
                 Play_SoundFX(audioSource, clip);
                 break;
         }
+    }
+
+    private void Play_Ambient(AudioSource audioSource, AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.DOFade(VOLUMES[(int)Type.Ambient], 1.0f).From(0.0f);
+        audioSource.Play();
     }
 
     private void Play_Music(AudioSource audioSource, AudioClip clip)
@@ -95,7 +119,7 @@ public class AudioManager
         audioSource.clip = clip;
         audioSource.time = time;
         audioSource.volume = volume;
-        audioSource.DOFade(0.0f, 1.0f);
+        audioSource.DOFade(0.0f, 1.0f).OnComplete(() => audioSource.Stop());
         audioSource.Play();
     }
 
@@ -108,6 +132,12 @@ public class AudioManager
 
         audioSource.PlayOneShot(clip);
         DOVirtual.DelayedCall(0.1f, () => soundClips.Remove(clip));
+    }
+
+    public void Stop_Ambient()
+    {
+        AudioSource audioSource = audioSources[(int)Type.Ambient];
+        audioSource.DOFade(0.0f, 1.0f).OnComplete(() => audioSource.Stop());
     }
 
     private Type GetType(string key)

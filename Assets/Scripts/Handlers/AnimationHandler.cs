@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
 {
-    public DestroyedBehaviour Destroyed { get; private set; }
+    public AnimationStateHandler Destroyed { get; private set; }
 
     private Animator animator;
 
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
-        Destroyed = animator.GetBehaviour<DestroyedBehaviour>();
+        Destroyed = animator.GetBehaviour<AnimationStateHandler>();
     }
 
     public void Birth() => animator.Play(Define.Birth);
