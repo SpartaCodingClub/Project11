@@ -11,7 +11,7 @@ public class PlayerController : ObjectController
         var vertical = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(horizontal, vertical).normalized;
 
-        if (Input.GetKeyDown(KeyCode.Space) && transform.position.z == 0)
+        if (Input.GetKey(KeyCode.Space) && transform.position.z == 0)
         {
             statHandler.VelocityZ = statHandler.JumpPower;
         }

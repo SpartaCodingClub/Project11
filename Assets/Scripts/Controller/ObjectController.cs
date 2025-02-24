@@ -138,7 +138,7 @@ public class ObjectController : BaseController
             }
         }
 
-        animationHandler.Jump(jumping, moveDirection);
+        animationHandler.Jump(jumping, lookDirection);
         animationHandler.transform.SetPositionY(transform.position.y + transform.position.z);
     }
 }

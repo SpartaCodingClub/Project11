@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70ad73991c4d644459c07dad47c5fd91
+guid: 62d4cf266c5dc66428b8e2930269e234
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,7 +149,343 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_Down0
+      name: Shooting_Down0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3386d1242074fb41b01a72867cfe3a2
+      internalID: 1480029017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_Down1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b65439c110f28e45a7703d5532f1fba
+      internalID: 1585550000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_Down2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77d7fee967704b44d96d9d24373e9b32
+      internalID: 1711455367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_Down3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feca938c91d9c614694181037f944404
+      internalID: 720200035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_Down4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c348e01bef0376c40b52e4fdb1c95145
+      internalID: 1803685033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_Down5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01e6e6824832d542a40a030f9ab3d1f
+      internalID: -1742340784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_Down6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ff67c28e0d67048896dfc18a8173f7
+      internalID: -229130756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_Down7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 448
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae297680229e9f74c9b1e89e549596bc
+      internalID: -474199319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftDown0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c6a70385b802a41ab406575d28efc9
+      internalID: 1839055107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftDown1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 384
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b17bed8d30f1034aa5bc175d4229f08
+      internalID: 1268456073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftDown2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a11c0d7afba9e4b931b41fd3695183
+      internalID: -255180656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftDown3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 384
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70f6595574e779488c768788f97c3e3
+      internalID: 926774897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftDown4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9344b05c9abcd74c8c4f9d6e40f88a0
+      internalID: 1497316418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftDown5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 384
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a062217282a563244a0f73acc5453341
+      internalID: 1489962770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftDown6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44a55ace812ca744932810ed27b266d
+      internalID: 1102565765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftDown7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 384
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e808866dfdcd7fd46b30d7040811d02a
+      internalID: -97823865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_LeftUp0
       rect:
         serializedVersion: 2
         x: 0
@@ -157,20 +493,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea98674ab0b563440b9fee6c3f2505a1
-      internalID: 91264262
+      spriteID: 4fa0b56808687514e883630793a4ecf7
+      internalID: -676913813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Down1
+      name: Shooting_LeftUp1
       rect:
         serializedVersion: 2
         x: 48
@@ -178,20 +514,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bcaab89be4bdb642b2b43355442a7bd
-      internalID: 1136929848
+      spriteID: 96e8fd31d81aaa94ea2d19fb2039c1c6
+      internalID: 244592092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Down2
+      name: Shooting_LeftUp2
       rect:
         serializedVersion: 2
         x: 96
@@ -199,20 +535,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f519e15ef3ae894e84ff3f299cca05f
-      internalID: 1604622383
+      spriteID: f887b9a52b2248f439ef0204ad377d33
+      internalID: 72012300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Down3
+      name: Shooting_LeftUp3
       rect:
         serializedVersion: 2
         x: 144
@@ -220,20 +556,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ff775912e7f6fb4bb933c2d288e71dd
-      internalID: 2048663401
+      spriteID: c6c7f72ffa3f886418923e1fa5994550
+      internalID: 40249700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Down4
+      name: Shooting_LeftUp4
       rect:
         serializedVersion: 2
         x: 192
@@ -241,20 +577,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 986f9cfc031515c4aa8ecf608935759d
-      internalID: 175958199
+      spriteID: 14d51e9521160734bbc87d9eb350d2ad
+      internalID: 337228659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Down5
+      name: Shooting_LeftUp5
       rect:
         serializedVersion: 2
         x: 240
@@ -262,20 +598,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fb7136ec3ce2554685acd8e4c3694f7
-      internalID: 1119492939
+      spriteID: 0454fba1d8a8f1c45a341d919d1abe25
+      internalID: 1090839557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Down6
+      name: Shooting_LeftUp6
       rect:
         serializedVersion: 2
         x: 288
@@ -283,20 +619,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fab335c6b7dd0c4b85dd5ab198f095c
-      internalID: 1453250344
+      spriteID: 19cbc1db98121fb429c315b776932aa5
+      internalID: 1046319033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Down7
+      name: Shooting_LeftUp7
       rect:
         serializedVersion: 2
         x: 336
@@ -304,20 +640,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b308ff4a2d930840aa312cab0e4ad27
-      internalID: -2141509394
+      spriteID: 6bb70fd2cd7d8224d9eb2be17e6b8f5e
+      internalID: -2081308964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftDown0
+      name: Shooting_Up0
       rect:
         serializedVersion: 2
         x: 0
@@ -325,20 +661,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10259347d678de24d9a707f99261350d
-      internalID: 1102350192
+      spriteID: e13219d437d140342b2d4fb1911fda79
+      internalID: -1353566722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftDown1
+      name: Shooting_Up1
       rect:
         serializedVersion: 2
         x: 48
@@ -346,20 +682,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 345f11ed77fb8ea41bea372822f71ec8
-      internalID: 102957007
+      spriteID: a0b2a2d98232ba845a6ce5f96b0f8d52
+      internalID: 794388589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftDown2
+      name: Shooting_Up2
       rect:
         serializedVersion: 2
         x: 96
@@ -367,20 +703,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e91d95fc03900234d8f2718726ef187e
-      internalID: 101561973
+      spriteID: 68a36a0f0ad47a54380afe283e9087d1
+      internalID: 359483250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftDown3
+      name: Shooting_Up3
       rect:
         serializedVersion: 2
         x: 144
@@ -388,20 +724,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 889d9ba65e9573843bf5fc634a93b094
-      internalID: 1409009270
+      spriteID: 4706a8d5a06712e468a7a24003443f2c
+      internalID: 312730464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftDown4
+      name: Shooting_Up4
       rect:
         serializedVersion: 2
         x: 192
@@ -409,20 +745,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dd4d5ace1a13e74c9a329fea1130f6f
-      internalID: -1875162736
+      spriteID: a8d975ec723ae8e4a930609d939f9d23
+      internalID: 631749126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftDown5
+      name: Shooting_Up5
       rect:
         serializedVersion: 2
         x: 240
@@ -430,20 +766,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96918bab51484774e8f787b242246743
-      internalID: 1570027986
+      spriteID: 7d955aea42ffecc4bae8360df5c0124a
+      internalID: 469347159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftDown6
+      name: Shooting_Up6
       rect:
         serializedVersion: 2
         x: 288
@@ -451,20 +787,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a57dfb7d4149ab48b3d50fc458df024
-      internalID: -1690220249
+      spriteID: cef812ea090f1314080b10d69a82c4b0
+      internalID: -1637557915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftDown7
+      name: Shooting_Up7
       rect:
         serializedVersion: 2
         x: 336
@@ -472,20 +808,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3ec905c1022d6c4fb76e881bf2bcd9b
-      internalID: -806772662
+      spriteID: 4c35384725be6264a81f6630e473b6cc
+      internalID: 494221274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftUp0
+      name: Shooting_RightUp0
       rect:
         serializedVersion: 2
         x: 0
@@ -493,20 +829,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37327026d2976b940a6e797a9f02dfd5
-      internalID: -1059544685
+      spriteID: e9dd376faacd673469a3d27d2df4951a
+      internalID: -444851984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftUp1
+      name: Shooting_RightUp1
       rect:
         serializedVersion: 2
         x: 48
@@ -514,41 +850,41 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89d77c1da450dd0488eaf8f703fd1737
-      internalID: -543338006
+      spriteID: 944815ff82e4992458afb06d4768aaef
+      internalID: 955329336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftUp2
+      name: Shooting_RightUp2
       rect:
         serializedVersion: 2
-        x: 95
+        x: 96
         y: 192
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a078923be8a8caa4a99c63bec79311cb
-      internalID: 1044394290
+      spriteID: cc7305990ea6d364497380bda04122e6
+      internalID: 845778994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftUp3
+      name: Shooting_RightUp3
       rect:
         serializedVersion: 2
         x: 144
@@ -556,20 +892,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 442f206b328aa8145a3e9aa05f918c74
-      internalID: -801612029
+      spriteID: 864f302aa9ada2b458f8d8e2c5ae6248
+      internalID: -2017027649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftUp4
+      name: Shooting_RightUp4
       rect:
         serializedVersion: 2
         x: 192
@@ -577,20 +913,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f777fe37218cf64c8a5ffe71cfb0f54
-      internalID: -255051215
+      spriteID: a71e9c624b5f55648b50e31a83f39620
+      internalID: 292753094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftUp5
+      name: Shooting_RightUp5
       rect:
         serializedVersion: 2
         x: 240
@@ -598,20 +934,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 523a70f1253a7d349b1562a7887db739
-      internalID: -555286690
+      spriteID: bb8f87d1142c18040afeac3c3c672762
+      internalID: 115015053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftUp6
+      name: Shooting_RightUp6
       rect:
         serializedVersion: 2
         x: 288
@@ -619,20 +955,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 099ea53d029cffe4cb96451c853e5399
-      internalID: -1460283708
+      spriteID: 0ca1d43ae270632469a11b40c742c3ba
+      internalID: 694937084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_LeftUp7
+      name: Shooting_RightUp7
       rect:
         serializedVersion: 2
         x: 336
@@ -640,20 +976,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fda619b5d311814fb7f55865dcf01ca
-      internalID: 1452649193
+      spriteID: 75fda0a3113080f4aad4713df4956e43
+      internalID: -286210953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Up0
+      name: Shooting_RightDown0
       rect:
         serializedVersion: 2
         x: 0
@@ -661,20 +997,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1df8886711708142a4da6111e1be2c2
-      internalID: 1256348184
+      spriteID: 45d61976567a9e24790562283c3edf26
+      internalID: 2010263729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Up1
+      name: Shooting_RightDown1
       rect:
         serializedVersion: 2
         x: 48
@@ -682,20 +1018,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 642c75f7c81da0f48ac6c632cce1ab9b
-      internalID: -1660587834
+      spriteID: 9418bdaec9267b94f88e9d432eb633c7
+      internalID: 1453566768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Up2
+      name: Shooting_RightDown2
       rect:
         serializedVersion: 2
         x: 96
@@ -703,41 +1039,41 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d65ce70dab2b7584aada87c60601ee99
-      internalID: -1372705031
+      spriteID: b5d645217e624074daa070144880b438
+      internalID: -1898541899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Up3
+      name: Shooting_RightDown3
       rect:
         serializedVersion: 2
         x: 144
-        y: 128
+        y: 129
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60610edad1f386749896e90579544e73
-      internalID: -1620232015
+      spriteID: bbcac25da48e7a5418296864624c2884
+      internalID: 1594240342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Up4
+      name: Shooting_RightDown4
       rect:
         serializedVersion: 2
         x: 192
@@ -745,20 +1081,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73192e447b33d2344932ce2894286070
-      internalID: -1210746319
+      spriteID: 96eb0043867aa094eb7ff0a90c04919f
+      internalID: 761328955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Up5
+      name: Shooting_RightDown5
       rect:
         serializedVersion: 2
         x: 240
@@ -766,20 +1102,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ead0ff8852cb7e44890351b9e455add
-      internalID: 751839813
+      spriteID: e57952577eec8f947af058d6a7d253eb
+      internalID: 963054968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Up6
+      name: Shooting_RightDown6
       rect:
         serializedVersion: 2
         x: 288
@@ -787,20 +1123,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bd97fd977ee23e448e156af58039c7f
-      internalID: -165989058
+      spriteID: 3c5797c141e013645b13ebd885e5ed0a
+      internalID: 1734302242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Up7
+      name: Shooting_RightDown7
       rect:
         serializedVersion: 2
         x: 336
@@ -808,20 +1144,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1624983fc4c747547b849a58a7bf27fd
-      internalID: 1903047336
+      spriteID: bfdc42ae3fdbdfd478b04e1ddb063c72
+      internalID: -1980888286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightUp0
+      name: Shooting_Right0
       rect:
         serializedVersion: 2
         x: 0
@@ -829,20 +1165,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0a5aaf78c07a6a45b324bc4a4ad26ab
-      internalID: -818833614
+      spriteID: 26bb6c74a8ae4f040ab5741bb025fd43
+      internalID: 1728905435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightUp1
+      name: Shooting_Right1
       rect:
         serializedVersion: 2
         x: 48
@@ -850,20 +1186,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 688028cbc94ba0744bb690e934a8fefd
-      internalID: -589802427
+      spriteID: 56c567adfd5af2c4aa1f69beb4e77b8a
+      internalID: -1803212009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightUp2
+      name: Shooting_Right2
       rect:
         serializedVersion: 2
         x: 96
@@ -871,20 +1207,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 549317797708ca447829e4118211fcab
-      internalID: 673902221
+      spriteID: 67d0926f731498041b8f274f84e95059
+      internalID: -1061152388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightUp3
+      name: Shooting_Right3
       rect:
         serializedVersion: 2
         x: 144
@@ -892,20 +1228,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fddafb0971c2ddf42bcf0c5668808ace
-      internalID: -1205618424
+      spriteID: 97ead9b3d0e31ac4895a0899b0159dfd
+      internalID: -1874091045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightUp4
+      name: Shooting_Right4
       rect:
         serializedVersion: 2
         x: 192
@@ -913,20 +1249,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f256bdf32cf144b408cd93508c1556c7
-      internalID: 280642689
+      spriteID: 459f7a7fa74513b4d8f8a993962fe309
+      internalID: 2082444102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightUp5
+      name: Shooting_Right5
       rect:
         serializedVersion: 2
         x: 240
@@ -934,20 +1270,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe182f7ff6633c3458a7689197562e5a
-      internalID: -1155253508
+      spriteID: a0e9d0331011a174b8301c3242c2d0cf
+      internalID: -1731462504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightUp6
+      name: Shooting_Right6
       rect:
         serializedVersion: 2
         x: 288
@@ -955,20 +1291,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a02c58c08a2b31142880607d8e64318d
-      internalID: -562035000
+      spriteID: cda1193d2cd34c0498b65c6e20d8c943
+      internalID: -904039535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightUp7
+      name: Shooting_Right7
       rect:
         serializedVersion: 2
         x: 336
@@ -976,20 +1312,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e0c11ca67d856b4fa559f87e2f04540
-      internalID: 2062569818
+      spriteID: 021085e6050d96545aecd04345e80514
+      internalID: 222123333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightDown0
+      name: Shooting_Left0
       rect:
         serializedVersion: 2
         x: 0
@@ -997,20 +1333,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 365240facf04e9647bb1881e32c7444c
-      internalID: 45533003
+      spriteID: 68009f3c909e5ec4790c67b681416eb2
+      internalID: 1871091844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightDown1
+      name: Shooting_Left1
       rect:
         serializedVersion: 2
         x: 48
@@ -1018,20 +1354,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32a6ffaa1683b134b9ea3f2030da3196
-      internalID: 1311093874
+      spriteID: f1cf6cb599ec81243ba4fedb184c286e
+      internalID: -1157500676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightDown2
+      name: Shooting_Left2
       rect:
         serializedVersion: 2
         x: 96
@@ -1039,20 +1375,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 315381232aa008a4a83531a615a3c9a2
-      internalID: 880797390
+      spriteID: 2291d1c1e57c3d740bec85fb6d4e65d2
+      internalID: -775649278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightDown3
+      name: Shooting_Left3
       rect:
         serializedVersion: 2
         x: 144
@@ -1060,20 +1396,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 182ed65d570f88b4799abb5cd73cfde5
-      internalID: -395106882
+      spriteID: dd3abab90f747694ab7d8fb9cd02b72e
+      internalID: -503545569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightDown4
+      name: Shooting_Left4
       rect:
         serializedVersion: 2
         x: 192
@@ -1081,20 +1417,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73883ab992688004495834892c5a6ec7
-      internalID: -792230828
+      spriteID: a9eca7fc6e81f724d9045fb0da3bc44b
+      internalID: 680343496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightDown5
+      name: Shooting_Left5
       rect:
         serializedVersion: 2
         x: 240
@@ -1102,20 +1438,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26b91cea36c46064f99039ee8cc249eb
-      internalID: -888562470
+      spriteID: 5974ecbaed1b89e479001f074d489f6d
+      internalID: -819177136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightDown6
+      name: Shooting_Left6
       rect:
         serializedVersion: 2
         x: 288
@@ -1123,20 +1459,20 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea84dd719c68254892546529959b4e7
-      internalID: 1483705061
+      spriteID: 8094a661cbe3a6d48b23b36a64109be0
+      internalID: 1575465994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_RightDown7
+      name: Shooting_Left7
       rect:
         serializedVersion: 2
         x: 336
@@ -1144,14 +1480,14 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d17e42595ba5b441abf9a7a9d5664d8
-      internalID: -226824341
+      spriteID: 79e4d54dd37a1764a9a01aab25dbaaf3
+      internalID: -779048218
       vertices: []
       indices: 
       edges: []
@@ -1167,54 +1503,70 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_Down0: 91264262
-      Idle_Down1: 1136929848
-      Idle_Down2: 1604622383
-      Idle_Down3: 2048663401
-      Idle_Down4: 175958199
-      Idle_Down5: 1119492939
-      Idle_Down6: 1453250344
-      Idle_Down7: -2141509394
-      Idle_LeftDown0: 1102350192
-      Idle_LeftDown1: 102957007
-      Idle_LeftDown2: 101561973
-      Idle_LeftDown3: 1409009270
-      Idle_LeftDown4: -1875162736
-      Idle_LeftDown5: 1570027986
-      Idle_LeftDown6: -1690220249
-      Idle_LeftDown7: -806772662
-      Idle_LeftUp0: -1059544685
-      Idle_LeftUp1: -543338006
-      Idle_LeftUp2: 1044394290
-      Idle_LeftUp3: -801612029
-      Idle_LeftUp4: -255051215
-      Idle_LeftUp5: -555286690
-      Idle_LeftUp6: -1460283708
-      Idle_LeftUp7: 1452649193
-      Idle_RightDown0: 45533003
-      Idle_RightDown1: 1311093874
-      Idle_RightDown2: 880797390
-      Idle_RightDown3: -395106882
-      Idle_RightDown4: -792230828
-      Idle_RightDown5: -888562470
-      Idle_RightDown6: 1483705061
-      Idle_RightDown7: -226824341
-      Idle_RightUp0: -818833614
-      Idle_RightUp1: -589802427
-      Idle_RightUp2: 673902221
-      Idle_RightUp3: -1205618424
-      Idle_RightUp4: 280642689
-      Idle_RightUp5: -1155253508
-      Idle_RightUp6: -562035000
-      Idle_RightUp7: 2062569818
-      Idle_Up0: 1256348184
-      Idle_Up1: -1660587834
-      Idle_Up2: -1372705031
-      Idle_Up3: -1620232015
-      Idle_Up4: -1210746319
-      Idle_Up5: 751839813
-      Idle_Up6: -165989058
-      Idle_Up7: 1903047336
+      Shooting_Down0: 1480029017
+      Shooting_Down1: 1585550000
+      Shooting_Down2: 1711455367
+      Shooting_Down3: 720200035
+      Shooting_Down4: 1803685033
+      Shooting_Down5: -1742340784
+      Shooting_Down6: -229130756
+      Shooting_Down7: -474199319
+      Shooting_Left0: 1871091844
+      Shooting_Left1: -1157500676
+      Shooting_Left2: -775649278
+      Shooting_Left3: -503545569
+      Shooting_Left4: 680343496
+      Shooting_Left5: -819177136
+      Shooting_Left6: 1575465994
+      Shooting_Left7: -779048218
+      Shooting_LeftDown0: 1839055107
+      Shooting_LeftDown1: 1268456073
+      Shooting_LeftDown2: -255180656
+      Shooting_LeftDown3: 926774897
+      Shooting_LeftDown4: 1497316418
+      Shooting_LeftDown5: 1489962770
+      Shooting_LeftDown6: 1102565765
+      Shooting_LeftDown7: -97823865
+      Shooting_LeftUp0: -676913813
+      Shooting_LeftUp1: 244592092
+      Shooting_LeftUp2: 72012300
+      Shooting_LeftUp3: 40249700
+      Shooting_LeftUp4: 337228659
+      Shooting_LeftUp5: 1090839557
+      Shooting_LeftUp6: 1046319033
+      Shooting_LeftUp7: -2081308964
+      Shooting_Right0: 1728905435
+      Shooting_Right1: -1803212009
+      Shooting_Right2: -1061152388
+      Shooting_Right3: -1874091045
+      Shooting_Right4: 2082444102
+      Shooting_Right5: -1731462504
+      Shooting_Right6: -904039535
+      Shooting_Right7: 222123333
+      Shooting_RightDown0: 2010263729
+      Shooting_RightDown1: 1453566768
+      Shooting_RightDown2: -1898541899
+      Shooting_RightDown3: 1594240342
+      Shooting_RightDown4: 761328955
+      Shooting_RightDown5: 963054968
+      Shooting_RightDown6: 1734302242
+      Shooting_RightDown7: -1980888286
+      Shooting_RightUp0: -444851984
+      Shooting_RightUp1: 955329336
+      Shooting_RightUp2: 845778994
+      Shooting_RightUp3: -2017027649
+      Shooting_RightUp4: 292753094
+      Shooting_RightUp5: 115015053
+      Shooting_RightUp6: 694937084
+      Shooting_RightUp7: -286210953
+      Shooting_Up0: -1353566722
+      Shooting_Up1: 794388589
+      Shooting_Up2: 359483250
+      Shooting_Up3: 312730464
+      Shooting_Up4: 631749126
+      Shooting_Up5: 469347159
+      Shooting_Up6: -1637557915
+      Shooting_Up7: 494221274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
