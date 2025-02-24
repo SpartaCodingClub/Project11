@@ -46,8 +46,8 @@ public class ObjectController : BaseController
         else
         {
             animationHandler = mainRenderer.GetOrAddComponent<AnimationHandler>();
-            animationHandler.OnDestroyEnter.OnEnter += Destroy;
             animationHandler.OnAttackExit.OnExit += Stand;
+            animationHandler.OnDestroyEnter.OnEnter += Destroy;
         }
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
