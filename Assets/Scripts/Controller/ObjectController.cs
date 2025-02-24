@@ -18,8 +18,8 @@ public class ObjectController : BaseController
 
     protected Vector2 direction;
 
+    protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
-    private AnimationHandler animationHandler;
 
     private Rigidbody2D _rigidbody;
 
