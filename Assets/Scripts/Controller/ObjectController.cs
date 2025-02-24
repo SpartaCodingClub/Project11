@@ -100,6 +100,7 @@ public class ObjectController : BaseController
 
         actionState = ActionState.Attack;
         animationHandler.Attack(lookDirection);
+        animationHandler.Animator.SetFloat(Define.AttackSpeed, statHandler.AttackSpeed);
         attackTimer = 0.0f;
     }
 

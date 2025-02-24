@@ -11,8 +11,6 @@ public class PlayerController : ObjectController
         var vertical = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(horizontal, vertical).normalized;
 
-        Debug.Log(moveDirection);
-
         if (Input.GetKeyDown(KeyCode.Space) && transform.position.z == 0)
         {
             statHandler.VelocityZ = statHandler.JumpPower;
@@ -49,7 +47,7 @@ public class PlayerController : ObjectController
         lookDirection = (monsterPosition - playerPosition).normalized;
 
         Attack();
-        
+
         //Attack(); // 공격 애니메이션 실행
     }
 }

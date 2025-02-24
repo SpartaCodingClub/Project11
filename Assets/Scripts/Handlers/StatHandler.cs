@@ -4,6 +4,7 @@ using VInspector;
 public class StatHandler : MonoBehaviour
 {
     [Foldout("Stats Settings")]
+    [Min(0.1f)]
     public float AttackDelay = 1.0f;
     [EndFoldout]
 
@@ -15,4 +16,13 @@ public class StatHandler : MonoBehaviour
 
     [Foldout("Physic Status")]
     [ShowInInspector, ReadOnly] public float VelocityZ;
+
+    public float AttackSpeed { get { return initialAttackDelay / AttackDelay; } }
+
+    private float initialAttackDelay;
+
+    private void Awake()
+    {
+        initialAttackDelay = AttackDelay;
+    }
 }
