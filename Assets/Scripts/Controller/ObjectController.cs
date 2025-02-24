@@ -1,14 +1,6 @@
 using UnityEngine;
 using VInspector;
 
-public enum ActionState
-{
-    Idle,
-    Move,
-    Jump,
-    Attack
-}
-
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D), typeof(StatHandler))]
 public class ObjectController : BaseController
 {
@@ -16,12 +8,24 @@ public class ObjectController : BaseController
     [ShowInInspector, ReadOnly] private ActionState actionState;
     #endregion
 
+    public enum ActionState
+    {
+        Idle,
+        Move,
+        Jump,
+        Attack
+    }
+
     protected Vector2 direction;
 
     protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
 
-    protected Rigidbody2D _rigidbody;
+    private Rigidbody2D _rigidbody;
+    private float attackTimer;
+
+    private void Update() => HandleLogic();
+    private void FixedUpdate() => HandleAction();
 
     protected override void Initialize()
     {
@@ -38,14 +42,19 @@ public class ObjectController : BaseController
         else
         {
             animationHandler = mainRenderer.GetOrAddComponent<AnimationHandler>();
-            animationHandler.Destroyed.OnEnter += Destroy;
-            animationHandler.Attacked.OnExit += Stand;
+            animationHandler.OnDestroyEnter.OnEnter += Destroy;
+            animationHandler.OnAttackExit.OnExit += Stand;
         }
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    protected virtual void HandleLogic()
+    {
+        attackTimer += Time.deltaTime;
+    }
+
+    protected virtual void HandleAction()
     {
         if (actionState == ActionState.Attack)
         {
@@ -56,8 +65,6 @@ public class ObjectController : BaseController
 
         Moving();
         Jumping();
-
-        HandleAction();
     }
 
     public override void Stand()
@@ -71,16 +78,21 @@ public class ObjectController : BaseController
     public override void Death()
     {
         base.Death();
+
         animationHandler.Death(direction);
     }
 
     public virtual void Attack()
     {
+        if (attackTimer < statHandler.AttackDelay)
+        {
+            return;
+        }
+
         actionState = ActionState.Attack;
         animationHandler.Attack(direction);
+        attackTimer = 0.0f;
     }
-
-    protected virtual void HandleAction() { }
 
     private void Moving()
     {

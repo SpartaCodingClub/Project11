@@ -3,45 +3,14 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     public Animator Animator { get; private set; }
-
-    public AnimationActionHandler Attacked { get; private set; }
-    public AnimationStateHandler Destroyed { get; private set; }
+    public OnAttackExit OnAttackExit { get; private set; }
+    public OnDestroyEnter OnDestroyEnter { get; private set; }
 
     private void Awake()
     {
         Animator = gameObject.GetComponent<Animator>();
-
-        foreach (var stateHandler in Animator.GetBehaviours<AnimationStateHandler>())
-        {
-            switch (stateHandler.State)
-            {
-                case State.Destroyed:
-                    Destroyed = stateHandler;
-                    break;
-                case State.Birth:
-                    break;
-                case State.Stand:
-                    break;
-                case State.Death:
-                    break;
-            }
-        }
-
-        foreach (var actionHanlder in Animator.GetBehaviours<AnimationActionHandler>())
-        {
-            switch (actionHanlder.ActionState)
-            {
-                case ActionState.Idle:
-                    break;
-                case ActionState.Move:
-                    break;
-                case ActionState.Jump:
-                    break;
-                case ActionState.Attack:
-                    Attacked = actionHanlder;
-                    break;
-            }
-        }
+        OnAttackExit = Animator.GetBehaviour<OnAttackExit>();
+        OnDestroyEnter = Animator.GetBehaviour<OnDestroyEnter>();
 
         SetDirection(Vector2.down);
     }
