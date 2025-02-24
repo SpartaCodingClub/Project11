@@ -7,7 +7,7 @@ public class CameraManager
     public void Initialize()
     {
         Main.transform.SetParent(Managers.Instance.transform);
-        Main.transform.position = Vector3.back;
+        Main.transform.position = 10.0f * Vector3.back;
         Main.orthographic = true;
         Main.orthographicSize = 10;
     }

@@ -8,6 +8,7 @@ public class Define
     public static readonly int Death = Animator.StringToHash(nameof(Death));
     public static readonly int Attack = Animator.StringToHash(nameof(Attack));
     public static readonly int Move = Animator.StringToHash(nameof(Move));
+    public static readonly int Move_TL = Animator.StringToHash(nameof(Move_TL));
     public static readonly int Jump = Animator.StringToHash(nameof(Jump));
     #endregion
     #region Name
