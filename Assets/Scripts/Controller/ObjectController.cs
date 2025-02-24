@@ -56,28 +56,22 @@ public class ObjectController : BaseController
         Jumping();
     }
 
-    public override void Birth()
-    {
-        base.Birth();
-        animationHandler.Birth();
-    }
-
     public override void Stand()
     {
         base.Stand();
-        animationHandler.Stand();
+        animationHandler.Stand(direction);
     }
 
     public override void Death()
     {
         base.Death();
-        animationHandler.Death();
+        animationHandler.Death(direction);
     }
 
     public virtual void Attack()
     {
         actionState = ActionState.Attack;
-        animationHandler.Attack();
+        animationHandler.Attack(direction);
     }
 
     private void Moving()
