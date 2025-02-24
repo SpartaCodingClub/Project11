@@ -17,9 +17,9 @@ public static class Extention
         return Utility.GetOrAddComponent<T>(transform.gameObject);
     }
 
-    public static void SetPositionX(this Transform transform, float z)
+    public static void SetPositionX(this Transform transform, float x)
     {
-        Utility.SetPositionX(transform, z);
+        Utility.SetPositionX(transform, x);
     }
 
     public static void SetPositionY(this Transform transform, float y)
