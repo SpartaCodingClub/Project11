@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Building
+    uniqueID: 3779289023
+    locked: 0
+  - name: Object
+    uniqueID: 1054784193
+    locked: 0
+  - name: Foreground
+    uniqueID: 2549461527
+    locked: 0

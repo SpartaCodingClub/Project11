@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Canvas), typeof(CanvasScaler), typeof(CanvasGroup))]
@@ -51,5 +52,17 @@ public abstract class UI_Base : BaseController
             RectTransform child = gameObject.FindComponent<RectTransform>(name);
             children.Add(child);
         }
+    }
+
+    protected void BindEvent(int index, UnityAction @event)
+    {
+        Button button = Get<Button>(index);
+        if (button == null)
+        {
+            Debug.LogWarning($"Failed to BindEvent({index})\nFrom: {gameObject.name}");
+            return;
+        }
+
+        button.onClick.AddListener(@event);
     }
 }

@@ -28,6 +28,7 @@ public class Managers : MonoBehaviour
         Camera.Initialize();
         Game.Initialize();
         Pool.Initialize();
+        Scene.Initialize();
         Sheet.Initialize();
         UI.Initialize();
     }
