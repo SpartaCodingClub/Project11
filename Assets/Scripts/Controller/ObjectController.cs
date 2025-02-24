@@ -1,20 +1,20 @@
 using UnityEngine;
 using VInspector;
 
+public enum ActionState
+{
+    Idle,
+    Move,
+    Jump,
+    Attack
+}
+
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D), typeof(StatHandler))]
 public class ObjectController : BaseController
 {
     #region Inspector
     [ShowInInspector, ReadOnly] private ActionState actionState;
     #endregion
-
-    public enum ActionState
-    {
-        Idle,
-        Move,
-        Jump,
-        Attack
-    }
 
     protected Vector2 direction;
 
@@ -39,6 +39,7 @@ public class ObjectController : BaseController
         {
             animationHandler = mainRenderer.GetOrAddComponent<AnimationHandler>();
             animationHandler.Destroyed.OnEnter += Destroy;
+            animationHandler.Attacked.OnExit += Stand;
         }
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();

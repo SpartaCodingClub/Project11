@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Palettes/Buildings2/House_Stairs_42.asset.meta
+guid: 9ef2b985a2ad87e41bb6483818193473
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+========
+guid: ca154a2bf3e7d5b4bbee52357e955646
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+>>>>>>>> develop_KSM:Assets/Animations/Player Animations/Shooting_Down.anim.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
