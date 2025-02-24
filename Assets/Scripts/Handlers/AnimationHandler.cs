@@ -11,10 +11,10 @@ public class AnimationHandler : MonoBehaviour
         Destroyed = Animator.GetBehaviour<AnimationStateHandler>();
     }
 
-    public void Birth() => Animator.Play(Define.Birth);
-    public void Stand() => Animator.Play(Define.Stand);
-    public void Death() => Animator.Play(Define.Death);
-    public void Attack() => Animator.SetTrigger(Define.Attack);
-    public void Move(bool value) => Animator.SetBool(Define.Move, value);
-    public void Jump(bool value) => Animator.SetBool(Define.Jump, value);
+    public virtual void Birth() => Animator.Play(Define.Birth);
+    public virtual void Stand() => Animator.Play(Define.Stand);
+    public virtual void Death() => Animator.Play(Define.Death);
+    public virtual void Attack() => Animator.SetTrigger(Define.Attack);
+    public virtual void Move(bool value) => Animator.SetBool(Define.Move, value);
+    public virtual void Jump(bool value) => Animator.SetBool(Define.Jump, value);
 }
