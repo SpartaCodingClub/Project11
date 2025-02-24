@@ -21,7 +21,7 @@ public class ObjectController : BaseController
     protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
 
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     protected override void Initialize()
     {

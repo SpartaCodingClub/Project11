@@ -173,9 +173,9 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 38d7dc85563a2d94ba76e04f536550be, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -185,7 +185,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &611214661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -269,9 +269,9 @@ GameObject:
   m_Component:
   - component: {fileID: 817218910}
   - component: {fileID: 817218911}
+  - component: {fileID: 817218914}
   - component: {fileID: 817218913}
   - component: {fileID: 817218912}
-  - component: {fileID: 817218914}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083e7afa7565bbc4794b3cb735421c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0
+  MoveSpeed: 1
   JumpPower: 0
   Gravity: 0
   VelocityZ: 0
@@ -370,9 +370,9 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 38d7dc85563a2d94ba76e04f536550be, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -382,7 +382,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &817218914
 MonoBehaviour:
   m_ObjectHideFlags: 0
