@@ -1,6 +1,14 @@
 using UnityEngine;
 using VInspector;
 
+public enum ActionState
+{
+    Idle,
+    Move,
+    Jump,
+    Attack
+}
+
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D), typeof(StatHandler))]
 public class ObjectController : BaseController
 {
@@ -8,20 +16,12 @@ public class ObjectController : BaseController
     [ShowInInspector, ReadOnly] private ActionState actionState;
     #endregion
 
-    public enum ActionState
-    {
-        Idle,
-        Move,
-        Jump,
-        Attack
-    }
-
     protected Vector2 direction;
 
     protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
 
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     protected override void Initialize()
     {
@@ -39,6 +39,7 @@ public class ObjectController : BaseController
         {
             animationHandler = mainRenderer.GetOrAddComponent<AnimationHandler>();
             animationHandler.Destroyed.OnEnter += Destroy;
+            animationHandler.Attacked.OnExit += Stand;
         }
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -48,17 +49,22 @@ public class ObjectController : BaseController
     {
         if (actionState == ActionState.Attack)
         {
+            _rigidbody.velocity = Vector2.zero;
             return;
         }
         actionState = ActionState.Idle;
 
         Moving();
         Jumping();
+
+        HandleAction();
     }
 
     public override void Stand()
     {
         base.Stand();
+
+        actionState = ActionState.Idle;
         animationHandler.Stand(direction);
     }
 
@@ -73,6 +79,8 @@ public class ObjectController : BaseController
         actionState = ActionState.Attack;
         animationHandler.Attack(direction);
     }
+
+    protected virtual void HandleAction() { }
 
     private void Moving()
     {
