@@ -55,6 +55,8 @@ public class ObjectController : BaseController
 
         Moving();
         Jumping();
+
+        HandleAction();
     }
 
     public override void Stand()
@@ -74,6 +76,8 @@ public class ObjectController : BaseController
         actionState = ActionState.Attack;
         animationHandler.Attack(direction);
     }
+
+    protected virtual void HandleAction() { }
 
     private void Moving()
     {
