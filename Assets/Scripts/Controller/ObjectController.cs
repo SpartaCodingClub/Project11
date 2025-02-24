@@ -49,6 +49,7 @@ public class ObjectController : BaseController
     {
         if (actionState == ActionState.Attack)
         {
+            _rigidbody.velocity = Vector2.zero;
             return;
         }
         actionState = ActionState.Idle;
@@ -60,6 +61,8 @@ public class ObjectController : BaseController
     public override void Stand()
     {
         base.Stand();
+
+        actionState = ActionState.Idle;
         animationHandler.Stand(direction);
     }
 

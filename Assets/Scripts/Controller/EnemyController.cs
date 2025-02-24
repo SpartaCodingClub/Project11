@@ -19,6 +19,11 @@ public class EnemyController : ObjectController
 
     }
 
+    public override void Stand()
+    {
+        base.Stand();
+        Debug.Log("공격 끝");
+    }
 
     public override void Attack()
     {
@@ -39,7 +44,7 @@ public class EnemyController : ObjectController
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         //충돌한 오브젝트가 플레이어라면 (자주 쓸 것 같아서 define에 추가해야 할 듯)
         if (collision.collider.CompareTag("Player"))
@@ -57,8 +62,6 @@ public class EnemyController : ObjectController
         //플레이어의 위치
         direction = (player.transform.position - this.transform.position).normalized;
         Debug.Log(direction);
-
-        //if(ActionState == ActionState.Attack)
 
         //플레이어를 향해 이동하려면 or 플레이어를 향해 발사체를 날리려면
         //플레이어의 위치를 알 수 있어야 함
