@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0713fc7ae8ffaf4088a95c00112d7f6
+guid: ba308a97b81f22a438b0ac41eafa9390
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -134,7 +134,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: StreetLamps_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b631f3a6a800547b6596fe5cfd358a
+      internalID: -600186557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StreetLamps_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aaf2391d32f30345afc7d80e40f3f56
+      internalID: -264419932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -146,7 +188,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Street_0: 785616142
+      StreetLamps_0: -600186557
+      StreetLamps_1: -264419932
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
