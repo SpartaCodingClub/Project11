@@ -41,7 +41,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Building
+  - name: Tilemap
     uniqueID: 3779289023
     locked: 0
   - name: Object

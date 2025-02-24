@@ -18,8 +18,8 @@ public class ObjectController : BaseController
 
     protected Vector2 direction;
 
+    protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
-    private AnimationHandler animationHandler;
 
     private Rigidbody2D _rigidbody;
 
@@ -56,28 +56,22 @@ public class ObjectController : BaseController
         Jumping();
     }
 
-    public override void Birth()
-    {
-        base.Birth();
-        animationHandler.Birth();
-    }
-
     public override void Stand()
     {
         base.Stand();
-        animationHandler.Stand();
+        animationHandler.Stand(direction);
     }
 
     public override void Death()
     {
         base.Death();
-        animationHandler.Death();
+        animationHandler.Death(direction);
     }
 
     public virtual void Attack()
     {
         actionState = ActionState.Attack;
-        animationHandler.Attack();
+        animationHandler.Attack(direction);
     }
 
     private void Moving()
@@ -88,7 +82,7 @@ public class ObjectController : BaseController
             actionState = ActionState.Move;
         }
 
-        animationHandler.Move(moving);
+        animationHandler.Move(moving, direction);
         _rigidbody.velocity = statHandler.MoveSpeed * direction;
     }
 
@@ -113,7 +107,7 @@ public class ObjectController : BaseController
             }
         }
 
-        animationHandler.Jump(jumping);
+        animationHandler.Jump(jumping, direction);
         animationHandler.transform.SetPositionY(transform.position.y + transform.position.z);
     }
 }
