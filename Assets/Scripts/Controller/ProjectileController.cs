@@ -8,16 +8,16 @@ public class ProjectileController : MonoBehaviour
 
     //private RangeWeaponHandler rangeWeaponHandler;
 
-    private float currentDuration; //시간초과 체크
-    private Vector2 direction;
-    private bool isReady;
+    //private float currentDuration; //시간초과 체크
+    //private Vector2 direction;
+    //private bool isReady;
     
 
-    private Rigidbody2D _rigidbody; //
+    //private Rigidbody2D _rigidbody; //
 
-    public bool fxOnDestory = true; //투사체가 삭제될때 이펙트 출력
+    //public bool fxOnDestory = true; //투사체가 삭제될때 이펙트 출력
 
-    ProjectileManager ProjectileManager;
+    //ProjectileManager ProjectileManager;
     //private void Update()
     //{
     //    if (!isReady)
@@ -34,17 +34,16 @@ public class ProjectileController : MonoBehaviour
 
     //    _rigidbody.velocity = direction * rangeWeaponHandler.Speed;
     //}
-    //public void Init(Vector2 direction, RangeWeaponHandler RengeWeaponHandler, ProjectileManager projectileManager)
+    //public void Init(Vector2 direction, RangeWeaponHandler RengeWeaponHandler)
     //{
-    //    this.ProjectileManager = projectileManager;
 
     //    rangeWeaponHandler = RengeWeaponHandler;
 
     //    this.direction = direction;
     //    currentDuration = 0;
     //    transform.localScale = Vector3.one * RengeWeaponHandler.BulletSize;
-    
-   
+
+
     //    isReady = true;
     //}
     //private void OnTriggerEnter2D(Collider2D collision)
@@ -73,9 +72,17 @@ public class ProjectileController : MonoBehaviour
     //        DestroyProjectile(collision.ClosestPoint(transform.position), fxOnDestory);
     //    }
     //}
-    private void DestroyProjectile(Vector3 position, bool createFx)
-    {
-        Destroy(this.gameObject);
-    }
+    //private void DestroyProjectile(Vector3 position, bool createFx)
+    //{
+    //    Destroy(this.gameObject);
+    //}
+    //public void ShootBullet(RangeWeaponHandler rangeWeaponHandler, Vector2 startPosition, Vector2 derection)
+    //{
+    //    GameObject origin = projectilePrefab[rangeWeaponHandler.BulletIndex]; //불렛 인덱스값을 받아옴
+    //    GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);  // 씬에 프리팹 생성
+
+    //    ProjectileController projectileController = obj.GetComponent<ProjectileController>(); //프로젝타일 컨트롤러에서 컴퍼넌트 받아오기
+    //    projectileController.Init(derection, rangeWeaponHandler, this); // 초기화
+    //}
 }
 
