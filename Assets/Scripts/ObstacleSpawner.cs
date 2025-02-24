@@ -23,7 +23,7 @@ public class ObstacleSpawner : MonoBehaviour
             GameObject obstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
             BoxCollider2D collider = obstacle.GetComponent<BoxCollider2D>();
 
-            if (!SetObstacle(pos, collider) && !OverLine(pos, collider))
+            if (!OverLine(pos, collider))
             {
                 SetUsedPosition(pos, collider);
                 Instantiate(obstacle, pos + new Vector2(0.5f, 0.5f), Quaternion.identity, contain);
@@ -69,23 +69,7 @@ public class ObstacleSpawner : MonoBehaviour
             }
         }
     }
-    // 장애물이 겹치는지 판단
-    public bool SetObstacle(Vector2 position, BoxCollider2D collider)
-    {
-        Vector2 minPos = position - collider.size * 0.5f;
-        Vector2 maxPos = position + collider.size * 0.5f;
-
-        for (int x = Mathf.CeilToInt(minPos.x); x <= Mathf.FloorToInt(maxPos.x); x++)
-        {
-            for (int y = Mathf.CeilToInt(minPos.y); y <= Mathf.FloorToInt(maxPos.y); y++)
-            {
-                if (usedPositions.Contains(new Vector2(x, y)))
-                    return true;
-            }
-        }
-        return false;
-    }
-    // 스폰 위치를 넘어갔는지 판단
+    // 스폰 위치를 넘어갔는지, 장애물이 겹치는지 판단
     public bool OverLine(Vector2 position, BoxCollider2D collider)
     {
         Vector2 minPos = position - collider.size * 0.5f;
@@ -97,10 +81,45 @@ public class ObstacleSpawner : MonoBehaviour
             for (int y = Mathf.CeilToInt(minPos.y); y <= Mathf.FloorToInt(maxPos.y); y++)
             {
                 Vector3Int tilePos = spawnArea.WorldToCell(new Vector3(x, y, 0));
-                if (!spawnArea.HasTile(tilePos))
+                if (!spawnArea.HasTile(tilePos) || usedPositions.Contains(new Vector2(x, y)))
                     return true;
             }
         }
         return false;
     }
 }
+
+//// 장애물이 겹치는지 판단
+//public bool SetObstacle(Vector2 position, BoxCollider2D collider)
+//{
+//    Vector2 minPos = position - collider.size * 0.5f;
+//    Vector2 maxPos = position + collider.size * 0.5f;
+
+//    for (int x = Mathf.CeilToInt(minPos.x); x <= Mathf.FloorToInt(maxPos.x); x++)
+//    {
+//        for (int y = Mathf.CeilToInt(minPos.y); y <= Mathf.FloorToInt(maxPos.y); y++)
+//        {
+//            if (usedPositions.Contains(new Vector2(x, y)))
+//                return true;
+//        }
+//    }
+//    return false;
+//}
+//// 스폰 위치를 넘어갔는지 판단
+//public bool OverLine(Vector2 position, BoxCollider2D collider)
+//{
+//    Vector2 minPos = position - collider.size * 0.5f;
+//    Vector2 maxPos = position + collider.size * 0.5f;
+//    BoundsInt area = spawnArea.cellBounds;
+
+//    for (int x = Mathf.CeilToInt(minPos.x); x <= Mathf.FloorToInt(maxPos.x); x++)
+//    {
+//        for (int y = Mathf.CeilToInt(minPos.y); y <= Mathf.FloorToInt(maxPos.y); y++)
+//        {
+//            Vector3Int tilePos = spawnArea.WorldToCell(new Vector3(x, y, 0));
+//            if (!spawnArea.HasTile(tilePos))
+//                return true;
+//        }
+//    }
+//    return false;
+//}
