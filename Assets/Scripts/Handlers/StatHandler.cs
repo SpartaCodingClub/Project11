@@ -3,10 +3,14 @@ using VInspector;
 
 public class StatHandler : MonoBehaviour
 {
+    [Foldout("Stats Settings")]
+    public float AttackDelay = 1.0f;
+    [EndFoldout]
+
     [Foldout("Physics Settings")]
-    [ShowInInspector] public float MoveSpeed;
-    [ShowInInspector] public float JumpPower;
-    [ShowInInspector] public float Gravity;
+    public float MoveSpeed = 1.0f;
+    public float JumpPower;
+    public float Gravity = 9.8f;
     [EndFoldout]
 
     [Foldout("Physic Status")]
