@@ -22,6 +22,9 @@ public class ObjectController : BaseController
     protected StatHandler statHandler;
 
     private Rigidbody2D _rigidbody;
+
+    private bool moving;
+    private bool jumping;
     private float attackTimer;
 
     private void Update() => HandleLogic();
@@ -84,6 +87,11 @@ public class ObjectController : BaseController
 
     public virtual void Attack()
     {
+        if (moving || jumping)
+        {
+            return;
+        }
+
         if (attackTimer < statHandler.AttackDelay)
         {
             return;
@@ -96,7 +104,7 @@ public class ObjectController : BaseController
 
     private void Moving()
     {
-        bool moving = direction.magnitude > 0.0f;
+        moving = direction.magnitude > 0.0f;
         if (moving)
         {
             actionState = ActionState.Move;
@@ -109,7 +117,8 @@ public class ObjectController : BaseController
     private void Jumping()
     {
         float z = transform.position.z;
-        bool jumping = z > 0.0f;
+
+        jumping = z > 0.0f;
         if (jumping || statHandler.VelocityZ > 0.0f)
         {
             actionState = ActionState.Jump;
