@@ -21,7 +21,7 @@ public class ObjectController : BaseController
     protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
 
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     protected override void Initialize()
     {
@@ -49,6 +49,7 @@ public class ObjectController : BaseController
     {
         if (actionState == ActionState.Attack)
         {
+            _rigidbody.velocity = Vector2.zero;
             return;
         }
         actionState = ActionState.Idle;
@@ -62,6 +63,8 @@ public class ObjectController : BaseController
     public override void Stand()
     {
         base.Stand();
+
+        actionState = ActionState.Idle;
         animationHandler.Stand(direction);
     }
 
