@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class AnimationStateHandler : StateMachineBehaviour
+public class AnimationActionHandler : StateMachineBehaviour
 {
-    public State State;
+    public ActionState ActionState;
 
     public event Action OnEnter;
     public event Action OnExit;
