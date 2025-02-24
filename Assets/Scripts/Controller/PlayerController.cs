@@ -9,9 +9,9 @@ public class PlayerController : ObjectController
         base.HandleLogic();
         var horizontal = Input.GetAxisRaw("Horizontal");
         var vertical = Input.GetAxisRaw("Vertical");
-        direction = new Vector2(horizontal, vertical).normalized;
+        moveDirection = new Vector2(horizontal, vertical).normalized;
 
-        Debug.Log(direction);
+        Debug.Log(moveDirection);
 
         if (Input.GetKeyDown(KeyCode.Space) && transform.position.z == 0)
         {
@@ -46,9 +46,8 @@ public class PlayerController : ObjectController
         }
         Vector2 monsterPosition = monsterCollider.transform.position;
         Vector2 playerPosition = transform.position;
-        Vector2 attackDirection = (monsterPosition - playerPosition).normalized;
+        lookDirection = (monsterPosition - playerPosition).normalized;
 
-        direction = attackDirection;
         Attack();
         
         //Attack(); // 공격 애니메이션 실행

@@ -6,7 +6,7 @@ public class PlayerTest : ObjectController
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
         var vertical = Input.GetAxisRaw("Vertical");
-        direction = new Vector2(horizontal, vertical).normalized;
+        moveDirection = new Vector2(horizontal, vertical).normalized;
 
         if (Input.GetKeyDown(KeyCode.Space) && transform.position.z == 0)
         {

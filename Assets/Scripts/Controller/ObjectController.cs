@@ -16,7 +16,8 @@ public class ObjectController : BaseController
         Attack
     }
 
-    protected Vector2 direction;
+    protected Vector2 lookDirection;
+    protected Vector2 moveDirection;
 
     protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
@@ -75,14 +76,14 @@ public class ObjectController : BaseController
         base.Stand();
 
         actionState = ActionState.Idle;
-        animationHandler.Stand(direction);
+        animationHandler.Stand(lookDirection);
     }
 
     public override void Death()
     {
         base.Death();
 
-        animationHandler.Death(direction);
+        animationHandler.Death(lookDirection);
     }
 
     public virtual void Attack()
@@ -98,20 +99,20 @@ public class ObjectController : BaseController
         }
 
         actionState = ActionState.Attack;
-        animationHandler.Attack(direction);
+        animationHandler.Attack(lookDirection);
         attackTimer = 0.0f;
     }
 
     private void Moving()
     {
-        moving = direction.magnitude > 0.0f;
+        moving = moveDirection.magnitude > 0.0f;
         if (moving)
         {
             actionState = ActionState.Move;
         }
 
-        animationHandler.Move(moving, direction);
-        _rigidbody.velocity = statHandler.MoveSpeed * direction;
+        animationHandler.Move(moving, moveDirection);
+        _rigidbody.velocity = statHandler.MoveSpeed * moveDirection;
     }
 
     private void Jumping()
@@ -136,7 +137,7 @@ public class ObjectController : BaseController
             }
         }
 
-        animationHandler.Jump(jumping, direction);
+        animationHandler.Jump(jumping, moveDirection);
         animationHandler.transform.SetPositionY(transform.position.y + transform.position.z);
     }
 }

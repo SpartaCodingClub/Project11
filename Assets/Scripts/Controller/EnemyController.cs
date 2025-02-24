@@ -60,8 +60,8 @@ public class EnemyController : ObjectController
         //direction에 값 넣어주면 이동
 
         //플레이어의 위치
-        direction = (player.transform.position - this.transform.position).normalized;
-        Debug.Log(direction);
+        moveDirection = (player.transform.position - this.transform.position).normalized;
+        Debug.Log(moveDirection);
 
         //플레이어를 향해 이동하려면 or 플레이어를 향해 발사체를 날리려면
         //플레이어의 위치를 알 수 있어야 함
