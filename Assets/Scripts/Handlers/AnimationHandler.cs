@@ -15,6 +15,14 @@ public class AnimationHandler : MonoBehaviour
     public virtual void Stand() => Animator.Play(Define.Stand);
     public virtual void Death() => Animator.Play(Define.Death);
     public virtual void Attack() => Animator.SetTrigger(Define.Attack);
-    public virtual void Move(bool value) => Animator.SetBool(Define.Move, value);
-    public virtual void Jump(bool value) => Animator.SetBool(Define.Jump, value);
+
+    public virtual void Move(bool value, Vector2 direction)
+    {
+        Animator.SetBool(Define.Move, value);
+    }
+
+    public virtual void Jump(bool value, Vector2 direction)
+    {
+        Animator.SetBool(Define.Jump, value);
+    }
 }

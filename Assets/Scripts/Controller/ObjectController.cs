@@ -88,7 +88,7 @@ public class ObjectController : BaseController
             actionState = ActionState.Move;
         }
 
-        animationHandler.Move(moving);
+        animationHandler.Move(moving, direction);
         _rigidbody.velocity = statHandler.MoveSpeed * direction;
     }
 
@@ -113,7 +113,7 @@ public class ObjectController : BaseController
             }
         }
 
-        animationHandler.Jump(jumping);
+        animationHandler.Jump(jumping, direction);
         animationHandler.transform.SetPositionY(transform.position.y + transform.position.z);
     }
 }
