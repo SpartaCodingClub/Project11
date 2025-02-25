@@ -30,7 +30,7 @@ public class PlayerController : ObjectController
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
 
-        animationHandler.AttackHandler.OnEnter += ()=> projectileHandler.RangeAttack(WeaponType.machineGun, HandPivot.position, target.transform.position);
+        //animationHandler.AttackHandler.OnEnter += ()=> projectileHandler.RangeAttack(WeaponType.machineGun, HandPivot.position, target.transform.position);
     }
 
     protected override void Jumping()
