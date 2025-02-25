@@ -975,13 +975,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3268216276892242702}
     m_Modifications:
+    - target: {fileID: 1122763490529277956, guid: 95a9959c19a6b9a40a5499d8fbef7330, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2073992309747878980, guid: 95a9959c19a6b9a40a5499d8fbef7330, type: 3}
       propertyPath: m_Size.x
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2073992309747878980, guid: 95a9959c19a6b9a40a5499d8fbef7330, type: 3}
       propertyPath: m_Size.y
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2073992309747878980, guid: 95a9959c19a6b9a40a5499d8fbef7330, type: 3}
       propertyPath: m_IsTrigger
@@ -1061,7 +1065,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 0}
   obstaclePrefabs:
-  - {fileID: 470112165}
   - {fileID: 470112165}
   obstacleCount: 5
   contain: {fileID: 1722692767}

@@ -25,7 +25,7 @@ public class ProjectileController : BaseController
 
         //if(collision.gameObject.layer != ~(monsterLayer|playerLayer))
         //_animator.SetTrigger("OnEffect");
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
     public void TargetToDirection(Vector2 direction)
     {

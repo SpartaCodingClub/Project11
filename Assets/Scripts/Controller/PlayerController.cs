@@ -30,7 +30,7 @@ public class PlayerController : ObjectController
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
 
-        animationHandler.AttackHandler.OnEnter += ()=> projectileHandler.RangeAttack(WeaponType.shotGun, HandPivot.position, target.transform.position);
+        animationHandler.AttackHandler.OnEnter += ()=> projectileHandler.RangeAttack(WeaponType.machineGun, HandPivot.position, target.transform.position);
     }
 
     protected override void Jumping()
@@ -108,11 +108,5 @@ public class PlayerController : ObjectController
         HandPivot.localPosition = lookDirection * 0.5f;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-            collision.collider.
-        }
-    }
+
 }
