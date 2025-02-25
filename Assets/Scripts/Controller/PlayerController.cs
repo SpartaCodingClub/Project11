@@ -25,13 +25,18 @@ public class PlayerController : ObjectController
         HandPivot = gameObject.FindComponent<Transform>(nameof(HandPivot));
         projectileHandler = gameObject.GetComponent<ProjectileHandler>();
 
+        Managers.Camera.Target = transform;
+        Managers.Game.Player = this;
+    }
+
+    public override void Stand()
+    {
+        base.Stand();
+
         animationHandler.AttackHandler.OnEnter += () =>
         {
             projectileHandler.RangeAttack(ProjectilePattern.Single, HandPivot.position, target.position);
         };
-
-        Managers.Camera.Target = transform;
-        Managers.Game.Player = this;
     }
 
     protected override void Jumping()

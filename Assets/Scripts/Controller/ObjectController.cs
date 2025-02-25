@@ -52,7 +52,7 @@ public class ObjectController : BaseController
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         animationHandler.AttackHandler.OnExit += Stand;
         animationHandler.DestroyHandler.OnEnter += Destroy;

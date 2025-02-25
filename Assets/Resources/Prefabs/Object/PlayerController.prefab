@@ -465,7 +465,7 @@ MonoBehaviour:
   Damage: 1
   MoveSpeed: 5
   JumpPower: 5
-  Gravity: 9.8
+  Gravity: 15
   VelocityZ: 0
 --- !u!114 &8540598411276184764
 MonoBehaviour:
