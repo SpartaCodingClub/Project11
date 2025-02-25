@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Prefabs/Monster.meta
+guid: ab55327e1c4c4d54fa3d1d53d0128ffa
+========
+guid: 453b8a3f04a766d49a74b044257132f0
+>>>>>>>> develop:Assets/Animations/Item.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
