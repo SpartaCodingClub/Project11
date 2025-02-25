@@ -5,9 +5,10 @@ using UnityEngine;
 public class ProjectileHandler : MonoBehaviour
 {
     public LayerMask target;
+    private Rigidbody2D _rigidbody;
+    private ProjectileController projectilecontroller;
 
     [Header("Ranged Attack Data")]
-    [SerializeField] private Transform projectileSpawnPosition;
 
     [SerializeField] private int bulletIndex;
     public int BulletIndex { get { return bulletIndex; } }
@@ -16,21 +17,29 @@ public class ProjectileHandler : MonoBehaviour
     [SerializeField] private float bulletSpeed = 1f;
     public float BulletSpeed { get { return bulletSpeed; } }
 
+    [SerializeField] private float bulletSpread; // 탄 퍼짐 정도
+    public float BulletSpread { get { return bulletSpread; } }
 
-    [SerializeField] private float spread;
-    public float Spread { get { return spread; } }
+    [SerializeField] private float multileProjectileAngle; // 탄 퍼짐 각도
+    public float MultileProjectileAngle { get { return multileProjectileAngle; } }
 
-    [SerializeField] private int numberofProjectilesPerShot;
+    [SerializeField] private int numberofProjectilesPerShot; // 1번 발사할때 나가는 투사체 수
     public int NumberofProjectilesPerShot { get { return numberofProjectilesPerShot; } }
 
-
-    [SerializeField] private Color projectileColor;
-    public Color ProjectileColor { get { return projectileColor; } }
-
-
-    private void CreateProjectile()
+    public void RangeAttack()
     {
-        //projectileController.ShootBullet(
-            //this,projectileSpawnPosition.position, //공격하고있는방향좌표
+        float projectileAngleSpace = multileProjectileAngle;
+        int numberOfProjectilesPerShot = numberofProjectilesPerShot;
+
+        float minAlge = -(numberOfProjectilesPerShot / 2f) * projectileAngleSpace;
+
+        for (int i = 0; i < numberofProjectilesPerShot; i++)
+        {
+            //각도는 각도간격 * 투사체수
+            float angle = minAlge * projectileAngleSpace * i;
+            float Randomspread = Random.Range(-bulletSpread, bulletSpread);
+            angle += Randomspread;
+            //projectilecontroller.Fire(lookDirection, angle); //
+        } 
     }
 }
