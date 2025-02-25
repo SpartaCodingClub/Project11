@@ -3,6 +3,29 @@ using UnityEngine;
 public class PlayerController : ObjectController
 {
     public float attackRange = 5f;
+    private AnimationHandler shadowHandler;
+
+    protected override void Initialize()
+    {
+        base.Initialize();
+
+        Transform shadowRenderer = transform.Find(Define.ShadowRenderer);
+        if (shadowRenderer == null)
+        {
+            Debug.LogWarning($"Failed to Find({Define.ShadowRenderer})\nFrom: {gameObject.name}");
+            Destroy(gameObject);
+        }
+        else
+        {
+            shadowHandler = shadowRenderer.GetOrAddComponent<AnimationHandler>();
+        }
+    }
+
+    protected override void Jumping()
+    {
+        base.Jumping();
+        shadowHandler.Jump(true, Vector2.down);
+    }
 
     protected override void HandleLogic()
     {
