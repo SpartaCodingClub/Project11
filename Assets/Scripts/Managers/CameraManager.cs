@@ -19,6 +19,7 @@ public class CameraManager
         transform.SetParent(Managers.Instance.transform);
         transform.position = 10.0f * Vector3.back;
 
+        transform.gameObject.layer = 2;
         transform.gameObject.AddComponent<PixelPerfectCamera>().assetsPPU = 32;
 
         Transform child = new GameObject(nameof(Light2D)).transform;

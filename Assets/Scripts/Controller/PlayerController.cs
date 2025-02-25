@@ -59,20 +59,31 @@ public class PlayerController : ObjectController
         var vertical = Input.GetAxisRaw(Define.Vertical);
         moveDirection = new Vector2(horizontal, vertical).normalized;
 
-        if (Input.GetKey(KeyCode.Space) && transform.position.z == 0)
+        if (Input.GetKey(KeyCode.Space))
         {
-            statHandler.VelocityZ = statHandler.JumpPower;
+            if (transform.position.z == 0)
+            {
+                statHandler.VelocityZ = statHandler.JumpPower;
+            }
+
+            return;
         }
+
+        Collider2D closestMonster = GetClosestMonster();
+        if (closestMonster == null)
+        {
+            return;
+        }
+
+        AttackTargetMonster(closestMonster);
     }
     protected override void HandleAction()
     {
         base.HandleAction();
-
-        CheckMonstersInRange();
         HandleLighting();
     }
 
-    private void CheckMonstersInRange()
+    private Collider2D GetClosestMonster()
     {
         Collider2D[] monsters = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, LayerMask.GetMask(Define.Monster));
 
@@ -94,13 +105,10 @@ public class PlayerController : ObjectController
             }
         }
 
-        if (closestMonster != null)
-        {
-            AttackMonster(closestMonster);
-        }
+        return closestMonster;
     }
 
-    private void AttackMonster(Collider2D closestMonster)
+    private void AttackTargetMonster(Collider2D closestMonster)
     {
         // 캐릭터 방향 설정 후
         Vector3 targetPosition = closestMonster.transform.position;
