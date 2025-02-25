@@ -7,8 +7,9 @@ public class PlayerController : ObjectController
     protected override void HandleLogic()
     {
         base.HandleLogic();
-        var horizontal = Input.GetAxisRaw("Horizontal");
-        var vertical = Input.GetAxisRaw("Vertical");
+
+        var horizontal = Input.GetAxisRaw(Define.Horizontal);
+        var vertical = Input.GetAxisRaw(Define.Vertical);
         moveDirection = new Vector2(horizontal, vertical).normalized;
 
         if (Input.GetKey(KeyCode.Space) && transform.position.z == 0)
