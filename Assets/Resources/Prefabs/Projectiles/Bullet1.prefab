@@ -226,10 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821cb27b30a2e634d8541a7fe1593e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCollisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  fxOnDestory: 1
 --- !u!114 &6723470947307738107
 MonoBehaviour:
   m_ObjectHideFlags: 0
