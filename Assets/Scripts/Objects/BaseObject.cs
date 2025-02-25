@@ -2,23 +2,22 @@ using UnityEngine;
 using VInspector;
 
 [ExecuteAlways]
-public class BaseObject : BaseController
+public class BaseObject : MonoBehaviour
 {
     #region Inspector
     [SerializeField]
-    private bool randomableObject = true;
+    protected bool randomableObject = true;
 
     [HideIf("randomableObject")]
     [SerializeField, Range(0.0f, 1.0f)]
-    private float normalizedTime;
+    protected float normalizedTime;
     #endregion
 
     private Animator animator;
     private float lastNormalizedTime;
 
-    protected override void Initialize()
+    private void Awake()
     {
-        base.Initialize();
         animator = GetComponent<Animator>();
 
         if (randomableObject)

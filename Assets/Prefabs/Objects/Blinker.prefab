@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1525601978842559568}
   - component: {fileID: 1439018561605408560}
   - component: {fileID: 1783785239433234885}
-  - component: {fileID: 2375088497933780958}
+  - component: {fileID: 4624714354950810964}
   m_Layer: 0
   m_Name: TopRenderer
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1953113576, guid: af501b8e46b4b714b821b1089822cb4c, type: 3}
+  m_Sprite: {fileID: 45277964, guid: af501b8e46b4b714b821b1089822cb4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,7 +110,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2375088497933780958
+--- !u!114 &4624714354950810964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,11 +119,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 330126960818065353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee792f45f0cf1c41bee22187aa758b8, type: 3}
+  m_Script: {fileID: 11500000, guid: b47f976362c90ec499f09d55f418196c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomableObject: 0
-  normalizedTime: 0
+  randomableObject: 1
+  normalizedTime: 0.6927743
 --- !u!1 &421425877848546998
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7661716149055124250
 Transform:
   m_ObjectHideFlags: 0
@@ -283,9 +283,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4509716673836435966}
-  - {fileID: 5541509014257662294}
-  - {fileID: 3180830771345418847}
   - {fileID: 1525601978842559568}
+  - {fileID: 3180830771345418847}
+  - {fileID: 5541509014257662294}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &7798504674938353401
@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8920352387533955087
 Transform:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4706992205343014139
 Transform:
   m_ObjectHideFlags: 0
@@ -613,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8090832226368128796
 Transform:
   m_ObjectHideFlags: 0
@@ -1031,7 +1031,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 798022050, guid: 00d440a8aebd78748ac7117c5958cabe, type: 3}
+  m_Sprite: {fileID: 1970267123, guid: 00d440a8aebd78748ac7117c5958cabe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1075,5 +1075,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee792f45f0cf1c41bee22187aa758b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomableObject: 0
-  normalizedTime: 0.95
+  randomableObject: 1
+  normalizedTime: 0.9128438
