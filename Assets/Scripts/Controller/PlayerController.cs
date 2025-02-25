@@ -37,6 +37,12 @@ public class PlayerController : ObjectController
         ShadowRenderer.Jump(jumping, Vector2.down);
     }
 
+    public override void Death()
+    {
+        base.Death();
+        ShadowRenderer.Death(lookDirection);
+    }
+
     protected override void HandleLogic()
     {
         base.HandleLogic();
