@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileController : MonoBehaviour
+public class ProjectileController : BaseController
 {
     [SerializeField] private LayerMask levelCollisionLayer;
 
+    [SerializeField] private GameObject[] projectilePrefab;
+
+    [SerializeField] private Transform projectileSpawnPos;
+
     private ProjectileHandler projectileHandler;
 
-    private Vector2 direction;
+    protected Vector2 lookDirection;
+    protected Vector2 direction;
     private bool isReady;
 
 
@@ -66,10 +71,14 @@ public class ProjectileController : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-    public void ShootBullet(ProjectileHandler projectileHandler, Vector2 startPosition, Vector2 derection)
+    public void CreateProjectile(Vector2 startPosition, Vector2 derection)
     {
-        //GameObject origin = projectilePrefab[projectileHandler.BulletIndex]; //불렛 인덱스값을 받아옴
-        //GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);  // 씬에 프리팹 생성
+        //GameObject original = projectilePrefab[BulletIndex]; //불렛 인덱스값을 받아옴 
+        //GameObject obj = Instantiate(original, startPosition, Quaternion.identity);  // 오브젝트 생성
+    }
+    public void Fire(Vector2 lookDirection, float angle)
+    {
+        //CreateProjectile(this, projectileSpawnPos.position, Rotation(lookDirection, angle)); //보는 방향에서 생성 ,  보는 방향으로 진행
     }
 }
 
