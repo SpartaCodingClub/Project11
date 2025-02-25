@@ -30,6 +30,8 @@ public class ProjectileController : BaseController
     public void TargetToDirection(Vector2 direction)
     {
         _rigidbody.velocity = direction.normalized * 10f;
+        var z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
     }
 }
 

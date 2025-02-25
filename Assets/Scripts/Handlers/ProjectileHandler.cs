@@ -61,9 +61,9 @@ public class ProjectileHandler : MonoBehaviour
         }
     }
 
-    private void FireBullet(Vector2 position, Vector2 direction)
+    private void FireBullet(Vector2 startPosition, Vector2 direction)
     {
-        ProjectileController projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
+        ProjectileController projectile = Managers.Resource.Instantiate<ProjectileController>(null, startPosition, "Projectiles");
         projectile.TargetToDirection(direction);
     }
 

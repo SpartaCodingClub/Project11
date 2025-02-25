@@ -4,7 +4,7 @@ public class PlayerController : ObjectController
 {
     public float attackRange = 5f;
     private AnimationHandler ShadowRenderer;
-
+    ProjectileHandler projectileHandler;
     private Transform HandLight;
     private Transform HandPivot;
 
@@ -23,9 +23,11 @@ public class PlayerController : ObjectController
 
         HandLight = gameObject.FindComponent<Transform>(nameof(HandLight));
         HandPivot = gameObject.FindComponent<Transform>(nameof(HandPivot));
-
+        projectileHandler = gameObject.GetComponent<ProjectileHandler>();
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
+
+        animationHandler.AttackHandler.OnEnter += ()=> projectileHandler.RangeAttack(WeaponType.shotGun, HandPivot.position, target.transform.position);
     }
 
     protected override void Jumping()

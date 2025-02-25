@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd06e52734a9fd499f6fa818af661cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 7705743322259829622, guid: 609b796bdab9e45438245876b9e42c7c, type: 3}
+  projectilePrefab: {fileID: 5968843115592883572, guid: 9904215b601780d46a6e38d9ee5f92b0, type: 3}
   bulletIndex: 0
   bulletSize: 1
   bulletSpeed: 1
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDelay: 1
-  AttackRange: 1
+  AttackRange: 5
   HP: 10
   Damage: 1
   MoveSpeed: 5
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf54440983206048a683750d7637413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 5
+  attackRange: 20
 --- !u!4 &8629124434379473132
 Transform:
   m_ObjectHideFlags: 0
