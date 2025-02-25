@@ -40,8 +40,8 @@ public class CameraManager
             return;
         }
 
-        float x = Mathf.Lerp(transform.position.x, Target.position.x, 0.02f);
-        float y = Mathf.Lerp(transform.position.y, Target.position.y, 0.02f);
+        float x = Mathf.Lerp(transform.position.x, Target.position.x, 0.03f);
+        float y = Mathf.Lerp(transform.position.y, Target.position.y, 0.03f);
         transform.position = new(x, y, transform.position.z);
     }
 }

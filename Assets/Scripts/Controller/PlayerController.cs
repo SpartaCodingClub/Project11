@@ -3,25 +3,24 @@ using UnityEngine;
 public class PlayerController : ObjectController
 {
     public float attackRange = 5f;
-    private AnimationHandler shadowHandler;
+    private AnimationHandler ShadowRenderer;
+
     private Transform HandLight;
+    private Transform HandPivot;
 
     protected override void Initialize()
     {
         base.Initialize();
 
-        Transform shadowRenderer = transform.Find(Define.ShadowRenderer);
-        if (shadowRenderer == null)
+        ShadowRenderer = gameObject.FindComponent<AnimationHandler>(nameof(ShadowRenderer));
+        if (ShadowRenderer == null)
         {
-            Debug.LogWarning($"Failed to Find({Define.ShadowRenderer})\nFrom: {gameObject.name}");
+            Debug.LogWarning($"Failed to Find({nameof(ShadowRenderer)})\nFrom: {gameObject.name}");
             Destroy(gameObject);
         }
-        else
-        {
-            shadowHandler = shadowRenderer.GetOrAddComponent<AnimationHandler>();
-        }
 
-        HandLight = transform.Find(nameof(HandLight));
+        HandLight = gameObject.FindComponent<Transform>(nameof(HandLight));
+        HandPivot = gameObject.FindComponent<Transform>(nameof(HandPivot));
 
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
@@ -30,7 +29,7 @@ public class PlayerController : ObjectController
     protected override void Jumping()
     {
         base.Jumping();
-        shadowHandler.Jump(jumping, Vector2.down);
+        ShadowRenderer.Jump(jumping, Vector2.down);
     }
 
     protected override void HandleLogic()
@@ -92,6 +91,8 @@ public class PlayerController : ObjectController
         }
 
         var z = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90.0f;
-        HandLight.transform.rotation = Quaternion.Euler(0.0f, 0.0f, z);
+        HandLight.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
+
+        HandPivot.localPosition = lookDirection * 0.5f;
     }
 }

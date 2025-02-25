@@ -19,6 +19,7 @@ public class ObjectController : BaseController
     protected Vector2 lookDirection = Vector2.down;
     protected Vector2 moveDirection = Vector2.down;
 
+    protected Transform MainRenderer;
     protected AnimationHandler animationHandler;
     protected StatHandler statHandler;
 
@@ -36,18 +37,16 @@ public class ObjectController : BaseController
     {
         base.Initialize();
 
-        statHandler = gameObject.GetComponent<StatHandler>();
-
-        Transform mainRenderer = transform.Find(Define.MainRenderer);
-        if (mainRenderer == null)
+        MainRenderer = transform.Find(nameof(MainRenderer));
+        if (MainRenderer == null)
         {
-            Debug.LogWarning($"Failed to Find({Define.MainRenderer})\nFrom: {gameObject.name}");
+            Debug.LogWarning($"Failed to Find({nameof(MainRenderer)})\nFrom: {gameObject.name}");
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            animationHandler = mainRenderer.GetOrAddComponent<AnimationHandler>();
-        }
+
+        animationHandler = MainRenderer.GetOrAddComponent<AnimationHandler>();
+        statHandler = gameObject.GetComponent<StatHandler>();
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
