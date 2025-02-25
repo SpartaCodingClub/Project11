@@ -19,20 +19,15 @@ public class PlayerController : ObjectController
         {
             shadowHandler = shadowRenderer.GetOrAddComponent<AnimationHandler>();
         }
+
+        Managers.Camera.Target = transform;
+        Managers.Game.Player = this;
     }
 
     protected override void Jumping()
     {
         base.Jumping();
-        shadowHandler.Jump(true, Vector2.down);
-    }
-
-    protected override void Initialize()
-    {
-        base.Initialize();
-
-        Managers.Camera.Target = transform;
-        Managers.Game.Player = this;
+        shadowHandler.Jump(jumping, Vector2.down);
     }
 
     protected override void HandleLogic()
