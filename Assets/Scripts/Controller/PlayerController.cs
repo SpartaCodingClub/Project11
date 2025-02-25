@@ -8,6 +8,8 @@ public class PlayerController : ObjectController
     private Transform HandLight;
     private Transform HandPivot;
 
+    private Collider2D target;
+
     protected override void Initialize()
     {
         base.Initialize();
@@ -78,6 +80,7 @@ public class PlayerController : ObjectController
         Vector2 playerPosition = transform.position;
         lookDirection = (monsterPosition - playerPosition).normalized;
 
+        target = monsterCollider;
         Attack();
     }
 

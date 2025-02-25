@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AnimationAttackHandler : StateMachineBehaviour
 {
-    public event Action OnEnter;
+    public event Func<Collider2D> OnEnter;
     public event Action OnExit;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) => OnEnter?.Invoke();
