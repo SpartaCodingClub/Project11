@@ -40,31 +40,30 @@ public class ProjectileHandler : MonoBehaviour
     {
         statHandler = GetComponent<StatHandler>();
     }
-
-    public void RangeAttack(WeaponType weaponType, GameObject startPos, GameObject targetPos)
+    public void RangeAttack(WeaponType weaponType, Vector2 startPos, Vector2 targetPos)
     {
-        Vector2 direction = (targetPos.transform.position - startPos.transform.position).normalized;
+        Vector2 direction = (targetPos - startPos).normalized;
 
         switch (weaponType)
         {
             case WeaponType.pistol:
-                FireBullet(startPos.transform.position, direction);
+                FireBullet(startPos, direction);
                 break;
 
             case WeaponType.machineGun:
                 statHandler.AttackDelay = 0.2f;
-                FireBullet(startPos.transform.position, direction);
+                FireBullet(startPos, direction);
                 break;
 
             case WeaponType.shotGun:
-                FireShotgun(startPos.transform.position, direction);
+                FireShotgun(startPos, direction);
                 break;
         }
     }
 
-    private void FireBullet(Vector2 position, Vector2 direction)
+    private void FireBullet(Vector2 startPosition, Vector2 direction)
     {
-        ProjectileController projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
+        ProjectileController projectile = Managers.Resource.Instantiate<ProjectileController>(null, startPosition, "Projectiles");
         projectile.TargetToDirection(direction);
     }
 

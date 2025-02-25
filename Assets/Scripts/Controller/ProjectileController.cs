@@ -10,8 +10,8 @@ public class ProjectileController : BaseController
     
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        _animator = gameObject.GetComponent<Animator>();
     }
     public void Init(ProjectileHandler projectileHandler)
     {
@@ -24,13 +24,14 @@ public class ProjectileController : BaseController
         int playerLayer = LayerMask.NameToLayer("Player");
 
         //if(collision.gameObject.layer != ~(monsterLayer|playerLayer))
-
-        _animator.SetTrigger("OnEffect");
+        //_animator.SetTrigger("OnEffect");
         Destroy(gameObject);
     }
     public void TargetToDirection(Vector2 direction)
     {
-        _rigidbody.velocity = direction.normalized * projectileHandler.BulletSpeed;
+        _rigidbody.velocity = direction.normalized * 10f;
+        var z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
     }
 }
 

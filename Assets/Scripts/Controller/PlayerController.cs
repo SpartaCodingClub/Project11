@@ -5,7 +5,7 @@ public class PlayerController : ObjectController
 {
     public float attackRange = 5f;
     private AnimationHandler ShadowRenderer;
-
+    ProjectileHandler projectileHandler;
     private Transform HandLight;
     private Transform HandPivot;
 
@@ -26,9 +26,11 @@ public class PlayerController : ObjectController
 
         HandLight = gameObject.FindComponent<Transform>(nameof(HandLight));
         HandPivot = gameObject.FindComponent<Transform>(nameof(HandPivot));
-
+        projectileHandler = gameObject.GetComponent<ProjectileHandler>();
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
+
+        animationHandler.AttackHandler.OnEnter += ()=> projectileHandler.RangeAttack(WeaponType.machineGun, HandPivot.position, target.transform.position);
     }
 
     protected override void Jumping()
@@ -106,11 +108,5 @@ public class PlayerController : ObjectController
         HandPivot.localPosition = lookDirection * 0.5f;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-            collision.collider.
-        }
-    }
+
 }
