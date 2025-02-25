@@ -16,8 +16,8 @@ public class ObjectController : BaseController
         Attack
     }
 
-    protected Vector2 lookDirection;
-    protected Vector2 moveDirection;
+    protected Vector2 lookDirection = Vector2.down;
+    protected Vector2 moveDirection = Vector2.down;
 
     protected AnimationHandler animationHandler;
     protected StatHandler statHandler;

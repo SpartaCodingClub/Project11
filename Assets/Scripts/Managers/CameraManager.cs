@@ -18,19 +18,19 @@ public class CameraManager
         Main.orthographic = true;
         Main.orthographicSize = 10;
 
-        Transform lightTransform = new GameObject(nameof(Light2D)).transform;
-        lightTransform.SetParent(transform);
+        Transform child = new GameObject(nameof(Light2D)).transform;
+        child.SetParent(transform);
 
-        Light2D light = lightTransform.gameObject.AddComponent<Light2D>();
+        Light2D light = child.gameObject.AddComponent<Light2D>();
         light.lightType = Light2D.LightType.Global;
         light.intensity = 0.1f;
 
-        Transform rigidbodyTransform = new GameObject(nameof(Rigidbody2D)).transform;
-        rigidbodyTransform.SetParent(transform);
-
-        Rigidbody2D rigidbody = rigidbodyTransform.gameObject.AddComponent<Rigidbody2D>();
+        Rigidbody2D rigidbody = transform.gameObject.AddComponent<Rigidbody2D>();
         rigidbody.gravityScale = 0.0f;
+        rigidbody.freezeRotation = true;
         rigidbody.excludeLayers = ~LayerMask.GetMask(LayerMask.LayerToName(1));
+
+        transform.gameObject.AddComponent<BoxCollider2D>().size = new(12.0f, 20.0f);
     }
 
     public void FixedUpdate()
