@@ -3,13 +3,33 @@ using UnityEngine;
 public class PlayerController : ObjectController
 {
     public float attackRange = 5f;
+    private AnimationHandler ShadowRenderer;
+
+    private Transform HandLight;
+    private Transform HandPivot;
 
     protected override void Initialize()
     {
         base.Initialize();
 
+        ShadowRenderer = gameObject.FindComponent<AnimationHandler>(nameof(ShadowRenderer));
+        if (ShadowRenderer == null)
+        {
+            Debug.LogWarning($"Failed to Find({nameof(ShadowRenderer)})\nFrom: {gameObject.name}");
+            Destroy(gameObject);
+        }
+
+        HandLight = gameObject.FindComponent<Transform>(nameof(HandLight));
+        HandPivot = gameObject.FindComponent<Transform>(nameof(HandPivot));
+
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
+    }
+
+    protected override void Jumping()
+    {
+        base.Jumping();
+        ShadowRenderer.Jump(jumping, Vector2.down);
     }
 
     protected override void HandleLogic()
@@ -28,12 +48,14 @@ public class PlayerController : ObjectController
     protected override void HandleAction()
     {
         base.HandleAction();
+
         CheckMonstersInRange();
+        HandleLighting();
     }
 
     private void CheckMonstersInRange()
     {
-        Collider2D[] monstersInRange = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Monster"));
+        Collider2D[] monstersInRange = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, LayerMask.GetMask("Monster"));
 
         foreach (var monster in monstersInRange)
         {
@@ -46,12 +68,12 @@ public class PlayerController : ObjectController
 
     private void AttackMonster(Collider2D monsterCollider)
     {
-
         var monster = monsterCollider.GetComponent<MonsterController>(); // 몬스터 컨트롤러가 있는 경우
         if (monster != null)
         {
             monster.TakeDamage(10); // 데미지 처리
         }
+
         Vector2 monsterPosition = monsterCollider.transform.position;
         Vector2 playerPosition = transform.position;
         lookDirection = (monsterPosition - playerPosition).normalized;
@@ -59,5 +81,18 @@ public class PlayerController : ObjectController
         Attack();
 
         //Attack(); // 공격 애니메이션 실행
+    }
+
+    private void HandleLighting()
+    {
+        if (moving)
+        {
+            lookDirection = moveDirection;
+        }
+
+        var z = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90.0f;
+        HandLight.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
+
+        HandPivot.localPosition = lookDirection * 0.5f;
     }
 }
