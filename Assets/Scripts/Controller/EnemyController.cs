@@ -1,4 +1,3 @@
-using DG.Tweening.Core.Easing;
 using UnityEngine;
 
 public enum EnemyType
@@ -40,11 +39,6 @@ public class EnemyController : ObjectController
 
         //this.gameObject.AddComponent<CircleCollider2D>();
 
-    }
-
-    public override void Attack()
-    {
-        base.Attack();        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

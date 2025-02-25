@@ -1,37 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileController : BaseController
 {
-    ProjectileHandler projectileHandler;
-    Rigidbody2D _rigidbody;
-    Animator _animator;
-    
+    #region Inspector
+    [SerializeField]
+    private float speed = 5.0f;
+    #endregion
+
+    private Rigidbody2D _rigidbody;
+
+    private float damage;
+    private int targetLayer;
+
     private void Awake()
     {
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
-        _animator = gameObject.GetComponent<Animator>();
     }
-    public void Init(ProjectileHandler projectileHandler)
+
+    public void SetProjectile(bool isPlayer, float damage, Vector2 targetDirection)
     {
-        this.projectileHandler = projectileHandler;
+        if (isPlayer)
+        {
+            targetLayer = LayerMask.NameToLayer(Define.Monster);
+        }
+        else
+        {
+            targetLayer = LayerMask.NameToLayer(Define.Player);
+        }
+
+        var z = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
+        _rigidbody.velocity = targetDirection.normalized * speed;
+
+        this.damage = damage;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer != targetLayer)
+        {
+            return;
+        }
 
-        int monsterLayer = LayerMask.NameToLayer("Monster");
-        int playerLayer = LayerMask.NameToLayer("Player");
-
-        //if(collision.gameObject.layer != ~(monsterLayer|playerLayer))
-        //_animator.SetTrigger("OnEffect");
-        Destroy(gameObject);
-    }
-    public void TargetToDirection(Vector2 direction)
-    {
-        _rigidbody.velocity = direction.normalized * 10f;
-        var z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
+        Destroy();
     }
 }
-
