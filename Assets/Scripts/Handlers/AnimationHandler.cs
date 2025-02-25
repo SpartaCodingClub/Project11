@@ -3,14 +3,16 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     public Animator Animator { get; private set; }
-    public OnAttackExit OnAttackExit { get; private set; }
-    public OnDestroyEnter OnDestroyEnter { get; private set; }
+
+    public AnimationAttackHandler AttackHandler { get; private set; }
+    public AnimationDestroyHandler DestroyHandler { get; private set; }
 
     private void Awake()
     {
         Animator = gameObject.GetComponent<Animator>();
-        OnAttackExit = Animator.GetBehaviour<OnAttackExit>();
-        OnDestroyEnter = Animator.GetBehaviour<OnDestroyEnter>();
+
+        AttackHandler = Animator.GetBehaviour<AnimationAttackHandler>();
+        DestroyHandler = Animator.GetBehaviour<AnimationDestroyHandler>();
 
         SetDirection(Vector2.down);
     }

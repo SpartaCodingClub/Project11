@@ -13,7 +13,10 @@ public class Define
     public static readonly int PosY = Animator.StringToHash(nameof(PosY));
     #endregion
     #region Name
+    public static readonly string Horizontal = nameof(Horizontal);
+    public static readonly string Vertical = nameof(Vertical);
     public static readonly string MainRenderer = nameof(MainRenderer);
+    public static readonly string Player = nameof(Player);
     #endregion
     #region Path Type
     public const string AUDIO = "Audio";
