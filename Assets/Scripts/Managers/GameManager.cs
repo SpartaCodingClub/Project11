@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameManager
 {
+    public PlayerController Player { get; set; }
+
     public void Initialize()
     {
 #if DEBUG

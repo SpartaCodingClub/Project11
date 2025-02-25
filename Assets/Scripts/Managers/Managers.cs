@@ -33,6 +33,11 @@ public class Managers : MonoBehaviour
         UI.Initialize();
     }
 
+    private void FixedUpdate()
+    {
+        Camera.FixedUpdate();
+    }
+
     public void Clear()
     {
         Pool.Clear();
