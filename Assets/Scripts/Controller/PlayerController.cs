@@ -4,6 +4,14 @@ public class PlayerController : ObjectController
 {
     public float attackRange = 5f;
 
+    protected override void Initialize()
+    {
+        base.Initialize();
+
+        Managers.Camera.Target = transform;
+        Managers.Game.Player = this;
+    }
+
     protected override void HandleLogic()
     {
         base.HandleLogic();
