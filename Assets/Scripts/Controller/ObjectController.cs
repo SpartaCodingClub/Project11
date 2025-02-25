@@ -123,8 +123,8 @@ public class ObjectController : BaseController
     protected virtual void Jumping()
     {
         float z = transform.position.z;
-
         jumping = z > 0.0f;
+
         if (jumping || statHandler.VelocityZ > 0.0f)
         {
             actionState = ActionState.Jump;
@@ -134,15 +134,21 @@ public class ObjectController : BaseController
             if (z > 0.0f)
             {
                 transform.SetPositionZ(z);
+
+                MainRenderer.SetPositionZ(z * -2.0f);
+                _rigidbody.excludeLayers = LayerMask.GetMask(LayerMask.LayerToName(6));
             }
             else
             {
-                statHandler.VelocityZ = 0.0f;
                 transform.SetPositionZ(0.0f);
+
+                MainRenderer.SetPositionZ(0.0f);
+                statHandler.VelocityZ = 0.0f;
+                _rigidbody.excludeLayers = 0;
             }
         }
 
+        MainRenderer.SetPositionY(transform.position.y + z);
         animationHandler.Jump(jumping, lookDirection);
-        animationHandler.transform.SetPositionY(transform.position.y + transform.position.z);
     }
 }

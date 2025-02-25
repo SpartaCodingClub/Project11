@@ -79,8 +79,6 @@ public class PlayerController : ObjectController
         lookDirection = (monsterPosition - playerPosition).normalized;
 
         Attack();
-
-        //Attack(); // 공격 애니메이션 실행
     }
 
     private void HandleLighting()
@@ -94,5 +92,13 @@ public class PlayerController : ObjectController
         HandLight.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
 
         HandPivot.localPosition = lookDirection * 0.5f;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.layer == 6)
+        //{
+        //    collision.collider.
+        //}
     }
 }
