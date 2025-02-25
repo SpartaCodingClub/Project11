@@ -42,6 +42,7 @@ public class ObjectController : BaseController
         {
             Debug.LogWarning($"Failed to Find({nameof(MainRenderer)})\nFrom: {gameObject.name}");
             Destroy(gameObject);
+
             return;
         }
 
@@ -90,7 +91,7 @@ public class ObjectController : BaseController
         animationHandler.Death(lookDirection);
     }
 
-    public virtual void Attack()
+    public void Attack()
     {
         if (moving || jumping)
         {
@@ -108,7 +109,7 @@ public class ObjectController : BaseController
         attackTimer = 0.0f;
     }
 
-    protected virtual void Moving()
+    protected void Moving()
     {
         moving = moveDirection.magnitude > 0.0f; ;
         if (moving)
