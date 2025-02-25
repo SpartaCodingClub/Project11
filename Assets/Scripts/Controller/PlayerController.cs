@@ -35,6 +35,7 @@ public class PlayerController : ObjectController
             }
         }
     }
+
     private void AttackMonster(Collider2D monsterCollider)
     {
 

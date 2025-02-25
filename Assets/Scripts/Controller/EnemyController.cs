@@ -25,22 +25,22 @@ public class EnemyController : ObjectController
         //좀비는 근접 공격이니까 충돌한 순간 플레이어의 HP를 깎아주면 될 것임
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         onTriggerStay = true;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //충돌한 오브젝트가 플레이어라면 (자주 쓸 것 같아서 define에 추가해야 할 듯)
-        if (collision.collider.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             //공격 (근접 몹 한정)
             Attack();
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         onTriggerStay = false;
     }
@@ -56,7 +56,6 @@ public class EnemyController : ObjectController
         {
             moveDirection = lookDirection = (player.transform.position - transform.position).normalized;
         }
-
 
         //direction에 값 넣어주면 이동
 

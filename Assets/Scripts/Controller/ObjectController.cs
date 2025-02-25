@@ -109,7 +109,7 @@ public class ObjectController : BaseController
         attackTimer = 0.0f;
     }
 
-    private void Moving()
+    protected virtual void Moving()
     {
         moving = moveDirection.magnitude > 0.0f; ;
         if (moving)
@@ -121,7 +121,7 @@ public class ObjectController : BaseController
         _rigidbody.velocity = statHandler.MoveSpeed * moveDirection;
     }
 
-    private void Jumping()
+    protected virtual void Jumping()
     {
         float z = transform.position.z;
 
