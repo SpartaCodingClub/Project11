@@ -10,6 +10,7 @@ public class ProjectileController : BaseController
     private Rigidbody2D _rigidbody;
 
     private float damage;
+    private int obstacleLayer;
     private int targetLayer;
 
     private void Awake()
@@ -19,6 +20,9 @@ public class ProjectileController : BaseController
 
     public void SetProjectile(bool isPlayer, float damage, Vector2 targetDirection)
     {
+        this.damage = damage;
+        obstacleLayer = LayerMask.NameToLayer(Define.Obstacle);
+
         if (isPlayer)
         {
             targetLayer = LayerMask.NameToLayer(Define.Monster);
@@ -31,13 +35,18 @@ public class ProjectileController : BaseController
         var z = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
         _rigidbody.velocity = targetDirection.normalized * speed;
-
-        this.damage = damage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer != targetLayer)
+        GameObject targetObject = collision.gameObject;
+        if (targetObject.layer == obstacleLayer)
+        {
+            Destroy();
+            return;
+        }
+
+        if (targetObject.layer != targetLayer)
         {
             return;
         }
