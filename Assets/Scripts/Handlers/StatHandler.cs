@@ -6,6 +6,8 @@ public class StatHandler : MonoBehaviour
     [Foldout("Stats Settings")]
     [Min(0.1f)]
     public float AttackDelay = 1.0f;
+    [Min(1.0f)]
+    public float AttackRange = 1.0f;
     [EndFoldout]
 
     [Foldout("Physics Settings")]

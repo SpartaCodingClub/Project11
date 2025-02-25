@@ -1,71 +1,68 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static ObjectController;
 
 public class EnemyController : ObjectController
 {
-    PlayerTest player;
+    PlayerController player;
 
-    //플레이어의 위치
-    Vector2 playerDirection = Vector2.zero;
+    private bool onTriggerStay;
 
     protected override void Initialize()
     {
         base.Initialize();
 
         //테스트를 위한 임시 코드
-        player = Object.FindObjectOfType<PlayerTest>();
+        player = FindObjectOfType<PlayerController>();
 
-    }
-
-    public override void Stand()
-    {
-        base.Stand();
-        Debug.Log("공격 끝");
     }
 
     public override void Attack()
     {
         base.Attack();
 
-        Debug.Log("Zombie Attack");
-
         //투사체를 날리는 애들이라면 투사체 생성 로직 (날아가는건 별개 스크립트로)
         //예시: n초마다 한 번씩 투사체를 날린다.
 
         //좀비는 근접 공격이니까 충돌한 순간 플레이어의 HP를 깎아주면 될 것임
-
-
     }
 
-    public void OnDamage()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        onTriggerStay = true;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //충돌한 오브젝트가 플레이어라면 (자주 쓸 것 같아서 define에 추가해야 할 듯)
-        if (collision.collider.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             //공격 (근접 몹 한정)
-            
             Attack();
         }
     }
 
-    private void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        onTriggerStay = false;
+    }
+
+    protected override void HandleLogic()
+    {
+        base.HandleLogic();
+        if (onTriggerStay)
+        {
+            moveDirection = Vector2.zero;
+        }
+        else
+        {
+            moveDirection = lookDirection = (player.transform.position - transform.position).normalized;
+        }
+
         //direction에 값 넣어주면 이동
 
         //플레이어의 위치
-        moveDirection = (player.transform.position - this.transform.position).normalized;
-        Debug.Log(moveDirection);
+
 
         //플레이어를 향해 이동하려면 or 플레이어를 향해 발사체를 날리려면
         //플레이어의 위치를 알 수 있어야 함
     }
-
-
 }

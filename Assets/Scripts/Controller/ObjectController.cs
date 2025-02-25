@@ -16,6 +16,7 @@ public class ObjectController : BaseController
         Attack
     }
 
+
     protected Vector2 lookDirection;
     protected Vector2 moveDirection;
 
@@ -46,11 +47,15 @@ public class ObjectController : BaseController
         else
         {
             animationHandler = mainRenderer.GetOrAddComponent<AnimationHandler>();
-            animationHandler.OnDestroyEnter.OnEnter += Destroy;
-            animationHandler.OnAttackExit.OnExit += Stand;
         }
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        animationHandler.AttackHandler.OnExit += Stand;
+        animationHandler.DestroyHandler.OnEnter += Destroy;
     }
 
     protected virtual void HandleLogic()
@@ -104,9 +109,9 @@ public class ObjectController : BaseController
         attackTimer = 0.0f;
     }
 
-    private void Moving()
+    protected virtual void Moving()
     {
-        moving = moveDirection.magnitude > 0.0f;
+        moving = moveDirection.magnitude > 0.0f; ;
         if (moving)
         {
             actionState = ActionState.Move;
@@ -116,7 +121,7 @@ public class ObjectController : BaseController
         _rigidbody.velocity = statHandler.MoveSpeed * moveDirection;
     }
 
-    private void Jumping()
+    protected virtual void Jumping()
     {
         float z = transform.position.z;
 
