@@ -1,29 +1,13 @@
 using UnityEngine;
 
-public class ChestController : BaseController
+public class ChestController : ObjectController
 {
-    private AnimationHandler animationHandler;
-    private Rigidbody2D _rigidbody;
-
 
     protected override void Initialize()
     {
         base.Initialize();
 
-        Stand();
-    }
-    public override void Stand()
-    {
-        base.Stand();
-
-        animationHandler.Stand(Vector2.down);
-    }
-
-    public override void Death()
-    {
-        base.Death();
-
-        animationHandler.Death(Vector2.down);
+        lookDirection = Vector3.down;
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
