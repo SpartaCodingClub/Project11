@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : ObjectController
@@ -9,6 +10,8 @@ public class PlayerController : ObjectController
     private Transform HandPivot;
 
     private Collider2D target;
+
+    private Action<Vector2, Vector2> testFunc;
 
     protected override void Initialize()
     {
@@ -99,9 +102,9 @@ public class PlayerController : ObjectController
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.layer == 6)
-        //{
-        //    collision.collider.
-        //}
+        if (collision.gameObject.layer == 6)
+        {
+            collision.collider.
+        }
     }
 }
