@@ -8,7 +8,7 @@ public enum WeaponType
 {
     pistol,
     machineGun,
-    shotGun
+    shotGun,
 }
 public class ProjectileHandler : MonoBehaviour
 {
@@ -36,6 +36,10 @@ public class ProjectileHandler : MonoBehaviour
     [SerializeField] private int numberofProjectilesPerShot; // 1번 발사할때 나가는 투사체 수
     public int NumberofProjectilesPerShot { get => numberofProjectilesPerShot; }
 
+    private void Awake()
+    {
+        statHandler = GetComponent<StatHandler>();
+    }
 
     public void RangeAttack(WeaponType weaponType, GameObject startPos, GameObject targetPos)
     {
@@ -48,7 +52,8 @@ public class ProjectileHandler : MonoBehaviour
                 break;
 
             case WeaponType.machineGun:
-                FireMachineGun(startPos.transform.position, direction);
+                statHandler.AttackDelay = 0.2f;
+                FireBullet(startPos.transform.position, direction);
                 break;
 
             case WeaponType.shotGun:
@@ -61,17 +66,6 @@ public class ProjectileHandler : MonoBehaviour
     {
         ProjectileController projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
         projectile.TargetToDirection(direction);
-    }
-
-    private void FireMachineGun(Vector2 position, Vector2 direction)
-    {
-        statHandler.AttackDelay = 0.2f;
-        numberofProjectilesPerShot = 5;
-        for (int i = 0; i < numberofProjectilesPerShot; i++)
-        {
-            ProjectileController projectile = Instantiate(projectilePrefab, position, Quaternion.identity);
-            projectile.TargetToDirection(direction);
-        }
     }
 
     private void FireShotgun(Vector2 position, Vector2 direction)
