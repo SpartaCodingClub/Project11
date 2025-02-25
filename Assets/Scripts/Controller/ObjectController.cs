@@ -16,7 +16,6 @@ public class ObjectController : BaseController
         Attack
     }
 
-
     protected Vector2 lookDirection;
     protected Vector2 moveDirection;
 
@@ -25,8 +24,9 @@ public class ObjectController : BaseController
 
     private Rigidbody2D _rigidbody;
 
-    private bool moving;
-    private bool jumping;
+    protected bool moving;
+    protected bool jumping;
+
     private float attackTimer;
 
     private void Update() => HandleLogic();
