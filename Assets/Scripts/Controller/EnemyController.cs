@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public enum EnemyType
+{
+    Zombie,
+    Seeder
+}
+
 public class EnemyController : ObjectController
 {
     PlayerController player;
@@ -10,19 +16,21 @@ public class EnemyController : ObjectController
     {
         base.Initialize();
 
-        //테스트를 위한 임시 코드
         player = FindObjectOfType<PlayerController>();
+
+        //좀비
+        //나중에 시트와 연결할 수 있으면 더 좋을 듯
+        statHandler.AttackRange = 3.0f;
+        statHandler.AttackDelay = 1.0f;
+        statHandler.HP = 10.0f;
+        statHandler.Damage = 1.0f;
 
     }
 
     public override void Attack()
     {
         base.Attack();
-
-        //투사체를 날리는 애들이라면 투사체 생성 로직 (날아가는건 별개 스크립트로)
-        //예시: n초마다 한 번씩 투사체를 날린다.
-
-        //좀비는 근접 공격이니까 충돌한 순간 플레이어의 HP를 깎아주면 될 것임
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,8 +40,7 @@ public class EnemyController : ObjectController
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //충돌한 오브젝트가 플레이어라면 (자주 쓸 것 같아서 define에 추가해야 할 듯)
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag(Define.Player))
         {
             //공격 (근접 몹 한정)
             Attack();
@@ -50,17 +57,13 @@ public class EnemyController : ObjectController
         base.HandleLogic();
         if (onTriggerStay)
         {
+            //만약 공격중인 상태라면 이동을 멈춰라
             moveDirection = Vector2.zero;
         }
         else
         {
             moveDirection = lookDirection = (player.transform.position - transform.position).normalized;
         }
-
-        //direction에 값 넣어주면 이동
-
-        //플레이어의 위치
-
 
         //플레이어를 향해 이동하려면 or 플레이어를 향해 발사체를 날리려면
         //플레이어의 위치를 알 수 있어야 함

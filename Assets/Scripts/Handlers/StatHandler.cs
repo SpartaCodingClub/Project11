@@ -8,6 +8,8 @@ public class StatHandler : MonoBehaviour
     public float AttackDelay = 1.0f;
     [Min(1.0f)]
     public float AttackRange = 1.0f;
+    public float HP = 10.0f;
+    public float Damage = 1.0f;
     [EndFoldout]
 
     [Foldout("Physics Settings")]
