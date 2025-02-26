@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ProjectilePattern
@@ -10,7 +9,7 @@ public class ProjectileHandler : MonoBehaviour
 {
     #region Inspector
     [SerializeField]
-    private List<ProjectileController> projectiles = new();
+    private ProjectileController projectile;
     #endregion
 
     // Åº ÆÛÁü °¢µµ
@@ -57,10 +56,12 @@ public class ProjectileHandler : MonoBehaviour
             float angle = minAngle + (SpreadAngle * i);
             Vector2 bulletDirection = Quaternion.Euler(0.0f, 0.0f, angle) * targetDirection;
 
-            ProjectileController projectile = Managers.Resource.Instantiate<ProjectileController>(null, startPosition, Define.PROJECTILE);
-            projectile.SetProjectile(isPlayer, statHandler.Damage, bulletDirection);
+            string key = this.projectile.name;
+            GameObject projectile = Managers.Resource.Instantiate(key, null, startPosition, Define.PROJECTILE);
+            projectile.GetComponent<ProjectileController>().SetProjectile(isPlayer, statHandler.Damage, bulletDirection);
         }
     }
+
     public void ApplyProjectiles(SkillTable.Data skill)
     {
         AttackCount += skill.AttackCount;
