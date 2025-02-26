@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7283416097661243448}
   - component: {fileID: 7450590299724429831}
   - component: {fileID: 7836471882061595672}
+  - component: {fileID: 8519281595850246697}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -440197036, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: -1027136165, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,4 +121,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0
+  normalizedTime: 0.6462896
+--- !u!114 &8519281595850246697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839677615390902271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000bf5f43e1c1bade3e17b2f597
+  m_ShapePath:
+  - {x: -0.5, y: 0, z: 0}
+  - {x: -0.5, y: 1, z: 0}
+  - {x: 0.5, y: 1, z: 0}
+  - {x: 0.5, y: 0, z: 0}
+  m_ShapePathHash: 1905653013
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 92382
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0.5, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0}
