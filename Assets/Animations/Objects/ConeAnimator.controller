@@ -162,8 +162,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: AttackSpeed
     m_Mirror: 0
-  m_BlendParameter: X
-  m_BlendParameterY: Y
+  m_BlendParameter: PosX
+  m_BlendParameterY: PosY
   m_MinThreshold: 0
   m_MaxThreshold: 0.125
   m_UseAutomaticThresholds: 1
@@ -359,18 +359,6 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: MotionTime
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: X
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Y
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
