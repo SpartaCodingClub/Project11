@@ -128,10 +128,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4619257978511926731}
-  - component: {fileID: 4629644086888781365}
-  - component: {fileID: 3766921701566519786}
   - component: {fileID: 6985829659995577029}
   - component: {fileID: 3743313550112648714}
+  - component: {fileID: 4629644086888781365}
+  - component: {fileID: 7510939001023385601}
+  - component: {fileID: 3766921701566519786}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -156,38 +157,6 @@ Transform:
   - {fileID: 5673593720796826986}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4629644086888781365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7286353818233606230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 083e7afa7565bbc4794b3cb735421c4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackDelay: 1
-  AttackRange: 1
-  HP: 10
-  Damage: 1
-  MoveSpeed: 1
-  JumpPower: 0
-  Gravity: 0
-  VelocityZ: 0
---- !u!114 &3766921701566519786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7286353818233606230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d713d569ff1d4904b9f3817ce4e629ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &6985829659995577029
 Rigidbody2D:
   serializedVersion: 4
@@ -258,8 +227,57 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &4629644086888781365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286353818233606230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083e7afa7565bbc4794b3cb735421c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDelay: 1
+  AttackRange: 1
+  HP: 10
+  Damage: 1
+  MoveSpeed: 1
+  JumpPower: 0
+  Gravity: 0
+  VelocityZ: 0
+--- !u!114 &7510939001023385601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286353818233606230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd06e52734a9fd499f6fa818af661cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  projectile: {fileID: 0}
+  AttackCount: 1
+  SpreadAngle: 15
+  ProjectileCount: 1
+--- !u!114 &3766921701566519786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286353818233606230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d713d569ff1d4904b9f3817ce4e629ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8840065090514956427
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +304,7 @@ Transform:
   m_GameObject: {fileID: 8840065090514956427}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
