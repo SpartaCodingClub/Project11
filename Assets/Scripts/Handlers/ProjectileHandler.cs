@@ -55,6 +55,17 @@ public class ProjectileHandler : MonoBehaviour
         }
     }
 
+    private void MeleeAttack(Vector2 startPosition, Vector2 targetDirection)
+    {
+        GameObject projectile = Managers.Resource.Instantiate(Define.Melee, null, startPosition, Define.PROJECTILE);
+
+        BoxCollider2D collider = projectile.GetComponent<BoxCollider2D>();
+        collider.size = new(statHandler.AttackRange, 1.0f);
+        collider.offset = new(statHandler.AttackRange * 0.5f, 0.0f);
+
+        projectile.GetComponent<ProjectileController>().SetProjectile(isPlayer, statHandler.Damage, targetDirection);
+    }
+
     private void Fire(Vector2 startPosition, Vector2 targetDirection)
     {
         if (SpreadAngle * ProjectileCount > 360.0f)
@@ -73,17 +84,6 @@ public class ProjectileHandler : MonoBehaviour
             GameObject projectile = Managers.Resource.Instantiate(key, null, startPosition, Define.PROJECTILE);
             projectile.GetComponent<ProjectileController>().SetProjectile(isPlayer, statHandler.Damage, bulletDirection);
         }
-    }
-
-    private void MeleeAttack(Vector2 startPosition, Vector2 targetDirection)
-    {
-        GameObject projectile = Managers.Resource.Instantiate(Define.Melee, null, startPosition, Define.PROJECTILE);
-
-        BoxCollider2D collider = projectile.GetComponent<BoxCollider2D>();
-        collider.size = new(statHandler.AttackRange, 1.0f);
-        collider.offset = new(statHandler.AttackRange * 0.5f, 0.0f);
-
-        projectile.GetComponent<ProjectileController>().SetProjectile(isPlayer, statHandler.Damage, targetDirection);
     }
 
     public void ApplyProjectiles(SkillTable.Data skill)
