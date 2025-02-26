@@ -17,14 +17,6 @@ public class UI_Tutorial : UI_SubItem
             .AppendCallback(() => StartCoroutine(StartMessage()));
     }
 
-    private Sequence Arrow_Birth()
-    {
-        var child = Get((int)Children.Arrow);
-
-        return Utility.RecyclableSequence()
-            .Append(child.DOScale(1.0f, 0.2f).From(0.0f).SetDelay(0.2f));
-    }
-
     private Sequence Text_Birth()
     {
         return Utility.RecyclableSequence();
@@ -80,7 +72,6 @@ public class UI_Tutorial : UI_SubItem
     private enum Children
     {
         Frame,
-        Arrow,
         Button,
         Text,
         Character
@@ -99,7 +90,6 @@ public class UI_Tutorial : UI_SubItem
 
         BindSequences(State.Birth, Text_Birth, Character_Birth);
         BindSequences(State.Birth, Frame_Birth);
-        BindSequences(State.Birth, Arrow_Birth);
         BindSequences(State.Stand, Button_Stand);
         BindSequences(State.Death, Tutorial_Death, Character_Death);
 

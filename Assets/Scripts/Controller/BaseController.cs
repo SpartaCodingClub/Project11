@@ -48,6 +48,7 @@ public abstract class BaseController : MonoBehaviour
     protected readonly SequenceHandler sequenceHandler = new();
 
     private void Awake() => Initialize();
+    private void OnEnable() => Clear();
     private void OnDestroy() => Deinitialize();
     protected void BindSequences(State type, params Func<Sequence>[] sequences) => sequenceHandler.Bind(type, sequences);
 
