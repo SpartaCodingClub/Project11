@@ -64,6 +64,7 @@ namespace SkillTable
 		public System.Single AttackDelay;
 		public System.Single AttackRange;
 		public System.Single MoveSpeed;
+		public System.Single JumpPower;
 		public System.Int32 AttackCount;
 		public System.Int32 ProjectileCount;
   
