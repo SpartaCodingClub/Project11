@@ -12,6 +12,7 @@ public class CameraManager
 
     public void Initialize()
     {
+        Main.backgroundColor = Color.black;
         Main.orthographic = true;
         Main.orthographicSize = 10;
 
