@@ -168,6 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDelay: 1
+  AttackRange: 1
+  HP: 10
+  Damage: 1
   MoveSpeed: 1
   JumpPower: 0
   Gravity: 0
