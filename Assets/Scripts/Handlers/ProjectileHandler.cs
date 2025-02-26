@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum ProjectilePattern
 {
-    Single,
+    Default,
 }
 
 public class ProjectileHandler : MonoBehaviour
@@ -13,10 +13,16 @@ public class ProjectileHandler : MonoBehaviour
     private List<ProjectileController> projectiles = new();
     #endregion
 
+    // 탄 퍼짐 각도
+    public float SpreadAngle = 15.0f;
+
+    // 공격 횟수
+    public int AttackCount = 1;
+
+    // 총알 개수
+    public int ProjectileCount = 1;
+
     private bool isPlayer;
-    private float bulletSpread = 10f; // 탄 퍼짐 정도
-    private float multileProjectileAngle; // 탄 퍼짐 각도
-    private int numberofProjectilesPerShot; // 1번 발사할때 나가는 투사체 수
 
     private StatHandler statHandler;
 
@@ -31,31 +37,28 @@ public class ProjectileHandler : MonoBehaviour
         Vector2 direction = (targetPosition - startPosition).normalized;
         switch (weaponType)
         {
-            case ProjectilePattern.Single:
-                Fire_Single(startPosition, direction);
+            case ProjectilePattern.Default:
+                Fire(startPosition, direction);
                 break;
         }
     }
 
-    private void Fire_Single(Vector2 startPosition, Vector2 targetDirection)
+    private void Fire(Vector2 startPosition, Vector2 targetDirection)
     {
-        ProjectileController projectile = Managers.Resource.Instantiate<ProjectileController>(null, startPosition, Define.PROJECTILE);
-        projectile.SetProjectile(isPlayer, statHandler.Damage, targetDirection);
-    }
+        if (SpreadAngle * ProjectileCount > 360.0f)
+        {
+            Debug.LogWarning($"SpreadAngle * ProjectileCount는 360도를 초과할 수 없습니다!");
+            return;
+        }
 
-    private void FireShotgun(Vector2 position, Vector2 direction)
-    {
-        //numberofProjectilesPerShot = 10;
-        //float minAngle = -(numberofProjectilesPerShot - 1) * 0.5f * multileProjectileAngle;
-        //for (int i = 0; i < numberofProjectilesPerShot; i++)
-        //{
-        //    float angle = minAngle + (i * multileProjectileAngle);
-        //    float randSpread = Random.Range(-bulletSpread, bulletSpread);
-        //    angle += randSpread;
+        float minAngle = (ProjectileCount - 1) * -0.5f * SpreadAngle;
+        for (int i = 0; i < ProjectileCount; i++)
+        {
+            float angle = minAngle + (SpreadAngle * i);
+            Vector2 bulletDirection = Quaternion.Euler(0.0f, 0.0f, angle) * targetDirection;
 
-        //    Vector2 rotatedDirection = Quaternion.Euler(0, 0, angle) * direction;
-
-        //    FireBullet(position, rotatedDirection);
-        //}
+            ProjectileController projectile = Managers.Resource.Instantiate<ProjectileController>(null, startPosition, Define.PROJECTILE);
+            projectile.SetProjectile(isPlayer, statHandler.Damage, bulletDirection);
+        }
     }
 }

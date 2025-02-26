@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BlinkerObject : BaseObject
+public class BlinkerObject : RandomableObject
 {
     private const float UNIT = 1.0f / 3.0f;
 
