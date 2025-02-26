@@ -57,8 +57,9 @@ namespace SkillTable
 /* Fields. */
 
 		public System.Int32 index;
-		public System.Int32 intValue;
-		public System.String strValue;
+		public System.Single Damage;
+		public System.String attackRange;
+		public System.Int32 projectileCount;
   
 
 #region fuctions
