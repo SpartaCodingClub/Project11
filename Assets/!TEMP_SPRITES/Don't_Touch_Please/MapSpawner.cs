@@ -6,16 +6,13 @@ public class MapSpawner : MonoBehaviour
 {
     [SerializeField] GameObject map;
     Queue<GameObject> currentmap = new();
-    Vector2 spawnPos = new Vector2(30f, 0);
+    Vector2 spawnPos = new Vector2(0.5f, 30f);
+    public GameObject player;
     Spawner spawner;
 
     private void Awake()
     {
         spawner = gameObject.GetComponentInChildren<Spawner>();
-        if (spawner == null)
-        {
-            Debug.LogError("Spawner component not found in children!");
-        }
     }
     private void Start()
     {
@@ -30,13 +27,12 @@ public class MapSpawner : MonoBehaviour
         spawner.monsterSpawnArea = instantiateGround.transform.Find("MonsterArea")?.GetComponent<Tilemap>();
 
         spawner.ObstacleSpawn();
+        spawner.MonsterSpawn();
 
         currentmap.Enqueue(instantiateGround);
         spawnPos += new Vector2(0, 30f);
 
-    }
-    void DestroyMap()
-    {
-        Destroy(currentmap.Dequeue());
+        if(currentmap.Count > 2)
+            Destroy(currentmap.Dequeue());
     }
 }

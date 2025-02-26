@@ -60,13 +60,6 @@ public class Spawner : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            Debug.Log(spawnObj);
-            Debug.Log(prefabs);
-        }
-           
-        
     }
     // spawnArea ³» ·£´ý ÁÂÇ¥ ¹ÝÈ¯
     Vector2 GetRandomPositionInSpawnArea(Tilemap Area)
