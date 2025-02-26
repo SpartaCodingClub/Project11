@@ -38,9 +38,9 @@ public class ChestSpawner : MonoBehaviour
             while (PosAttempt <= 50)
             {   
                 randomPos = GetRandomPosition();
-                // Physics2D.OverlapCircle(point,radius) 를 사용해 일정 거리 내 중복 생성 방지
+                // Physics2D.OverlapCircle() 를 사용해 일정 거리 이내에 생성 및 겹침 방지
                 bool isOverlap = Physics2D.OverlapCircle(randomPos, spawnRadius) != null;
-                // Physics2D.OverlapBox(
+                // Physics2D.OverlapBox() 를 사용해 일정 거리 이내에 오브젝트랑 생성 및 겹침 방지
                 bool isOverlapBoxCollider = IsOverlapBoxCollider(randomPos);
                 if (!isOverlap && !isOverlapBoxCollider)
                 {
