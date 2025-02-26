@@ -2,29 +2,10 @@ using UnityEngine;
 
 public class ResourceManager
 {
-    public T Instantiate<T>(Transform parent, Vector2 position, string type = Define.OBJECT) where T : BaseController
+    public T Instantiate<T>(Transform parent, Vector2 position, string folderName = Define.OBJECT) where T : BaseController
     {
         string key = typeof(T).Name;
-        GameObject gameObject = Managers.Pool.TryPop(key);
-        if (gameObject == null)
-        {
-            string path = $"Prefabs/{type}/{key}";
-            GameObject original = Resources.Load<GameObject>(path);
-            if (original == null)
-            {
-                Debug.LogWarning($"Failed to Load<GameObject>({path})");
-                return null;
-            }
-
-            gameObject = Object.Instantiate(original, parent);
-            gameObject.name = original.name;
-        }
-        else
-        {
-            gameObject.transform.SetParent(parent);
-        }
-
-        gameObject.transform.position = position;
+        GameObject gameObject = Instantiate(key, parent, position, folderName);
         if (gameObject.TryGetComponent<T>(out var @base) == false)
         {
             Debug.LogWarning($"Failed to GetComponent<{typeof(T).Name}>()");
@@ -41,6 +22,31 @@ public class ResourceManager
         }
 
         return @base;
+    }
+
+    public GameObject Instantiate(string key, Transform parent, Vector2 position, string folderName = Define.OBJECT)
+    {
+        GameObject gameObject = Managers.Pool.TryPop(key);
+        if (gameObject == null)
+        {
+            string path = $"Prefabs/{folderName}/{key}";
+            GameObject original = Resources.Load<GameObject>(path);
+            if (original == null)
+            {
+                Debug.LogWarning($"Failed to Load<GameObject>({path})");
+                return null;
+            }
+
+            gameObject = Object.Instantiate(original, parent);
+            gameObject.name = original.name;
+        }
+        else
+        {
+            gameObject.transform.SetParent(parent);
+        }
+
+        gameObject.transform.position = position;
+        return gameObject;
     }
 
     public void Destroy(GameObject gameObject)

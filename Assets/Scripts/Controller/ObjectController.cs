@@ -140,7 +140,7 @@ public class ObjectController : BaseController
             {
                 transform.SetPositionZ(z);
 
-                MainRenderer.SetPositionZ(z * -2.0f);
+                MainRenderer.SetPositionZ(z * -2.6f);
                 _rigidbody.excludeLayers = LayerMask.GetMask(LayerMask.LayerToName(6));
             }
             else
