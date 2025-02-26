@@ -14,13 +14,13 @@ public class ProjectileHandler : MonoBehaviour
     #endregion
 
     // 탄 퍼짐 각도
-    public float SpreadAngle { get; set; } = 15.0f;
+    public float SpreadAngle = 15.0f;
 
     // 공격 횟수
-    public int AttackCount { get; set; } = 1;
+    public int AttackCount = 1;
 
     // 총알 개수
-    public int ProjectileCount { get; set; } = 1;
+    public int ProjectileCount = 1;
 
     private bool isPlayer;
 
@@ -45,6 +45,12 @@ public class ProjectileHandler : MonoBehaviour
 
     private void Fire(Vector2 startPosition, Vector2 targetDirection)
     {
+        if (SpreadAngle * ProjectileCount > 360.0f)
+        {
+            Debug.LogWarning($"SpreadAngle * ProjectileCount는 360도를 초과할 수 없습니다!");
+            return;
+        }
+
         float minAngle = (ProjectileCount - 1) * -0.5f * SpreadAngle;
         for (int i = 0; i < ProjectileCount; i++)
         {
