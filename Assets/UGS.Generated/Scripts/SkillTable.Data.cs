@@ -57,8 +57,8 @@ namespace SkillTable
 /* Fields. */
 
 		public System.Int32 index;
-		public SkillType skillType;
-		public System.String skillName;
+		public SkillType SkillType;
+		public System.String SkillName;
 		public System.Single Damage;
 		public System.Single HP;
 		public System.Single AttackDelay;

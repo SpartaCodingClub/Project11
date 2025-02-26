@@ -41,11 +41,6 @@ public class Pool
 
     private void ActionOnRelease(GameObject gameObject)
     {
-        if (gameObject.TryGetComponent<Collider2D>(out var collider))
-        {
-            collider.enabled = false;
-        }
-
         gameObject.transform.SetParent(transform);
         gameObject.SetActive(false);
     }
