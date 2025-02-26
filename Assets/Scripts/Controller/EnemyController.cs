@@ -40,13 +40,6 @@ public class EnemyController : ObjectController
 
         //this.gameObject.AddComponent<CircleCollider2D>();
         projectileHandler = gameObject.GetComponent<ProjectileHandler>();
-
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        animationHandler.AttackHandler.OnEnter += () => projectileHandler.RangeAttack(transform.position, lookDirection);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,6 +70,12 @@ public class EnemyController : ObjectController
         }
 
         onTriggerStay = false;
+    }
+
+    public override void Birth()
+    {
+        base.Birth();
+        animationHandler.AttackHandler.OnEnter += () => projectileHandler.RangeAttack(transform.position, lookDirection);
     }
 
     protected override void HandleLogic()

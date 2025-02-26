@@ -14,7 +14,8 @@ public class Scene_Lobby : Scene_Base
         Managers.Resource.Instantiate<PlayerController>(null, Vector2.zero);
         Managers.UI.Show<UI_PopupBackground>().Death();
 
-        NextTutorial(4.0f);
+        //NextTutorial(4.0f);
+        Managers.UI.Show<UI_GameStart>();
     }
 
     private void NextTutorial(float delay)
@@ -22,7 +23,7 @@ public class Scene_Lobby : Scene_Base
         string[] messages = GetTutorialMessages();
         if (messages == null)
         {
-            Managers.UI.Show<UI_GameStart>();
+            DOVirtual.DelayedCall(1.0f, () => Managers.UI.Show<UI_GameStart>());
             return;
         }
 
@@ -36,16 +37,12 @@ public class Scene_Lobby : Scene_Base
 
     private string[] GetTutorialMessages()
     {
-        switch (tutorialIndex++)
+        return tutorialIndex++ switch
         {
-            case 0:
-                return Define.Tutorial_Move;
-            case 1:
-                return Define.Tutorial_Jump;
-            case 2:
-                return Define.Tutorial_Explore;
-        }
-
-        return null;
+            0 => Define.Tutorial_Move,
+            1 => Define.Tutorial_Jump,
+            2 => Define.Tutorial_Explore,
+            _ => null
+        };
     }
 }

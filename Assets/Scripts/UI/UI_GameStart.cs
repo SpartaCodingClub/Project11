@@ -45,5 +45,13 @@ public class UI_GameStart : UI_SubItem
         BindSequences(State.Birth, Button_Birth);
         BindSequences(State.Stand, Icon_Stand);
         BindSequences(State.Death, Button_Death);
+
+        BindEvent((int)Children.Button, Death);
+    }
+
+    public override void Death()
+    {
+        base.Death();
+        Managers.UI.Show<UI_TimeBar>();
     }
 }

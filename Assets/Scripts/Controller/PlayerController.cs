@@ -27,22 +27,22 @@ public class PlayerController : ObjectController
         Managers.Game.Player = this;
     }
 
-    protected override void Start()
+    public override void Birth()
     {
-        base.Start();
+        base.Birth();
         animationHandler.AttackHandler.OnEnter += () => projectileHandler.RangeAttack(HandPivot.position, lookDirection);
-    }
-
-    protected override void Jumping()
-    {
-        base.Jumping();
-        ShadowRenderer.Jump(jumping, Vector2.down);
     }
 
     public override void Death()
     {
         base.Death();
         ShadowRenderer.Death(lookDirection);
+    }
+
+    protected override void Jumping()
+    {
+        base.Jumping();
+        ShadowRenderer.Jump(jumping, Vector2.down);
     }
 
     protected override void HandleLogic()

@@ -79,6 +79,6 @@ public class ProjectileController : BaseController
             effectObject.GetComponent<ObjectController>().Death();
         }
 
-        base.Destroy();
+       base.Destroy();
     }
 }
