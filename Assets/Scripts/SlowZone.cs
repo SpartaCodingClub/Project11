@@ -28,13 +28,13 @@ public class SlowZone : MonoBehaviour
         StatHandler statHandler = other.GetComponent<StatHandler>();
         if (statHandler == null)
         {
-            statHandler.MoveSpeed = originalSpeed; // 원래 속도로 복구
             return;
         }
 
         AnimationHandler animationHandler = other.gameObject.FindComponent<AnimationHandler>(Define.MainRenderer);
         if (animationHandler != null)
         {
+            statHandler.MoveSpeed = originalSpeed;
             animationHandler.HasSlow = false; // 슬로우 상태 해제
         }
     }
