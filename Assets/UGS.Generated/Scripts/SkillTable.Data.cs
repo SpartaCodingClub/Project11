@@ -14,7 +14,7 @@ using System.Reflection;
 using UnityEngine;
 
 
-namespace DefaultTable
+namespace SkillTable
 {
     [GoogleSheet.Attribute.TableStruct]
     public partial class Data : ITable
@@ -74,7 +74,7 @@ namespace DefaultTable
                  return;
             }
 
-            string text = reader.ReadData("DefaultTable"); 
+            string text = reader.ReadData("SkillTable"); 
             if (text != null)
             {
                 var result = Newtonsoft.Json.JsonConvert.DeserializeObject<ReadSpreadSheetResult>(text);

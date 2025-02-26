@@ -2,7 +2,7 @@ using UnityEngine;
 using VInspector;
 
 [ExecuteAlways]
-public class BaseObject : MonoBehaviour
+public class RandomableObject : MonoBehaviour
 {
     #region Inspector
     [SerializeField]
