@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ConeController : ObjectController
 {
@@ -8,8 +9,6 @@ public class ConeController : ObjectController
 
     public float random;
     public bool isMove;
-
-    Vector3 direction;
 
     protected override void Initialize()
     {
@@ -24,14 +23,11 @@ public class ConeController : ObjectController
         animator.SetFloat("MotionTime", random);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (collision.collider.CompareTag(Define.Bullet))
         {
-            direction = (collision.transform.position - transform.position).normalized;
-
-            animator.SetFloat("X", direction.x);
-            animator.SetFloat("Y", direction.y);
+            lookDirection = (collision.transform.position - transform.position).normalized;;
 
             Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
 
@@ -41,7 +37,7 @@ public class ConeController : ObjectController
             rb.angularDrag = 10.0f;
 
             //플레이어가 있는 반대 방향으로 튕겨나가도록 힘을 가한다.
-            rb.AddForce(direction * -10.0f, ForceMode2D.Impulse);
+            rb.AddForce(lookDirection * -10.0f, ForceMode2D.Impulse);
             rb.AddTorque(-10f, ForceMode2D.Impulse);
 
             //쓰러지면 충돌처리가 되지 않게끔 처리
@@ -50,7 +46,6 @@ public class ConeController : ObjectController
             Death();
         }
     }
-
 
     protected override void HandleAction()
     {

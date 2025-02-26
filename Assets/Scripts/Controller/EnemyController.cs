@@ -10,7 +10,6 @@ public class EnemyController : ObjectController
 {
     private bool onTriggerStay;
     private ProjectileHandler projectileHandler;
-    private Transform target;
 
     protected override void Initialize()
     {
@@ -47,13 +46,7 @@ public class EnemyController : ObjectController
     protected override void Start()
     {
         base.Start();
-
-        target = Managers.Game.Player.transform;
-
-        animationHandler.AttackHandler.OnEnter += () =>
-        {
-            projectileHandler.RangeAttack(ProjectilePattern.Default, transform.position, target.position);
-        };
+        animationHandler.AttackHandler.OnEnter += () => projectileHandler.RangeAttack(transform.position, lookDirection);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,15 +82,16 @@ public class EnemyController : ObjectController
     protected override void HandleLogic()
     {
         base.HandleLogic();
+
+        lookDirection = (Managers.Game.Player.transform.position - transform.position).normalized;
         if (onTriggerStay)
         {
             //만약 공격중인 상태라면 이동을 멈춰라
             moveDirection = Vector2.zero;
-            lookDirection = (target.position - transform.position).normalized;
         }
         else
         {
-            moveDirection = lookDirection = (target.position - transform.position).normalized;
+            moveDirection = lookDirection;
         }
     }
 }
