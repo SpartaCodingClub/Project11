@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class ProjectileController : BaseController
@@ -30,6 +31,19 @@ public class ProjectileController : BaseController
         else
         {
             targetLayer = LayerMask.NameToLayer(Define.Player);
+        }
+
+        if (speed == 0.0f)
+        {
+            DOVirtual.DelayedCall(0.5f, () =>
+            {
+                if (IsDead)
+                {
+                    return;
+                }
+
+                Destroy();
+            });
         }
 
         var z = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
