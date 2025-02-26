@@ -57,9 +57,16 @@ namespace SkillTable
 /* Fields. */
 
 		public System.Int32 index;
+		public SkillType SkillType;
+		public System.String SkillName;
 		public System.Single Damage;
-		public System.String attackRange;
-		public System.Int32 projectileCount;
+		public System.Single HP;
+		public System.Single AttackDelay;
+		public System.Single AttackRange;
+		public System.Single MoveSpeed;
+		public System.Single JumpPower;
+		public System.Int32 AttackCount;
+		public System.Int32 ProjectileCount;
   
 
 #region fuctions

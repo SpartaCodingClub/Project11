@@ -29,4 +29,14 @@ public class StatHandler : MonoBehaviour
     {
         initialAttackDelay = AttackDelay;
     }
+
+    public void ApplyStats(SkillTable.Data skill)
+    {
+        Damage += skill.Damage;
+        HP += skill.HP;
+        AttackDelay += skill.AttackDelay;
+        AttackDelay = Mathf.Clamp(AttackDelay, 0.1f, 10f);
+        AttackRange += skill.AttackRange;
+        MoveSpeed += skill.MoveSpeed;
+    }
 }
