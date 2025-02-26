@@ -17,7 +17,7 @@ public class ObjectController : BaseController
     }
 
     protected Vector2 lookDirection = Vector2.down;
-    protected Vector2 moveDirection = Vector2.down;
+    protected Vector2 moveDirection;
 
     protected Transform MainRenderer;
     protected AnimationHandler animationHandler;
