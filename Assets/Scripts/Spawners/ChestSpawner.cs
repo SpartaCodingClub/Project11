@@ -16,15 +16,17 @@ public class ChestSpawner : MonoBehaviour
     [SerializeField] private float minY = -4.1f, maxY = 20.5f;
     //생성 제한구역 좌표
     [SerializeField] private float restrictMinX = -12f, restrictMaxX = 14.5f;
-    [SerializeField] private float restrictMinY = 4.5f, restrictMaxY = 15.8f;
+    [SerializeField] private float restrictMinY = 3.0f, restrictMaxY = 15.8f;
 
-    private void Awake()
+
+    private void Start()
     {
         SpawnChest();
     }
+
     public void SpawnChest()
     {
-        int failedAttempts = 0;
+        
         for (int i = 0; i < chestCount; i++)
         {
             //유효한 장소인지 체크
@@ -32,13 +34,13 @@ public class ChestSpawner : MonoBehaviour
             int PosAttempt = 0;
             Vector2 randomPos;
 
-            while (PosAttempt == 10);
+            while (PosAttempt <= 10)
             {   
                 randomPos = GetRandomPosition();
                 bool isRestrict = RestrictArea(randomPos);
                 // Physics2D.OverlapCircle(point,radius) 를 사용해 일정 거리 내 중복 생성 방지
-                //bool isOverlap = Physics2D.OverlapCircle(randomPos, spawnRadius) != null;
-                if (!isRestrict) //(!isRestrict && !isOverlap)
+                bool isOverlap = Physics2D.OverlapCircle(randomPos, spawnRadius) != null;
+                if (!isRestrict && !isOverlap)
                 {
                     isValid = true;
                     break;
@@ -48,21 +50,14 @@ public class ChestSpawner : MonoBehaviour
 
             if (isValid)
             {
+                randomPos = GetRandomPosition();
                 Instantiate(chestPrefabs, randomPos, Quaternion.identity);
             }
-            else
-            {
-                    failedAttempts++;
-                if (failedAttempts == 20)
-                {
-                    Debug.LogWarning("생성되지 않았습니다.");
-                    return;
-                }
-            }
+            
         }
     }
 
-    //생성 제한구역
+    //생성 제한구역 , 생각한대로 작동은 안하는것 같음 , 박스 콜라이더가 있는 부분에는 생성 안되는 기능으로 변경하고 싶음
     public bool RestrictArea(Vector2 position)
     {
         return position.x > restrictMinX && position.x < restrictMaxX &&
@@ -76,4 +71,14 @@ public class ChestSpawner : MonoBehaviour
             Random.Range(minY, maxY)
         );
     }
+
+    //플레이어가 충돌시 스포너 실행
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player"))
+    //    {
+    //        Debug.LogWarning("Player");
+
+    //    }
+    //}
 }
