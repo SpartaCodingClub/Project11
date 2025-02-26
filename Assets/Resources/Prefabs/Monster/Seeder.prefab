@@ -64,7 +64,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!1 &5691685241337295718
@@ -76,10 +76,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7202690978406222353}
-  - component: {fileID: 2551771481068143788}
-  - component: {fileID: 3350236240002033920}
   - component: {fileID: 5243430133735241020}
   - component: {fileID: 2309689194154572093}
+  - component: {fileID: 2551771481068143788}
+  - component: {fileID: 1534971008141206951}
+  - component: {fileID: 3350236240002033920}
   m_Layer: 3
   m_Name: Seeder
   m_TagString: Untagged
@@ -104,38 +105,6 @@ Transform:
   - {fileID: 441941613938199139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2551771481068143788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5691685241337295718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 083e7afa7565bbc4794b3cb735421c4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackDelay: 1
-  AttackRange: 1
-  HP: 10
-  Damage: 1
-  MoveSpeed: 1
-  JumpPower: 0
-  Gravity: 9.8
-  VelocityZ: 0
---- !u!114 &3350236240002033920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5691685241337295718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d713d569ff1d4904b9f3817ce4e629ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &5243430133735241020
 Rigidbody2D:
   serializedVersion: 4
@@ -195,7 +164,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -206,8 +175,57 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &2551771481068143788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691685241337295718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083e7afa7565bbc4794b3cb735421c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDelay: 1
+  AttackRange: 1
+  HP: 10
+  Damage: 1
+  MoveSpeed: 1
+  JumpPower: 0
+  Gravity: 9.8
+  VelocityZ: 0
+--- !u!114 &1534971008141206951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691685241337295718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd06e52734a9fd499f6fa818af661cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  projectile: {fileID: 0}
+  AttackCount: 1
+  SpreadAngle: 15
+  ProjectileCount: 1
+--- !u!114 &3350236240002033920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691685241337295718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d713d569ff1d4904b9f3817ce4e629ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6644167563327535709
 GameObject:
   m_ObjectHideFlags: 0
