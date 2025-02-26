@@ -6,23 +6,18 @@ public class MapSpawner : MonoBehaviour
 {
     [SerializeField] GameObject map;
     Queue<GameObject> currentmap = new();
-    Vector2 spawnPos = new Vector2(0.5f, 30f);
-    public GameObject player;
+    Vector2 spawnPos = new Vector2(0.5f, 0);
     Spawner spawner;
 
-    private void Awake()
-    {
-        spawner = gameObject.GetComponentInChildren<Spawner>();
-    }
     private void Start()
     {
         SpawnMap();
         SpawnMap();
     }
-
     void SpawnMap()
     {
-        GameObject instantiateGround = Instantiate(map, spawnPos, Quaternion.identity);
+        GameObject instantiateGround = Instantiate(map, spawnPos, Quaternion.identity,transform);
+        spawner = instantiateGround.GetComponentInChildren<Spawner>();
         spawner.obstacleSpawnArea = instantiateGround.transform.Find("ObstacleArea")?.GetComponent<Tilemap>();
         spawner.monsterSpawnArea = instantiateGround.transform.Find("MonsterArea")?.GetComponent<Tilemap>();
 

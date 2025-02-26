@@ -14,7 +14,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject[] monsterPrefabs;
     [SerializeField] private int obstacleCount = 40;
     [SerializeField] private int monseterCount = 40;
-    [SerializeField] Transform contain;
 
     private HashSet<Vector2> usedPositions = new HashSet<Vector2>();
 
