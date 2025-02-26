@@ -1,36 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileController : BaseController
 {
-    ProjectileHandler projectileHandler;
-    Rigidbody2D _rigidbody;
-    Animator _animator;
-    
+    #region Inspector
+    [SerializeField]
+    private float speed = 5.0f;
+    #endregion
+
+    private Rigidbody2D _rigidbody;
+
+    private float damage;
+    private int obstacleLayer;
+    private int targetLayer;
+
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        _rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
-    public void Init(ProjectileHandler projectileHandler)
+
+    public void SetProjectile(bool isPlayer, float damage, Vector2 targetDirection)
     {
-        this.projectileHandler = projectileHandler;
+        this.damage = damage;
+        obstacleLayer = LayerMask.NameToLayer(Define.Obstacle);
+
+        if (isPlayer)
+        {
+            targetLayer = LayerMask.NameToLayer(Define.Monster);
+        }
+        else
+        {
+            targetLayer = LayerMask.NameToLayer(Define.Player);
+        }
+
+        var z = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
+        _rigidbody.velocity = targetDirection * speed;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject targetObject = collision.gameObject;
+        if (targetObject.layer == obstacleLayer)
+        {
+            Destroy();
+            return;
+        }
 
-        int monsterLayer = LayerMask.NameToLayer("Monster");
-        int playerLayer = LayerMask.NameToLayer("Player");
+        if (targetObject.layer != targetLayer)
+        {
+            return;
+        }
 
-        //if(collision.gameObject.layer != ~(monsterLayer|playerLayer))
-
-        _animator.SetTrigger("OnEffect");
-        Destroy(gameObject);
-    }
-    public void TargetToDirection(Vector2 direction)
-    {
-        _rigidbody.velocity = direction.normalized * projectileHandler.BulletSpeed;
+        Destroy();
     }
 }
-

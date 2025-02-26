@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ResourceManager
 {
-    public T Instantiate<T>(Transform parent, Vector2 localPosition, string type = Define.OBJECT) where T : BaseController
+    public T Instantiate<T>(Transform parent, Vector2 position, string type = Define.OBJECT) where T : BaseController
     {
         string key = typeof(T).Name;
         GameObject gameObject = Managers.Pool.TryPop(key);
@@ -24,7 +24,7 @@ public class ResourceManager
             gameObject.transform.SetParent(parent);
         }
 
-        gameObject.transform.localPosition = localPosition;
+        gameObject.transform.position = position;
         if (gameObject.TryGetComponent<T>(out var @base) == false)
         {
             Debug.LogWarning($"Failed to GetComponent<{typeof(T).Name}>()");
