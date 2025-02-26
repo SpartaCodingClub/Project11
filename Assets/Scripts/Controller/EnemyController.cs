@@ -52,7 +52,7 @@ public class EnemyController : ObjectController
 
         animationHandler.AttackHandler.OnEnter += () =>
         {
-            projectileHandler.RangeAttack(ProjectilePattern.Default, transform.position, target.position);
+            projectileHandler.RangeAttack(ProjectilePattern.Range, transform.position, target.position);
         };
     }
 

@@ -35,7 +35,7 @@ public class PlayerController : ObjectController
 
         animationHandler.AttackHandler.OnEnter += () =>
         {
-            projectileHandler.RangeAttack(ProjectilePattern.Default, HandPivot.position, target.position);
+            projectileHandler.RangeAttack(ProjectilePattern.Range, HandPivot.position, target.position);
             Managers.Skill.ApplySkill(2, this);
         };
     }
@@ -71,12 +71,10 @@ public class PlayerController : ObjectController
         }
 
         Collider2D closestMonster = GetClosestMonster();
-        if (closestMonster == null)
+        if (closestMonster != null)
         {
-            return;
+            AttackTargetMonster(closestMonster);
         }
-
-        AttackTargetMonster(closestMonster);
     }
     protected override void HandleAction()
     {
@@ -111,9 +109,15 @@ public class PlayerController : ObjectController
 
     private void AttackTargetMonster(Collider2D closestMonster)
     {
+        if (moving || jumping)
+        {
+            return;
+        }
+
         // 캐릭터 방향 설정 후
         Vector3 targetPosition = closestMonster.transform.position;
         lookDirection = (targetPosition - transform.position).normalized;
+        HandPivot.localPosition = lookDirection;
 
         // 공격
         Attack();
@@ -131,7 +135,5 @@ public class PlayerController : ObjectController
 
         var z = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90.0f;
         HandLight.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
-
-        HandPivot.localPosition = lookDirection;
     }
 }

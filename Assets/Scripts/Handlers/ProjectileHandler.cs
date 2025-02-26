@@ -2,7 +2,8 @@ using UnityEngine;
 
 public enum ProjectilePattern
 {
-    Default,
+    Range,
+    Melee,
 }
 
 public class ProjectileHandler : MonoBehaviour
@@ -10,16 +11,16 @@ public class ProjectileHandler : MonoBehaviour
     #region Inspector
     [SerializeField]
     private ProjectileController projectile;
-    #endregion
 
-    // Åº ÆÛÁü °¢µµ
-    public float SpreadAngle = 15.0f;
-
-    // °ø°Ý È½¼ö
+    [Tooltip("°ø°Ý È½¼ö")]
     public int AttackCount = 1;
 
-    // ÃÑ¾Ë °³¼ö
+    [Tooltip("Åº ÆÛÁü °¢µµ")]
+    public float SpreadAngle = 15.0f;
+
+    [Tooltip("Åõ»çÃ¼ °³¼ö")]
     public int ProjectileCount = 1;
+    #endregion
 
     private bool isPlayer;
 
@@ -36,8 +37,11 @@ public class ProjectileHandler : MonoBehaviour
         Vector2 direction = (targetPosition - startPosition).normalized;
         switch (weaponType)
         {
-            case ProjectilePattern.Default:
+            case ProjectilePattern.Range:
                 Fire(startPosition, direction);
+                break;
+            case ProjectilePattern.Melee:
+                MeleeAttack(startPosition, direction);
                 break;
         }
     }
@@ -60,6 +64,11 @@ public class ProjectileHandler : MonoBehaviour
             GameObject projectile = Managers.Resource.Instantiate(key, null, startPosition, Define.PROJECTILE);
             projectile.GetComponent<ProjectileController>().SetProjectile(isPlayer, statHandler.Damage, bulletDirection);
         }
+    }
+
+    private void MeleeAttack(Vector2 startPosition, Vector2 targetDirection)
+    {
+
     }
 
     public void ApplyProjectiles(SkillTable.Data skill)
