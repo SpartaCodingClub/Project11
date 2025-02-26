@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4629644086888781365}
   - component: {fileID: 7510939001023385601}
   - component: {fileID: 3766921701566519786}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDelay: 1
   AttackRange: 1
-  HP: 10
+  HP: 20
   Damage: 1
   MoveSpeed: 1
   JumpPower: 0

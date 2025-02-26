@@ -241,11 +241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083e7afa7565bbc4794b3cb735421c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDelay: 1
-  AttackRange: 1
+  AttackDelay: 0.6
+  AttackRange: 7
   HP: 10
   Damage: 1
-  MoveSpeed: 1
+  MoveSpeed: 3
   JumpPower: 0
   Gravity: 9.8
   VelocityZ: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   weaponType: 1
   projectile: {fileID: 32322974998671646, guid: 76c84175afd43a344a4d24947dcef7c2, type: 3}
   AttackCount: 1
-  SpreadAngle: 15
+  SpreadAngle: 30
   ProjectileCount: 3
 --- !u!114 &6088446098443248148
 MonoBehaviour:

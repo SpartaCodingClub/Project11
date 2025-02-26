@@ -8,5 +8,6 @@ public class Scene_Temp_YHJ : Scene_Base
 
         Managers.Resource.Instantiate<PlayerController>(null, Vector2.zero);
         Managers.Resource.Instantiate("Bat", null, 5.0f * Vector2.one, Define.ENEMIES);
+
     }
 }

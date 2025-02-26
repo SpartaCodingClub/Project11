@@ -97,7 +97,7 @@ Transform:
   m_GameObject: {fileID: 5691685241337295718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.39, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -190,10 +190,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDelay: 1
-  AttackRange: 1
+  AttackRange: 10
   HP: 10
-  Damage: 1
-  MoveSpeed: 1
+  Damage: 5
+  MoveSpeed: 0
   JumpPower: 0
   Gravity: 9.8
   VelocityZ: 0
@@ -209,9 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd06e52734a9fd499f6fa818af661cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 0
-  projectile: {fileID: 0}
-  AttackCount: 1
+  weaponType: 1
+  projectile: {fileID: 9152838822184997493, guid: 1ebaf1612b3aa554f89cc89042fe2b34, type: 3}
+  AttackCount: 2
   SpreadAngle: 15
   ProjectileCount: 1
 --- !u!114 &3350236240002033920
