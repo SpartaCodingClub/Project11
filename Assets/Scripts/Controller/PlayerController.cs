@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class PlayerController : ObjectController
 {
-    public float attackRange = 5f;
-    private AnimationHandler ShadowRenderer;
-
     private Transform HandLight;
     private Transform HandPivot;
+
+    private AnimationHandler ShadowRenderer;
+    private ProjectileHandler projectileHandler;
+
+    private Transform target;
 
     protected override void Initialize()
     {
@@ -21,9 +23,20 @@ public class PlayerController : ObjectController
 
         HandLight = gameObject.FindComponent<Transform>(nameof(HandLight));
         HandPivot = gameObject.FindComponent<Transform>(nameof(HandPivot));
+        projectileHandler = gameObject.GetComponent<ProjectileHandler>();
 
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
+    }
+
+    public override void Stand()
+    {
+        base.Stand();
+
+        animationHandler.AttackHandler.OnEnter += () =>
+        {
+            projectileHandler.RangeAttack(ProjectilePattern.Single, HandPivot.position, target.position);
+        };
     }
 
     protected override void Jumping()
@@ -46,47 +59,66 @@ public class PlayerController : ObjectController
         var vertical = Input.GetAxisRaw(Define.Vertical);
         moveDirection = new Vector2(horizontal, vertical).normalized;
 
-        if (Input.GetKey(KeyCode.Space) && transform.position.z == 0)
+        if (Input.GetKey(KeyCode.Space))
         {
-            statHandler.VelocityZ = statHandler.JumpPower;
+            if (transform.position.z == 0)
+            {
+                statHandler.VelocityZ = statHandler.JumpPower;
+            }
+
+            return;
         }
+
+        Collider2D closestMonster = GetClosestMonster();
+        if (closestMonster == null)
+        {
+            return;
+        }
+
+        AttackTargetMonster(closestMonster);
     }
     protected override void HandleAction()
     {
         base.HandleAction();
-
-        CheckMonstersInRange();
         HandleLighting();
     }
 
-    private void CheckMonstersInRange()
+    private Collider2D GetClosestMonster()
     {
-        Collider2D[] monstersInRange = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, LayerMask.GetMask("Monster"));
+        Collider2D[] monsters = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, LayerMask.GetMask(Define.Monster));
 
-        foreach (var monster in monstersInRange)
+        Collider2D closestMonster = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (var monster in monsters)
         {
-            if (monster != null)
+            if (monster == null)
             {
-                AttackMonster(monster);
+                continue;
+            }
+
+            float distance = Vector2.Distance(transform.position, monster.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestMonster = monster;
             }
         }
+
+        return closestMonster;
     }
 
-    private void AttackMonster(Collider2D monsterCollider)
+    private void AttackTargetMonster(Collider2D closestMonster)
     {
-        var monster = monsterCollider.GetComponent<MonsterController>(); // 몬스터 컨트롤러가 있는 경우
-        if (monster != null)
-        {
-            monster.TakeDamage(10); // 데미지 처리
-        }
+        // 캐릭터 방향 설정 후
+        Vector3 targetPosition = closestMonster.transform.position;
+        lookDirection = (targetPosition - transform.position).normalized;
 
-        Vector2 monsterPosition = monsterCollider.transform.position;
-        Vector2 playerPosition = transform.position;
-        lookDirection = (monsterPosition - playerPosition).normalized;
-
+        // 공격
         Attack();
 
-        //Attack(); // 공격 애니메이션 실행
+        // AnimationHandler.AttackHandler의 OnEnter 이벤트를 처리하기 위함
+        target = closestMonster.transform;
     }
 
     private void HandleLighting()
@@ -99,6 +131,6 @@ public class PlayerController : ObjectController
         var z = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90.0f;
         HandLight.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
 
-        HandPivot.localPosition = lookDirection * 0.5f;
+        HandPivot.localPosition = lookDirection;
     }
 }

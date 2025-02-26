@@ -42,6 +42,7 @@ public class ObjectController : BaseController
         {
             Debug.LogWarning($"Failed to Find({nameof(MainRenderer)})\nFrom: {gameObject.name}");
             Destroy(gameObject);
+
             return;
         }
 
@@ -51,7 +52,7 @@ public class ObjectController : BaseController
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         animationHandler.AttackHandler.OnExit += Stand;
         animationHandler.DestroyHandler.OnEnter += Destroy;
@@ -90,7 +91,7 @@ public class ObjectController : BaseController
         animationHandler.Death(lookDirection);
     }
 
-    public virtual void Attack()
+    public void Attack()
     {
         if (moving || jumping)
         {
@@ -108,7 +109,7 @@ public class ObjectController : BaseController
         attackTimer = 0.0f;
     }
 
-    protected virtual void Moving()
+    protected void Moving()
     {
         moving = moveDirection.magnitude > 0.0f; ;
         if (moving)
@@ -123,8 +124,8 @@ public class ObjectController : BaseController
     protected virtual void Jumping()
     {
         float z = transform.position.z;
-
         jumping = z > 0.0f;
+
         if (jumping || statHandler.VelocityZ > 0.0f)
         {
             actionState = ActionState.Jump;
@@ -134,15 +135,21 @@ public class ObjectController : BaseController
             if (z > 0.0f)
             {
                 transform.SetPositionZ(z);
+
+                MainRenderer.SetPositionZ(z * -2.0f);
+                _rigidbody.excludeLayers = LayerMask.GetMask(LayerMask.LayerToName(6));
             }
             else
             {
-                statHandler.VelocityZ = 0.0f;
                 transform.SetPositionZ(0.0f);
+
+                MainRenderer.SetPositionZ(0.0f);
+                statHandler.VelocityZ = 0.0f;
+                _rigidbody.excludeLayers = 0;
             }
         }
 
+        MainRenderer.SetPositionY(transform.position.y + z);
         animationHandler.Jump(jumping, lookDirection);
-        animationHandler.transform.SetPositionY(transform.position.y + transform.position.z);
     }
 }

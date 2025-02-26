@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
 
 public class CameraManager
@@ -11,12 +12,15 @@ public class CameraManager
 
     public void Initialize()
     {
+        Main.orthographic = true;
+        Main.orthographicSize = 10;
+
         transform = Main.transform;
         transform.SetParent(Managers.Instance.transform);
         transform.position = 10.0f * Vector3.back;
 
-        Main.orthographic = true;
-        Main.orthographicSize = 10;
+        transform.gameObject.layer = 2;
+        transform.gameObject.AddComponent<PixelPerfectCamera>().assetsPPU = 32;
 
         Transform child = new GameObject(nameof(Light2D)).transform;
         child.SetParent(transform);
@@ -30,7 +34,7 @@ public class CameraManager
         rigidbody.freezeRotation = true;
         rigidbody.excludeLayers = ~LayerMask.GetMask(LayerMask.LayerToName(1));
 
-        transform.gameObject.AddComponent<BoxCollider2D>().size = new(12.0f, 20.0f);
+        transform.gameObject.AddComponent<BoxCollider2D>().size = new(12.0f, 21.0f);
     }
 
     public void FixedUpdate()
