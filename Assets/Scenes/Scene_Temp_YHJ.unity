@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 2830497657412984261, guid: 6ebc237c4eff15a47aa6c35ae3e0cccf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7472840418502275163, guid: 6ebc237c4eff15a47aa6c35ae3e0cccf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -180,6 +184,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ebc237c4eff15a47aa6c35ae3e0cccf, type: 3}
+--- !u!1 &462165081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7286353818233606230, guid: b4a505ba365004b41a5eda58eb635af3, type: 3}
+  m_PrefabInstance: {fileID: 161275422407073877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &462165087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462165081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd06e52734a9fd499f6fa818af661cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  projectile: {fileID: 0}
+  AttackCount: 1
+  SpreadAngle: 15
+  ProjectileCount: 1
 --- !u!1 &2044460085
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +459,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7286353818233606230, guid: b4a505ba365004b41a5eda58eb635af3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 462165087}
   m_SourcePrefab: {fileID: 100100000, guid: b4a505ba365004b41a5eda58eb635af3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

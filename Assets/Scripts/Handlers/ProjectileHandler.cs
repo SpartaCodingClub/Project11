@@ -1,26 +1,36 @@
 using UnityEngine;
-
-public enum ProjectilePattern
-{
-    Range,
-    Melee,
-}
+using VInspector;
 
 public class ProjectileHandler : MonoBehaviour
 {
     #region Inspector
     [SerializeField]
+    private WeaponType weaponType;
+
+    [ShowIf("weaponType", WeaponType.Range)]
+    [Tooltip("Åõ»çÃ¼ ÇÁ¸®ÆÕ")]
+    [SerializeField]
     private ProjectileController projectile;
 
+    [ShowIf("weaponType", WeaponType.Range)]
     [Tooltip("°ø°Ý È½¼ö")]
     public int AttackCount = 1;
 
+    [ShowIf("weaponType", WeaponType.Range)]
     [Tooltip("Åº ÆÛÁü °¢µµ")]
     public float SpreadAngle = 15.0f;
 
+    [ShowIf("weaponType", WeaponType.Range)]
     [Tooltip("Åõ»çÃ¼ °³¼ö")]
     public int ProjectileCount = 1;
+    [EndFoldout]
     #endregion
+
+    public enum WeaponType
+    {
+        Melee,
+        Range,
+    }
 
     private bool isPlayer;
 
@@ -32,16 +42,15 @@ public class ProjectileHandler : MonoBehaviour
         statHandler = GetComponent<StatHandler>();
     }
 
-    public void RangeAttack(ProjectilePattern weaponType, Vector2 startPosition, Vector2 targetPosition)
+    public void RangeAttack(Vector2 startPosition, Vector2 targetDirection)
     {
-        Vector2 direction = (targetPosition - startPosition).normalized;
         switch (weaponType)
         {
-            case ProjectilePattern.Range:
-                Fire(startPosition, direction);
+            case WeaponType.Melee:
+                MeleeAttack(startPosition, targetDirection);
                 break;
-            case ProjectilePattern.Melee:
-                MeleeAttack(startPosition, direction);
+            case WeaponType.Range:
+                Fire(startPosition, targetDirection);
                 break;
         }
     }
@@ -68,7 +77,13 @@ public class ProjectileHandler : MonoBehaviour
 
     private void MeleeAttack(Vector2 startPosition, Vector2 targetDirection)
     {
+        GameObject projectile = Managers.Resource.Instantiate(Define.Melee, null, startPosition, Define.PROJECTILE);
 
+        BoxCollider2D collider = projectile.GetComponent<BoxCollider2D>();
+        collider.size = new(statHandler.AttackRange, 1.0f);
+        collider.offset = new(statHandler.AttackRange * 0.5f, 0.0f);
+
+        projectile.GetComponent<ProjectileController>().SetProjectile(isPlayer, statHandler.Damage, targetDirection);
     }
 
     public void ApplyProjectiles(SkillTable.Data skill)

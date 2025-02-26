@@ -8,8 +8,6 @@ public class PlayerController : ObjectController
     private AnimationHandler ShadowRenderer;
     private ProjectileHandler projectileHandler;
 
-    private Transform target;
-
     protected override void Initialize()
     {
         base.Initialize();
@@ -32,12 +30,7 @@ public class PlayerController : ObjectController
     protected override void Start()
     {
         base.Start();
-
-        animationHandler.AttackHandler.OnEnter += () =>
-        {
-            projectileHandler.RangeAttack(ProjectilePattern.Range, HandPivot.position, target.position);
-            Managers.Skill.ApplySkill(2, this);
-        };
+        animationHandler.AttackHandler.OnEnter += () => projectileHandler.RangeAttack(HandPivot.position, lookDirection);
     }
 
     protected override void Jumping()
@@ -121,9 +114,6 @@ public class PlayerController : ObjectController
 
         // 공격
         Attack();
-
-        // AnimationHandler.AttackHandler의 OnEnter 이벤트를 처리하기 위함
-        target = closestMonster.transform;
     }
 
     private void HandleLighting()
