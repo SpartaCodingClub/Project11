@@ -239,7 +239,11 @@ PrefabInstance:
     - target: {fileID: 8715028932385570429, guid: 6ebc237c4eff15a47aa6c35ae3e0cccf, type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 5968843115592883572, guid: 9904215b601780d46a6e38d9ee5f92b0, type: 3}
+      objectReference: {fileID: 9152838822184997493, guid: 7ce18aa34513e76438391b4bdb8b8656, type: 3}
+    - target: {fileID: 8715028932385570429, guid: 6ebc237c4eff15a47aa6c35ae3e0cccf, type: 3}
+      propertyPath: ProjectileCount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

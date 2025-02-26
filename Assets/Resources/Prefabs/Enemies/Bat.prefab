@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDelay: 1
   AttackRange: 1
-  HP: 10.24
+  HP: 10
   Damage: 1
   MoveSpeed: 1
   JumpPower: 0
@@ -262,10 +262,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 1
-  projectile: {fileID: 9152838822184997493, guid: 7ce18aa34513e76438391b4bdb8b8656, type: 3}
+  projectile: {fileID: 5968843115592883572, guid: 9904215b601780d46a6e38d9ee5f92b0, type: 3}
   AttackCount: 1
-  SpreadAngle: 10
-  ProjectileCount: 3
+  SpreadAngle: 15
+  ProjectileCount: 1
 --- !u!114 &6088446098443248148
 MonoBehaviour:
   m_ObjectHideFlags: 0
