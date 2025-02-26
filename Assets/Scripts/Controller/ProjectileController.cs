@@ -20,8 +20,6 @@ public class ProjectileController : BaseController
 
     public void SetProjectile(bool isPlayer, float damage, Vector2 targetDirection)
     {
-
-
         this.damage = damage;
         obstacleLayer = LayerMask.NameToLayer(Define.Obstacle);
 

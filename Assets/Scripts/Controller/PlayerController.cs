@@ -29,9 +29,9 @@ public class PlayerController : ObjectController
         Managers.Game.Player = this;
     }
 
-    public override void Stand()
+    protected override void Start()
     {
-        base.Stand();
+        base.Start();
 
         animationHandler.AttackHandler.OnEnter += () =>
         {

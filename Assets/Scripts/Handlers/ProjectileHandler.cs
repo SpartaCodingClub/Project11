@@ -61,4 +61,9 @@ public class ProjectileHandler : MonoBehaviour
             projectile.SetProjectile(isPlayer, statHandler.Damage, bulletDirection);
         }
     }
+    public void ApplyProjectiles(SkillTable.Data skill)
+    {
+        AttackCount += skill.AttackCount;
+        ProjectileCount += skill.ProjectileCount;
+    }
 }

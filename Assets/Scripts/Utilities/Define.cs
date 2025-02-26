@@ -9,6 +9,7 @@ public class Define
     public static readonly int Attack = Animator.StringToHash(nameof(Attack));
     public static readonly int Move = Animator.StringToHash(nameof(Move));
     public static readonly int Jump = Animator.StringToHash(nameof(Jump));
+    public static readonly int Walk = Animator.StringToHash(nameof(Walk));
 
     public static readonly int AttackSpeed = Animator.StringToHash(nameof(AttackSpeed));
     public static readonly int PosX = Animator.StringToHash(nameof(PosX));
