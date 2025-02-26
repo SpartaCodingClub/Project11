@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ChestSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject chestPrefabs;
     [SerializeField] private int chestCount = 10;
     // 중복방지 거리
-    [SerializeField] private float spawnRadius = 1f;
+    [SerializeField] private float spawnRadius = 3f;
 
     //로비맵 좌표    
     [SerializeField] private float minX = -20.5f, maxX = 24.5f;
     [SerializeField] private float minY = -4.1f, maxY = 20.5f;
-    //생성 제한구역 좌표
-    [SerializeField] private float restrictMinX = -12f, restrictMaxX = 14.5f;
-    [SerializeField] private float restrictMinY = 3.0f, restrictMaxY = 15.8f;
+
+    [SerializeField] private Vector2 boxSize = new Vector2(3f, 3f);
+
 
 
     private void Start()
@@ -34,13 +35,14 @@ public class ChestSpawner : MonoBehaviour
             int PosAttempt = 0;
             Vector2 randomPos;
 
-            while (PosAttempt <= 10)
+            while (PosAttempt <= 50)
             {   
                 randomPos = GetRandomPosition();
-                bool isRestrict = RestrictArea(randomPos);
-                // Physics2D.OverlapCircle(point,radius) 를 사용해 일정 거리 내 중복 생성 방지
+                // Physics2D.OverlapCircle() 를 사용해 일정 거리 이내에 생성 및 겹침 방지
                 bool isOverlap = Physics2D.OverlapCircle(randomPos, spawnRadius) != null;
-                if (!isRestrict && !isOverlap)
+                // Physics2D.OverlapBox() 를 사용해 일정 거리 이내에 오브젝트랑 생성 및 겹침 방지
+                bool isOverlapBoxCollider = IsOverlapBoxCollider(randomPos);
+                if (!isOverlap && !isOverlapBoxCollider)
                 {
                     isValid = true;
                     break;
@@ -56,13 +58,12 @@ public class ChestSpawner : MonoBehaviour
             
         }
     }
-
-    //생성 제한구역 , 생각한대로 작동은 안하는것 같음 , 박스 콜라이더가 있는 부분에는 생성 안되는 기능으로 변경하고 싶음
-    public bool RestrictArea(Vector2 position)
-    {
-        return position.x > restrictMinX && position.x < restrictMaxX &&
-               position.y > restrictMinY && position.y < restrictMaxY;
+    public bool IsOverlapBoxCollider(Vector2 position)
+    { 
+        return Physics2D.OverlapBox(position, boxSize + new Vector2(spawnRadius,spawnRadius) ,0f) != null;
     }
+
+
     //랜덤 생산구역
     public Vector2 GetRandomPosition()
     {
