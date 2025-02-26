@@ -9,5 +9,7 @@ public class Scene_Lobby : Scene_Base
 
         Managers.Resource.Instantiate<PlayerController>(null, Vector2.zero);
         Managers.UI.Show<UI_PopupBackground>().Death();
+
+        Managers.UI.Show<UI_GameStart>();
     }
 }

@@ -57,11 +57,11 @@ public class UI_Title : UI_Scene
     #region Stand
     private Sequence Text_Start_Stand()
     {
-        Graphic grahpic = Get<Graphic>((int)Children.Text_Start);
+        Graphic graphic = Get<Graphic>((int)Children.Text_Start);
 
         return Utility.RecyclableSequence()
-            .Append(grahpic.DOFade(0.0f, 1.0f).SetDelay(1.0f))
-            .Append(grahpic.DOFade(1.0f, 1.0f));
+            .Append(graphic.DOFade(0.0f, 1.0f).SetDelay(1.0f))
+            .Append(graphic.DOFade(1.0f, 1.0f));
     }
     #endregion
     #region Death

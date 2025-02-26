@@ -23,6 +23,7 @@ public class Define
     public static readonly string Player = nameof(Player);
     public static readonly string Melee = nameof(Melee);
     public static readonly string Bullet = nameof(Bullet);
+    public static readonly string Effect = nameof(Effect);
     public static readonly string MainRenderer = nameof(MainRenderer);
     #endregion
     #region PathType

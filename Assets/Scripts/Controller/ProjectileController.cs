@@ -4,8 +4,12 @@ using UnityEngine;
 public class ProjectileController : BaseController
 {
     #region Inspector
+    [Header("Required")]
     [SerializeField]
     private float speed = 5.0f;
+
+    [Header("Optional")]
+    private ObjectController effect;
     #endregion
 
     private Rigidbody2D _rigidbody;
@@ -57,14 +61,23 @@ public class ProjectileController : BaseController
         if (targetObject.layer == obstacleLayer)
         {
             Destroy();
-            return;
         }
-
-        if (targetObject.layer != targetLayer)
+        else if (targetObject.layer == targetLayer)
         {
-            return;
+            // 데미지 처리
+            Destroy();
+        }
+    }
+
+    public override void Destroy()
+    {
+        if (effect != null)
+        {
+            string key = effect.name;
+            GameObject effectObject = Managers.Resource.Instantiate(key, null, transform.position, Define.Effect);
+            effectObject.GetComponent<ObjectController>().Death();
         }
 
-        Destroy();
+        base.Destroy();
     }
 }
