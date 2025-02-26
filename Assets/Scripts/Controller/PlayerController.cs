@@ -36,6 +36,7 @@ public class PlayerController : ObjectController
         animationHandler.AttackHandler.OnEnter += () =>
         {
             projectileHandler.RangeAttack(ProjectilePattern.Default, HandPivot.position, target.position);
+            Managers.Skill.ApplySkill(2, this);
         };
     }
 
