@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
 {
+    public bool HasSlow { get; set; }
+
     public Animator Animator { get; private set; }
 
     public AnimationAttackHandler AttackHandler { get; private set; }
@@ -42,7 +44,14 @@ public class AnimationHandler : MonoBehaviour
             SetDirection(direction);
         }
 
-        Animator.SetBool(Define.Move, value);
+        if (HasSlow)
+        {
+            Animator.SetBool(Define.Walk, value);
+        }
+        else
+        {
+            Animator.SetBool(Define.Move, value);
+        }
     }
 
     public virtual void Jump(bool value, Vector2 direction)
