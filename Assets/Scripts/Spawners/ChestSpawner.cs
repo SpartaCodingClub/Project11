@@ -15,7 +15,7 @@ public class ChestSpawner : MonoBehaviour
     //로비맵 좌표    
     [SerializeField] private float minX = -20.5f, maxX = 24.5f;
     [SerializeField] private float minY = -4.1f, maxY = 20.5f;
-
+    //콜라이더 박스 사이즈
     [SerializeField] private Vector2 boxSize = new Vector2(3f, 3f);
 
 
