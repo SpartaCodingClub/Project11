@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class ConeController : ObjectController
 {
-    float random;
+    public float random;
+    public bool isMove;
 
     protected override void Initialize()
     {
         base.Initialize();
+
+        //흰색 콘인지 검은색 콘인지 결정
         random = Random.Range(0f, 1f);
-        animationHandler.Animator.Play(Define.Stand, 0, random);
+        Debug.Log($"현재 random 값: {random}");
+        random = Mathf.Round(random);
+        Debug.Log($"반올림 후의 random 값: {random}");
+
+        //animationHandler.Animator.Play(Define.Stand, 0, random);
     }
 
 
@@ -20,7 +27,7 @@ public class ConeController : ObjectController
         {
             Debug.Log("콘 쓰러짐");
             Death();
-            animationHandler.Animator.SetFloat("Type", random);
+            animationHandler.Animator.SetFloat("ConeType", random);
         }
     }
 
