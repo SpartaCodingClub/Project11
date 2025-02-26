@@ -44,14 +44,8 @@ public class AnimationHandler : MonoBehaviour
             SetDirection(direction);
         }
 
-        if (HasSlow)
-        {
-            Animator.SetBool(Define.Walk, value);
-        }
-        else
-        {
-            Animator.SetBool(Define.Move, value);
-        }
+        Animator.SetBool(Define.HasSlow, HasSlow);
+        Animator.SetBool(Define.Move, value);
     }
 
     public virtual void Jump(bool value, Vector2 direction)
