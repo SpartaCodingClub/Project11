@@ -56,13 +56,16 @@ public class Define
     public static readonly string Player = nameof(Player);
     public static readonly string Melee = nameof(Melee);
     public static readonly string Bullet = nameof(Bullet);
-    public static readonly string Effect = nameof(Effect);
     public static readonly string MainRenderer = nameof(MainRenderer);
     #endregion
     #region Path
     public const string AUDIO = "Audio";
-    public const string OBJECT = "Object";
-    public const string PROJECTILE = "Projectile";
+    public const string EFFECT = "Effects";
+    public const string ENEMIES = "Enemies";
+    public const string ITEMS = "Items";
+    public const string MAP = "Map";
+    public const string OBJECT = "Objects";
+    public const string PROJECTILE = "Projectiles";
     public const string UI = "UI";
     #endregion
     #region Value

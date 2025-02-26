@@ -75,10 +75,10 @@ public class ProjectileController : BaseController
         if (effect != null)
         {
             string key = effect.name;
-            GameObject effectObject = Managers.Resource.Instantiate(key, null, transform.position, Define.Effect);
+            GameObject effectObject = Managers.Resource.Instantiate(key, null, transform.position, Define.EFFECT);
             effectObject.GetComponent<ObjectController>().Death();
         }
 
-       base.Destroy();
+        base.Destroy();
     }
 }
