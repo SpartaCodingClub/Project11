@@ -21,6 +21,7 @@ public class Define
     public static readonly string Monster = nameof(Monster);
     public static readonly string Obstacle = nameof(Obstacle);
     public static readonly string Player = nameof(Player);
+    public static readonly string MainRenderer = nameof(MainRenderer);
     #endregion
     #region Path Type
     public const string AUDIO = "Audio";

@@ -8,31 +8,34 @@ public class SlowZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         StatHandler statHandler = other.GetComponent<StatHandler>();
-        if (statHandler != null)
+        if (statHandler == null)
         {
-            originalSpeed = statHandler.MoveSpeed;
-            statHandler.MoveSpeed *= slowMultiplier; // 속도 감소
+            return;
+        }
 
-            AnimationHandler animationHandler = other.transform.Find("MainRenderer")?.GetComponent<AnimationHandler>();
-            if (animationHandler != null)
-            {
-                animationHandler.HasSlow = true; // 슬로우 상태 설정
-            }
+        originalSpeed = statHandler.MoveSpeed;
+        statHandler.MoveSpeed *= slowMultiplier; // 속도 감소
+
+        AnimationHandler animationHandler = other.gameObject.FindComponent<AnimationHandler>(Define.MainRenderer);
+        if (animationHandler != null)
+        {
+            animationHandler.HasSlow = true; // 슬로우 상태 설정
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         StatHandler statHandler = other.GetComponent<StatHandler>();
-        if (statHandler != null)
+        if (statHandler == null)
         {
             statHandler.MoveSpeed = originalSpeed; // 원래 속도로 복구
+            return;
+        }
 
-            AnimationHandler animationHandler = other.transform.Find("MainRenderer")?.GetComponent<AnimationHandler>();
-            if (animationHandler != null)
-            {
-                animationHandler.HasSlow = false; // 슬로우 상태 해제
-            }
+        AnimationHandler animationHandler = other.gameObject.FindComponent<AnimationHandler>(Define.MainRenderer);
+        if (animationHandler != null)
+        {
+            animationHandler.HasSlow = false; // 슬로우 상태 해제
         }
     }
 }
