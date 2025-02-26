@@ -1,15 +1,15 @@
 using GoogleSheet.Core.Type;
 using UGS;
 
+[UGS(typeof(SkillType))]
+public enum SkillType
+{
+    StatHandler,
+    ProjectileHandler
+}
+
 public class SheetManager
 {
-    [UGS(typeof(SkillType))]
-    public enum SkillType
-    {
-        StatHandler,
-        ProjectileHandler
-    }
-
     public void Initialize()
     {
         //UnityGoogleSheet.LoadFromGoogle<int, SkillTable.Data>((list, map) =>
