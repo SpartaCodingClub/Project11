@@ -54,8 +54,12 @@ public class ObjectController : BaseController
 
     protected virtual void Start()
     {
+        if (animationHandler.DestroyHandler != null)
+        {
+            animationHandler.DestroyHandler.OnEnter += Destroy;
+        }
+
         animationHandler.AttackHandler.OnExit += Stand;
-        animationHandler.DestroyHandler.OnEnter += Destroy;
     }
 
     protected virtual void HandleLogic()
