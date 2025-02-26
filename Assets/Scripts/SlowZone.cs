@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SlowZone : MonoBehaviour
 {
-    public float slowMultiplier = 0.4f; // 속도를 줄이는 비율
+    public float slowMultiplier = 0.7f; // 속도를 줄이는 비율
     private float originalSpeed;
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -4,12 +4,12 @@ public class SheetManager
 {
     public void Initialize()
     {
-        UnityGoogleSheet.LoadFromGoogle<int, SkillTable.Data>((list, map) =>
+       /* UnityGoogleSheet.LoadFromGoogle<int, SkillTable.Data>((list, map) =>
         {
             list.ForEach(x =>
             {
                 Debug.Log($"{x.index} : {x.intValue}, {x.strValue}");
             });
-        }, true);
+        }, true);*/
     }
 }
