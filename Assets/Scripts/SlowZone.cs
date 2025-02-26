@@ -12,6 +12,12 @@ public class SlowZone : MonoBehaviour
         {
             originalSpeed = statHandler.MoveSpeed;
             statHandler.MoveSpeed *= slowMultiplier; // 속도 감소
+
+            AnimationHandler animationHandler = other.transform.Find("MainRenderer")?.GetComponent<AnimationHandler>();
+            if (animationHandler != null)
+            {
+                animationHandler.HasSlow = true; // 슬로우 상태 설정
+            }
         }
     }
 
@@ -21,6 +27,12 @@ public class SlowZone : MonoBehaviour
         if (statHandler != null)
         {
             statHandler.MoveSpeed = originalSpeed; // 원래 속도로 복구
+
+            AnimationHandler animationHandler = other.transform.Find("MainRenderer")?.GetComponent<AnimationHandler>();
+            if (animationHandler != null)
+            {
+                animationHandler.HasSlow = false; // 슬로우 상태 해제
+            }
         }
     }
 }
