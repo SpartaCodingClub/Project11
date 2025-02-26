@@ -9,6 +9,8 @@ public enum EnemyType
 public class EnemyController : ObjectController
 {
     private bool onTriggerStay;
+    private ProjectileHandler projectileHandler;
+    private Transform target;
 
     protected override void Initialize()
     {
@@ -38,24 +40,49 @@ public class EnemyController : ObjectController
         collider.radius = statHandler.AttackRange;
 
         //this.gameObject.AddComponent<CircleCollider2D>();
+        projectileHandler = gameObject.GetComponent<ProjectileHandler>();
 
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        target = Managers.Game.Player.transform;
+
+        animationHandler.AttackHandler.OnEnter += () =>
+        {
+            projectileHandler.RangeAttack(ProjectilePattern.Default, transform.position, target.position);
+        };
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag(Define.Player) == false)
+        {
+            return;
+        }
+
         onTriggerStay = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag(Define.Player))
+        if (collision.CompareTag(Define.Player) == false)
         {
-            Attack();
+            return;
         }
+
+        Attack();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag(Define.Player) == false)
+        {
+            return;
+        }
+
         onTriggerStay = false;
     }
 
@@ -66,11 +93,11 @@ public class EnemyController : ObjectController
         {
             //만약 공격중인 상태라면 이동을 멈춰라
             moveDirection = Vector2.zero;
-            lookDirection = (Managers.Game.Player.transform.position - transform.position).normalized;
+            lookDirection = (target.position - transform.position).normalized;
         }
         else
         {
-            moveDirection = lookDirection = (Managers.Game.Player.transform.position - transform.position).normalized;
+            moveDirection = lookDirection = (target.position - transform.position).normalized;
         }
     }
 }
