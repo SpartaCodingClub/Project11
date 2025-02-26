@@ -45,7 +45,7 @@ public abstract class BaseController : MonoBehaviour
 
     private State state;
 
-    private readonly SequenceHandler sequenceHandler = new();
+    protected readonly SequenceHandler sequenceHandler = new();
 
     private void Awake() => Initialize();
     private void OnDestroy() => Deinitialize();

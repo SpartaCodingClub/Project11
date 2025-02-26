@@ -9,6 +9,7 @@ public class ProjectileController : BaseController
     private float speed = 5.0f;
 
     [Header("Optional")]
+    [SerializeField]
     private ObjectController effect;
     #endregion
 
