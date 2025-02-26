@@ -9,38 +9,42 @@ public class ChestSpawner : MonoBehaviour
     [SerializeField] private GameObject chestPrefabs;
     [SerializeField] private int chestCount = 10;
     // 중복방지 거리
-    [SerializeField] private float spawnRadius = 2f;
+    [SerializeField] private float spawnRadius = 1f;
 
-    //로비맵 좌표
-    [SerializeField] private float minX = -25f, maxX = 29f;
-    [SerializeField] private float minY = -8f, maxY = 25f;
+    //로비맵 좌표    
+    [SerializeField] private float minX = -20.5f, maxX = 24.5f;
+    [SerializeField] private float minY = -4.1f, maxY = 20.5f;
     //생성 제한구역 좌표
-    [SerializeField] private float restrictMinX = -12f, restrictMaxX = -4.5f;
-    [SerializeField] private float restrictMinY = 14.5f, restrictMaxY = 15.8f;
+    [SerializeField] private float restrictMinX = -12f, restrictMaxX = 14.5f;
+    [SerializeField] private float restrictMinY = 4.5f, restrictMaxY = 15.8f;
 
+    private void Awake()
+    {
+        SpawnChest();
+    }
     public void SpawnChest()
     {
-        int checkAttempt = 0;
-
+        int failedAttempts = 0;
         for (int i = 0; i < chestCount; i++)
         {
             //유효한 장소인지 체크
             bool isValid = false;
             int PosAttempt = 0;
             Vector2 randomPos;
-            do
-            {
+
+            while (PosAttempt == 10);
+            {   
                 randomPos = GetRandomPosition();
                 bool isRestrict = RestrictArea(randomPos);
                 // Physics2D.OverlapCircle(point,radius) 를 사용해 일정 거리 내 중복 생성 방지
-                bool isOverlap = Physics2D.OverlapCircle(randomPos, spawnRadius) != null;
-                if (!isRestrict && !isOverlap)
+                //bool isOverlap = Physics2D.OverlapCircle(randomPos, spawnRadius) != null;
+                if (!isRestrict) //(!isRestrict && !isOverlap)
                 {
                     isValid = true;
+                    break;
                 }
                 PosAttempt++;
             }
-            while (!isValid && PosAttempt <= 10);
 
             if (isValid)
             {
@@ -48,9 +52,10 @@ public class ChestSpawner : MonoBehaviour
             }
             else
             {
-                checkAttempt++;
-                if (checkAttempt >= 30)
+                    failedAttempts++;
+                if (failedAttempts == 20)
                 {
+                    Debug.LogWarning("생성되지 않았습니다.");
                     return;
                 }
             }
