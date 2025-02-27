@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class ChestSpawner : MonoBehaviour
 {
@@ -20,8 +15,6 @@ public class ChestSpawner : MonoBehaviour
     //콜라이더 박스 사이즈
     [SerializeField] private Vector2 boxSize = new Vector2(3f, 3f);
 
-
-
     private void Start()
     {
         SpawnChest();
@@ -29,7 +22,6 @@ public class ChestSpawner : MonoBehaviour
 
     public void SpawnChest()
     {
-        
         for (int i = 0; i < chestCount; i++)
         {
             //유효한 장소인지 체크
@@ -38,7 +30,7 @@ public class ChestSpawner : MonoBehaviour
             Vector2 randomPos;
 
             while (PosAttempt <= 50)
-            {   
+            {
                 randomPos = GetRandomPosition();
                 // Physics2D.OverlapCircle() 를 사용해 일정 거리 이내에 생성 및 겹침 방지
                 bool isOverlap = Physics2D.OverlapCircle(randomPos, spawnRadius) != null;
@@ -57,14 +49,13 @@ public class ChestSpawner : MonoBehaviour
                 randomPos = GetRandomPosition();
                 Managers.Resource.Instantiate(CHEST, null, randomPos);
             }
-            
         }
     }
-    public bool IsOverlapBoxCollider(Vector2 position)
-    { 
-        return Physics2D.OverlapBox(position, boxSize + new Vector2(spawnRadius,spawnRadius) ,0f) != null;
-    }
 
+    public bool IsOverlapBoxCollider(Vector2 position)
+    {
+        return Physics2D.OverlapBox(position, boxSize + new Vector2(spawnRadius, spawnRadius), 0f) != null;
+    }
 
     //랜덤 생산구역
     public Vector2 GetRandomPosition()

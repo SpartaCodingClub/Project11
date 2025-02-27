@@ -2845,7 +2845,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_129
+      name: BearAttack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2866,7 +2866,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_130
+      name: BearAttack_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2887,7 +2887,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_131
+      name: BearAttack_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2908,7 +2908,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_132
+      name: BearAttack_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2929,7 +2929,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_133
+      name: BearAttack_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2950,7 +2950,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_134
+      name: BearAttack_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2971,7 +2971,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_135
+      name: BearAttack_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2992,7 +2992,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_136
+      name: BearAttack_7
       rect:
         serializedVersion: 2
         x: 448
@@ -3023,6 +3023,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BearAttack_0: 1787330122
+      BearAttack_1: -1077459902
+      BearAttack_2: 250545996
+      BearAttack_3: -1416842652
+      BearAttack_4: -1897954214
+      BearAttack_5: 235790710
+      BearAttack_6: -1348806287
+      BearAttack_7: -1929038253
       Bullet_FX_0: -80724939
       Bullet_FX_1: -1142131142
       Bullet_FX_2: -1573282308
@@ -3073,15 +3081,7 @@ TextureImporter:
       Free Smoke Fx  Pixel 05_126: 1086366418
       Free Smoke Fx  Pixel 05_127: -180602180
       Free Smoke Fx  Pixel 05_128: 287853632
-      Free Smoke Fx  Pixel 05_129: 1787330122
       Free Smoke Fx  Pixel 05_13: -321729571
-      Free Smoke Fx  Pixel 05_130: -1077459902
-      Free Smoke Fx  Pixel 05_131: 250545996
-      Free Smoke Fx  Pixel 05_132: -1416842652
-      Free Smoke Fx  Pixel 05_133: -1897954214
-      Free Smoke Fx  Pixel 05_134: 235790710
-      Free Smoke Fx  Pixel 05_135: -1348806287
-      Free Smoke Fx  Pixel 05_136: -1929038253
       Free Smoke Fx  Pixel 05_14: -1281283301
       Free Smoke Fx  Pixel 05_15: -260642608
       Free Smoke Fx  Pixel 05_16: 1221548125

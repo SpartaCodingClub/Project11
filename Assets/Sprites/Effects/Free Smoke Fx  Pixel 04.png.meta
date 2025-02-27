@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MushroomFx_0
+      name: ZombieAttackFx_0
       rect:
         serializedVersion: 2
         x: 0
@@ -304,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MushroomFx_1
+      name: ZombieAttackFx_1
       rect:
         serializedVersion: 2
         x: 64
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MushroomFx_2
+      name: ZombieAttackFx_2
       rect:
         serializedVersion: 2
         x: 128
@@ -346,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MushroomFx_3
+      name: ZombieAttackFx_3
       rect:
         serializedVersion: 2
         x: 192
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MushroomFx_4
+      name: ZombieAttackFx_4
       rect:
         serializedVersion: 2
         x: 256
@@ -388,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MushroomFx_5
+      name: ZombieAttackFx_5
       rect:
         serializedVersion: 2
         x: 320
@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MushroomFx_6
+      name: ZombieAttackFx_6
       rect:
         serializedVersion: 2
         x: 384
@@ -1547,13 +1547,13 @@ TextureImporter:
       Free Smoke Fx  Pixel 04_61: 298685871
       Free Smoke Fx  Pixel 04_62: 661547050
       Free Smoke Fx  Pixel 04_63: 11253414
-      MushroomFx_0: 1648110317
-      MushroomFx_1: -2076271819
-      MushroomFx_2: 1564295771
-      MushroomFx_3: 561697198
-      MushroomFx_4: 424355405
-      MushroomFx_5: -1776855583
-      MushroomFx_6: 1572568735
+      ZombieAttackFx_0: 1648110317
+      ZombieAttackFx_1: -2076271819
+      ZombieAttackFx_2: 1564295771
+      ZombieAttackFx_3: 561697198
+      ZombieAttackFx_4: 424355405
+      ZombieAttackFx_5: -1776855583
+      ZombieAttackFx_6: 1572568735
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

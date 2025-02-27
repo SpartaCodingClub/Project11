@@ -8,9 +8,14 @@ public enum Clip
     Ambient_Rain,
 
     Music_Title,
+    Music_Lobby,
+    Music_Game,
 
-    SoundFX_Rain,
+    SoundFX_TypingSound,
+    SoundFX_GetItem,
     SoundFX_Start,
+    SoundFX_Rain,
+
 }
 
 public class AudioManager
@@ -55,7 +60,7 @@ public class AudioManager
         }
     }
 
-    public void Play(Clip key)
+    public void Play(Clip key, float volumeScale = 1.0f)
     {
         Type type;
         try
@@ -80,28 +85,28 @@ public class AudioManager
         switch (type)
         {
             case Type.Ambient:
-                Play_Ambient(audioSource, clip);
+                Play_Ambient(audioSource, clip, volumeScale);
                 break;
             case Type.Music:
-                Play_Music(audioSource, clip);
+                Play_Music(audioSource, clip, volumeScale);
                 break;
             case Type.MusicFX:
                 Debug.LogWarning($"Failed to Play({key})");
                 break;
             case Type.SoundFX:
-                Play_SoundFX(audioSource, clip);
+                Play_SoundFX(audioSource, clip, volumeScale);
                 break;
         }
     }
 
-    private void Play_Ambient(AudioSource audioSource, AudioClip clip)
+    private void Play_Ambient(AudioSource audioSource, AudioClip clip, float volumeScale)
     {
         audioSource.clip = clip;
-        audioSource.DOFade(VOLUMES[(int)Type.Ambient], 1.0f).From(0.0f);
+        audioSource.DOFade(VOLUMES[(int)Type.Ambient] * volumeScale, 1.0f).From(0.0f);
         audioSource.Play();
     }
 
-    private void Play_Music(AudioSource audioSource, AudioClip clip)
+    private void Play_Music(AudioSource audioSource, AudioClip clip, float volumeScale)
     {
         if (audioSource.clip != null)
         {
@@ -109,7 +114,7 @@ public class AudioManager
         }
 
         audioSource.clip = clip;
-        audioSource.DOFade(VOLUMES[(int)Type.Music], 2.0f).From(0.0f);
+        audioSource.DOFade(VOLUMES[(int)Type.Music] * volumeScale, 2.0f).From(0.0f);
         audioSource.Play();
     }
 
@@ -123,14 +128,14 @@ public class AudioManager
         audioSource.Play();
     }
 
-    private void Play_SoundFX(AudioSource audioSource, AudioClip clip)
+    private void Play_SoundFX(AudioSource audioSource, AudioClip clip, float volumeScale)
     {
         if (soundClips.Add(clip) == false)
         {
             return;
         }
 
-        audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clip, volumeScale);
         DOVirtual.DelayedCall(0.1f, () => soundClips.Remove(clip));
     }
 

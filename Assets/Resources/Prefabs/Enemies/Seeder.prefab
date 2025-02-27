@@ -127,7 +127,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   weaponType: 1
   projectile: {fileID: 9152838822184997493, guid: 1ebaf1612b3aa554f89cc89042fe2b34, type: 3}
   AttackCount: 2
+  AttakInterval: 0
   SpreadAngle: 15
   ProjectileCount: 1
 --- !u!114 &3350236240002033920

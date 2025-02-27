@@ -266,7 +266,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -331,6 +331,7 @@ MonoBehaviour:
   weaponType: 1
   projectile: {fileID: 1980412927100358878, guid: 8927047a10b32a34fb994898cdf84f82, type: 3}
   AttackCount: 3
+  AttakInterval: 0
   SpreadAngle: 15
   ProjectileCount: 1
 --- !u!114 &2216893007699576789
