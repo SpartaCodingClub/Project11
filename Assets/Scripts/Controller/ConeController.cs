@@ -23,25 +23,25 @@ public class ConeController : ObjectController
         animator.SetFloat("MotionTime", random);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.collider.CompareTag(Define.Bullet))
+        if (collider.CompareTag(Define.Bullet))
         {
-            lookDirection = (collision.transform.position - transform.position).normalized;;
+            lookDirection = (collider.transform.position - transform.position).normalized;;
 
             Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
 
             //저항 설정
-            rb.mass = 1.0f;
-            rb.drag = 3.0f;
-            rb.angularDrag = 10.0f;
+            //rb.mass = 1.0f;
+            //rb.drag = 3.0f;
+            //rb.angularDrag = 10.0f;
 
             //플레이어가 있는 반대 방향으로 튕겨나가도록 힘을 가한다.
-            rb.AddForce(lookDirection * -10.0f, ForceMode2D.Impulse);
-            rb.AddTorque(-10f, ForceMode2D.Impulse);
+            rb.AddForce(lookDirection * -200.0f, ForceMode2D.Impulse);
+            rb.AddTorque(-100f, ForceMode2D.Impulse);
 
             //쓰러지면 충돌처리가 되지 않게끔 처리
-            this.GetComponent<Collider2D>().enabled = false;
+            //this.GetComponent<Collider2D>().enabled = false;
 
             Death();
         }

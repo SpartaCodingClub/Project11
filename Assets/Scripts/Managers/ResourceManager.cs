@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class ResourceManager
 {
@@ -10,15 +11,6 @@ public class ResourceManager
         {
             Debug.LogWarning($"Failed to GetComponent<{typeof(T).Name}>()");
             return null;
-        }
-
-        if (@base is UI_Base)
-        {
-            @base.Birth();
-        }
-        else
-        {
-            @base.Stand();
         }
 
         return @base;
@@ -37,15 +29,27 @@ public class ResourceManager
                 return null;
             }
 
-            gameObject = Object.Instantiate(original, parent);
-            gameObject.name = original.name;
+            gameObject = Instantiate(original, parent);
         }
         else
         {
             gameObject.transform.SetParent(parent);
         }
 
+        if (gameObject.TryGetComponent<BaseController>(out var @base))
+        {
+            @base.Birth();
+        }
+
         gameObject.transform.position = position;
+        return gameObject;
+    }
+
+    public GameObject Instantiate(GameObject original, Transform parent)
+    {
+        GameObject gameObject = Object.Instantiate(original, parent);
+        gameObject.name = original.name;
+
         return gameObject;
     }
 

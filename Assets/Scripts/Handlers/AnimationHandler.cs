@@ -9,7 +9,7 @@ public class AnimationHandler : MonoBehaviour
     public AnimationAttackHandler AttackHandler { get; private set; }
     public AnimationDestroyHandler DestroyHandler { get; private set; }
 
-    private void Awake()
+    private void OnEnable()
     {
         Animator = gameObject.GetComponent<Animator>();
 
