@@ -14,24 +14,61 @@ public class ObstacleSpawner : MonoBehaviour
         Barricade,
         Count
     }
+    public enum Monster
+    {
+        Bat,
+        Bear,
+        MushRoom,
+        Seeder,
+        Snake,
+        Spider,
+        Zombie,
+        Count
+    }
     public Tilemap area;
+    public Transform obstacleContain;
+    public Transform monstercontain;
 
-    public IEnumerator Spawn(int obstacleCount)
+    public IEnumerator ObstacleSpawn(int count)
     {
         int attempt = 1000;
 
         if (area != null)
         {
-            for (int i = 0; i < obstacleCount; i++)
+            for (int i = 0; i < count; i++)
             {
                 Vector2 pos = GetRandomPositionInSpawnArea(area);
-                
+
                 int ran = Random.Range(0, 3);
                 if (ran == 0)
                     ran = (int)Obstacle.Barricade;
                 else
                     ran = (int)Obstacle.Cone;
-                GameObject obj = Managers.Resource.Instantiate(((Obstacle)ran).ToString(), null, pos);
+                GameObject obj = Managers.Resource.Instantiate(((Obstacle)ran).ToString(), obstacleContain, pos);
+                BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
+                if (IsOverLapping(pos, collider))
+                {
+                    Managers.Resource.Destroy(obj);
+                    i--;
+                    attempt--;
+                    if (attempt <= 0)
+                        yield break;
+                }
+                yield return null;
+            }
+        }
+    }
+    public IEnumerator MonsterSpawn(int count)
+    {
+        int attempt = 1000;
+
+        if (area != null)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Vector2 pos = GetRandomPositionInSpawnArea(area);
+                int ran = Random.Range(0, (int)Monster.Count);
+                GameObject obj = Managers.Resource.Instantiate(((Monster)ran).ToString(), monstercontain, pos, Define.ENEMIES);
                 BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
                 if (IsOverLapping(pos, collider))
                 {
@@ -63,10 +100,10 @@ public class ObstacleSpawner : MonoBehaviour
         return Area.CellToWorld(randPos);
     }
 
-    bool IsOverLapping(Vector2 pos,BoxCollider2D collider)
+    bool IsOverLapping(Vector2 pos, BoxCollider2D collider)
     {
-        Collider2D hit = Physics2D.OverlapBox(pos, collider.size * new Vector2(1.5f,1.5f),0);
-        return hit!= null;
+        Collider2D hit = Physics2D.OverlapBox(pos, collider.size * new Vector2(1.5f, 1.5f), 0);
+        return hit != null;
     }
 
 }

@@ -1827,7 +1827,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1257613657, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 254257326, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1872,7 +1872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.7296866
+  normalizedTime: 0.78246677
 --- !u!114 &1881477816655460002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,7 +1899,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36726
+  m_InstanceId: 76510
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -1979,7 +1979,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1426083563, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 188103381, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.4040982
+  normalizedTime: 0.28894883
 --- !u!114 &1846947376087129337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36786
+  m_InstanceId: 76508
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -3718,6 +3718,37 @@ Transform:
   - {fileID: 7444080576452129975}
   m_Father: {fileID: 4554448126593866231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1773874097017267505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8949002274816097630}
+  m_Layer: 0
+  m_Name: MonsterContain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8949002274816097630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773874097017267505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4554448126593866231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1975380945603955534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,7 +5184,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 773000623, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: -1257613657, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5198,7 +5229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.55912787
+  normalizedTime: 0.34655446
 --- !u!114 &6460620199128193221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5225,7 +5256,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36738
+  m_InstanceId: 76676
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -5305,7 +5336,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1257613657, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 188103381, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5350,7 +5381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.35459024
+  normalizedTime: 0.26055712
 --- !u!114 &928135770380882828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5377,7 +5408,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36822
+  m_InstanceId: 76470
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -5457,7 +5488,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1257613657, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 1463895887, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5502,7 +5533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.03288448
+  normalizedTime: 0.8917471
 --- !u!114 &988751635512055424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5529,7 +5560,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36750
+  m_InstanceId: 76472
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -5563,6 +5594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8445539278002588899}
   - {fileID: 1475660242321795829}
   - {fileID: 6611491309470387687}
   - {fileID: 7305832524223397488}
@@ -5570,7 +5602,6 @@ Transform:
   - {fileID: 9089939845068003915}
   - {fileID: 9089241290270720284}
   - {fileID: 2956610066048654324}
-  - {fileID: 8445539278002588899}
   m_Father: {fileID: 4554448126593866231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &3079549724451395200
@@ -5661,7 +5692,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1426083563, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 2088417112, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5706,7 +5737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.51376015
+  normalizedTime: 0.41807526
 --- !u!114 &2805047393463198887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5733,10 +5764,41 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36714
+  m_InstanceId: 76538
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
+--- !u!1 &4340346480559564394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8714570463693446264}
+  m_Layer: 0
+  m_Name: ObstacleContain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8714570463693446264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340346480559564394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4554448126593866231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5177009791135832048
 GameObject:
   m_ObjectHideFlags: 0
@@ -5858,7 +5920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.9756335
+  normalizedTime: 0.20156717
 --- !u!1 &5191854476419227266
 GameObject:
   m_ObjectHideFlags: 0
@@ -5935,7 +5997,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -600186557, guid: ba308a97b81f22a438b0ac41eafa9390, type: 3}
+  m_Sprite: {fileID: -264419932, guid: ba308a97b81f22a438b0ac41eafa9390, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5980,7 +6042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.44837683
+  normalizedTime: 0.8072369
 --- !u!1 &5338286613537976733
 GameObject:
   m_ObjectHideFlags: 0
@@ -6013,6 +6075,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3489580397051613370}
+  - {fileID: 8949002274816097630}
+  - {fileID: 8714570463693446264}
   - {fileID: 1298513593751226507}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6042,6 +6106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 7357593161619699018}
+  obstacleContain: {fileID: 8714570463693446264}
+  monstercontain: {fileID: 8949002274816097630}
 --- !u!1 &5473159764162377677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6213,7 +6279,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1426083563, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: -440197036, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6258,7 +6324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.7448094
+  normalizedTime: 0.0007677078
 --- !u!114 &484916563938007214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6285,7 +6351,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36810
+  m_InstanceId: 76460
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -8309,7 +8375,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 773000623, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: -440197036, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8354,7 +8420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.14834845
+  normalizedTime: 0.046905994
 --- !u!114 &1494008016269854402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8381,7 +8447,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36702
+  m_InstanceId: 76486
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -8461,7 +8527,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 773000623, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 58422936, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8506,7 +8572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.74180424
+  normalizedTime: 0.71300256
 --- !u!114 &2763429598684611176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8533,7 +8599,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36774
+  m_InstanceId: 76536
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -22864,7 +22930,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2088417112, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 254257326, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -22909,7 +22975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.9298333
+  normalizedTime: 0.7865342
 --- !u!114 &6337850827774818306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22936,7 +23002,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36690
+  m_InstanceId: 76666
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -23016,7 +23082,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 188103381, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 773000623, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -23061,7 +23127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.08636451
+  normalizedTime: 0.14425874
 --- !u!114 &6482921139152439574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23088,7 +23154,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36762
+  m_InstanceId: 76678
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -23213,7 +23279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.839605
+  normalizedTime: 0.5609297
 --- !u!1 &7963353423001634788
 GameObject:
   m_ObjectHideFlags: 0
@@ -23385,7 +23451,7 @@ SpriteRenderer:
   m_SortingLayerID: 1054784193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1257613657, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
+  m_Sprite: {fileID: 188103381, guid: e9d290c59f27fff41b69260dcc19597f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -23430,7 +23496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.20191741
+  normalizedTime: 0.31879014
 --- !u!114 &4143277191425297589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23457,7 +23523,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 0}
   m_ShapePathHash: 1905653013
   m_Mesh: {fileID: 0}
-  m_InstanceId: -36798
+  m_InstanceId: 76578
   m_LocalBounds:
     m_Center: {x: 0, y: 0.5, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -23582,4 +23648,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomableObject: 1
-  normalizedTime: 0.52537507
+  normalizedTime: 0.60073525
