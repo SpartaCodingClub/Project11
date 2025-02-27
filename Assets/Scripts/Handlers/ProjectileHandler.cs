@@ -8,8 +8,6 @@ public class ProjectileHandler : MonoBehaviour
     [SerializeField]
     private WeaponType weaponType;
 
-    [ShowIf("weaponType", WeaponType.Range)]
-    [Tooltip("투사체 프리팹")]
     [SerializeField]
     private ProjectileController projectile;
 
@@ -58,7 +56,8 @@ public class ProjectileHandler : MonoBehaviour
 
     private void MeleeAttack(Vector2 startPosition, Vector2 targetDirection)
     {
-        GameObject projectile = Managers.Resource.Instantiate(Define.Melee, null, startPosition, Define.PROJECTILE);
+        string key = this.projectile.name;
+        GameObject projectile = Managers.Resource.Instantiate(key, null, startPosition, Define.PROJECTILE);
 
         BoxCollider2D collider = projectile.GetComponent<BoxCollider2D>();
         collider.size = new(statHandler.AttackRange, 1.0f);
