@@ -57,7 +57,7 @@ public class PlayerController : ObjectController
 
         if (Input.GetKey(KeyCode.Space))
         {
-            if (transform.position.z != 0)
+            if (transform.localPosition.z != 0 || actionState == ActionState.Attack)
             {
                 return;
             }

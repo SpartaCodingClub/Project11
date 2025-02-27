@@ -84,7 +84,6 @@ public class ProjectileController : BaseController
             Vector2 position = speed == 0.0f ? Managers.Game.Player.transform.position : transform.position;
             GameObject effectObject = Managers.Resource.Instantiate(key, null, position, Define.EFFECT);
             var @object = effectObject.GetComponent<ObjectController>();
-            @object.Attack();
             @object.Death();
         }
 
