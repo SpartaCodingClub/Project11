@@ -5,47 +5,91 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
+
 public class ObstacleSpawner : MonoBehaviour
 {
-    public Tilemap spawnArea;
-    private HashSet<Vector2> usedPositions = new HashSet<Vector2>(); // 중복 방지
-    [SerializeField] private GameObject[] obstaclePrefabs;
-    [SerializeField] private int obstacleCount = 40;
-    [SerializeField] Transform contain;
-
-    public void SpawnObstacle()
+    public enum Obstacle
     {
-        usedPositions.Clear();
-        int attempt = 1000;
-        for (int i = 0; i < obstacleCount; i++)
-        {
-            Vector2 pos = GetRandomPositionInSpawnArea();
-            GameObject obstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
-            BoxCollider2D collider = obstacle.GetComponent<BoxCollider2D>();
+        Cone,
+        Barricade,
+        Count
+    }
+    public enum Monster
+    {
+        Bat,
+        Bear,
+        MushRoom,
+        Seeder,
+        Snake,
+        Spider,
+        Zombie,
+        Count
+    }
+    public Tilemap area;
+    public Transform obstacleContain;
+    public Transform monstercontain;
 
-            if (!OverLine(pos, collider))
+    public IEnumerator ObstacleSpawn(int count)
+    {
+        int attempt = 1000;
+
+        if (area != null)
+        {
+            for (int i = 0; i < count; i++)
             {
-                SetUsedPosition(pos, collider);
-                Instantiate(obstacle, pos + new Vector2(0.5f, 0.5f), Quaternion.identity, contain);
-            }
-            else
-            {
-                i--;
-                attempt--;
-                if (attempt <= 0)
-                    return;
+                Vector2 pos = GetRandomPositionInSpawnArea(area);
+
+                int ran = Random.Range(0, 3);
+                if (ran == 0)
+                    ran = (int)Obstacle.Barricade;
+                else
+                    ran = (int)Obstacle.Cone;
+                GameObject obj = Managers.Resource.Instantiate(((Obstacle)ran).ToString(), obstacleContain, pos);
+                BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
+                if (IsOverLapping(pos, collider))
+                {
+                    Managers.Resource.Destroy(obj);
+                    i--;
+                    attempt--;
+                    if (attempt <= 0)
+                        yield break;
+                }
+                yield return null;
             }
         }
     }
-    // spawnArea 내 랜덤 좌표 반환
-    public Vector2 GetRandomPositionInSpawnArea()
+    public IEnumerator MonsterSpawn(int count)
     {
-        BoundsInt area = spawnArea.cellBounds;
+        int attempt = 1000;
+
+        if (area != null)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Vector2 pos = GetRandomPositionInSpawnArea(area);
+                int ran = Random.Range(0, (int)Monster.Count);
+                GameObject obj = Managers.Resource.Instantiate(((Monster)ran).ToString(), monstercontain, pos, Define.ENEMIES);
+                BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
+                if (IsOverLapping(pos, collider))
+                {
+                    Managers.Resource.Destroy(obj);
+                    i--;
+                    attempt--;
+                    if (attempt <= 0)
+                        yield break;
+                }
+                yield return null;
+            }
+        }
+    }
+    Vector2 GetRandomPositionInSpawnArea(Tilemap Area)
+    {
+        BoundsInt area = Area.cellBounds;
         List<Vector3Int> allArea = new List<Vector3Int>();
 
         foreach (var pos in area.allPositionsWithin)
         {
-            if (spawnArea.HasTile(pos))
+            if (Area.HasTile(pos))
                 allArea.Add(pos);
         }
 
@@ -53,73 +97,14 @@ public class ObstacleSpawner : MonoBehaviour
             return Vector2.zero;
 
         Vector3Int randPos = allArea[Random.Range(0, allArea.Count)];
-        return spawnArea.CellToWorld(randPos);
+        return Area.CellToWorld(randPos);
     }
-    // 사용된 좌표 저장
-    public void SetUsedPosition(Vector2 position, BoxCollider2D collider)
-    {
-        Vector2 minPos = position - collider.size * 0.5f;
-        Vector2 maxPos = position + collider.size * 0.5f;
 
-        for (int x = Mathf.CeilToInt(minPos.x); x <= Mathf.FloorToInt(maxPos.x); x++)
-        {
-            for (int y = Mathf.CeilToInt(minPos.y); y <= Mathf.FloorToInt(maxPos.y); y++)
-            {
-                usedPositions.Add(new Vector2(x, y));
-            }
-        }
-    }
-    // 스폰 위치를 넘어갔는지, 장애물이 겹치는지 판단
-    public bool OverLine(Vector2 position, BoxCollider2D collider)
+    bool IsOverLapping(Vector2 pos, BoxCollider2D collider)
     {
-        Vector2 minPos = position - collider.size * 0.5f;
-        Vector2 maxPos = position + collider.size * 0.5f;
-        BoundsInt area = spawnArea.cellBounds;
-
-        for (int x = Mathf.CeilToInt(minPos.x); x <= Mathf.FloorToInt(maxPos.x); x++)
-        {
-            for (int y = Mathf.CeilToInt(minPos.y); y <= Mathf.FloorToInt(maxPos.y); y++)
-            {
-                Vector3Int tilePos = spawnArea.WorldToCell(new Vector3(x, y, 0));
-                if (!spawnArea.HasTile(tilePos) || usedPositions.Contains(new Vector2(x, y)))
-                    return true;
-            }
-        }
-        return false;
+        Collider2D hit = Physics2D.OverlapBox(pos, collider.size * new Vector2(1.5f, 1.5f), 0);
+        return hit != null;
     }
+
 }
 
-//// 장애물이 겹치는지 판단
-//public bool SetObstacle(Vector2 position, BoxCollider2D collider)
-//{
-//    Vector2 minPos = position - collider.size * 0.5f;
-//    Vector2 maxPos = position + collider.size * 0.5f;
-
-//    for (int x = Mathf.CeilToInt(minPos.x); x <= Mathf.FloorToInt(maxPos.x); x++)
-//    {
-//        for (int y = Mathf.CeilToInt(minPos.y); y <= Mathf.FloorToInt(maxPos.y); y++)
-//        {
-//            if (usedPositions.Contains(new Vector2(x, y)))
-//                return true;
-//        }
-//    }
-//    return false;
-//}
-//// 스폰 위치를 넘어갔는지 판단
-//public bool OverLine(Vector2 position, BoxCollider2D collider)
-//{
-//    Vector2 minPos = position - collider.size * 0.5f;
-//    Vector2 maxPos = position + collider.size * 0.5f;
-//    BoundsInt area = spawnArea.cellBounds;
-
-//    for (int x = Mathf.CeilToInt(minPos.x); x <= Mathf.FloorToInt(maxPos.x); x++)
-//    {
-//        for (int y = Mathf.CeilToInt(minPos.y); y <= Mathf.FloorToInt(maxPos.y); y++)
-//        {
-//            Vector3Int tilePos = spawnArea.WorldToCell(new Vector3(x, y, 0));
-//            if (!spawnArea.HasTile(tilePos))
-//                return true;
-//        }
-//    }
-//    return false;
-//}
