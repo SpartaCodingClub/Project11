@@ -32,7 +32,11 @@ public class PlayerController : ObjectController
     public override void Birth()
     {
         base.Birth();
-        animationHandler.AttackHandler.OnEnter += () => projectileHandler.RangeAttack(HandPivot.position, lookDirection);
+        animationHandler.AttackHandler.OnEnter += () =>
+        {
+            projectileHandler.RangeAttack(HandPivot.position, lookDirection);
+            Managers.Audio.Play(Clip.SoundFX_Shooting);
+        };
     }
 
     public override void Death()
