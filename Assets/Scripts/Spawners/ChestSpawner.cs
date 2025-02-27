@@ -1,78 +1,56 @@
+using System.Collections;
 using UnityEngine;
 
 public class ChestSpawner : MonoBehaviour
 {
-    private static readonly string CHEST = "Chest";
+    #region Inspector
+    [SerializeField]
+    private int chestCount = 10;
 
-    [SerializeField] private GameObject chestPrefabs;
-    [SerializeField] private int chestCount = 10;
     // 중복방지 거리
-    [SerializeField] private float spawnRadius = 3f;
+    [SerializeField]
+    private float spawnRadius = 3f;
+    #endregion
 
-    //로비맵 좌표    
-    [SerializeField] private float minX = -20.5f, maxX = 24.5f;
-    [SerializeField] private float minY = -4.1f, maxY = 20.5f;
+    private readonly string CHEST = "Chest";
+    private readonly float MIN_X = -20.5f, MAX_X = 24.5f;
+    private readonly float MIN_Y = -4.1f, MAX_Y = 20.5f;
+
     //콜라이더 박스 사이즈
-    [SerializeField] private Vector2 boxSize = new Vector2(3f, 3f);
+    private readonly Vector2 boxSize = new(3.0f, 3.0f);
 
     private void Start()
     {
-        SpawnChest();
+        StartCoroutine(Spawning());
     }
 
-    public void SpawnChest()
+    private IEnumerator Spawning()
     {
         for (int i = 0; i < chestCount; i++)
         {
-            //유효한 장소인지 체크
-            bool isValid = false;
-            int PosAttempt = 0;
-            Vector2 randomPos;
-
-            while (PosAttempt <= 50)
+            for (int j = 0; j < 100; j++)
             {
-                randomPos = GetRandomPosition();
-                // Physics2D.OverlapCircle() 를 사용해 일정 거리 이내에 생성 및 겹침 방지
-                bool isOverlap = Physics2D.OverlapCircle(randomPos, spawnRadius) != null;
-                // Physics2D.OverlapBox() 를 사용해 일정 거리 이내에 오브젝트랑 생성 및 겹침 방지
-                bool isOverlapBoxCollider = IsOverlapBoxCollider(randomPos);
-                if (!isOverlap && !isOverlapBoxCollider)
+                Vector2 randomPos = GetRandomPosition();
+
+                var colliders = Physics2D.OverlapBoxAll(randomPos, boxSize, 0);
+                if (colliders.Length > 0)
                 {
-                    isValid = true;
-                    break;
+                    continue;
                 }
-                PosAttempt++;
-            }
 
-            if (isValid)
-            {
-                randomPos = GetRandomPosition();
                 Managers.Resource.Instantiate(CHEST, null, randomPos);
+                yield return new WaitForSeconds(0.2f);
+                break;
             }
         }
-    }
-
-    public bool IsOverlapBoxCollider(Vector2 position)
-    {
-        return Physics2D.OverlapBox(position, boxSize + new Vector2(spawnRadius, spawnRadius), 0f) != null;
     }
 
     //랜덤 생산구역
     public Vector2 GetRandomPosition()
     {
         return new Vector2(
-            Random.Range(minX, maxX),
-            Random.Range(minY, maxY)
+            Random.Range(MIN_X, MAX_X),
+            Random.Range(MIN_Y, MAX_Y)
         );
     }
-
-    //플레이어가 충돌시 스포너 실행
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        Debug.LogWarning("Player");
-
-    //    }
-    //}
 }

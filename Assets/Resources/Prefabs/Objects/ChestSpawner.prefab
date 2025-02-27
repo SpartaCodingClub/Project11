@@ -118,11 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98531e325aa2ca84980e8fb5650b90e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestPrefabs: {fileID: 4938303273640905768, guid: 5daa5e2af2d67644ebd078a181d4dd80, type: 3}
-  chestCount: 10
+  chestCount: 20
   spawnRadius: 3
-  minX: -20.5
-  maxX: 24.5
-  minY: -4.1
-  maxY: 20.5
-  boxSize: {x: 3, y: 3}
