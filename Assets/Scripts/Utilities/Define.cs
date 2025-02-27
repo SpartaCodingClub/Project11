@@ -53,6 +53,7 @@ public class Define
     };
     #endregion
     #region Layer
+    public static readonly string Boss = nameof(Boss);
     public static readonly string Monster = nameof(Monster);
     public static readonly string Obstacle = nameof(Obstacle);
     public static readonly string Player = nameof(Player);
