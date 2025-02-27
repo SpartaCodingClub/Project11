@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileController : BaseController
@@ -16,8 +17,8 @@ public class ProjectileController : BaseController
     private Rigidbody2D _rigidbody;
 
     private float damage;
-    private int obstacleLayer;
-    private int targetLayer;
+
+    private readonly List<int> targetLayers = new();
 
     private void Awake()
     {
@@ -27,16 +28,17 @@ public class ProjectileController : BaseController
     public void SetProjectile(bool isPlayer, float damage, Vector2 targetDirection)
     {
         this.damage = damage;
-        obstacleLayer = LayerMask.NameToLayer(Define.Obstacle);
 
         if (isPlayer)
         {
-            targetLayer = LayerMask.NameToLayer(Define.Monster);
+            targetLayers.Add(LayerMask.NameToLayer(Define.Monster));
+            targetLayers.Add(LayerMask.NameToLayer(Define.Boss));
         }
         else
         {
-            targetLayer = LayerMask.NameToLayer(Define.Player);
+            targetLayers.Add(LayerMask.NameToLayer(Define.Player));
         }
+        targetLayers.Add(LayerMask.NameToLayer(Define.Obstacle));
 
         if (speed == 0.0f)
         {
@@ -58,15 +60,19 @@ public class ProjectileController : BaseController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject targetObject = collision.gameObject;
-        if (targetObject.layer == obstacleLayer)
+        if (targetLayers.Count == 0)
         {
-            Destroy();
+            return;
         }
-        else if (targetObject.layer == targetLayer)
+
+        GameObject targetObject = collision.gameObject;
+        foreach (var targetLayer in targetLayers)
         {
-            // 데미지 처리
-            Destroy();
+            if (targetObject.layer == targetLayer)
+            {
+                Destroy();
+                break;
+            }
         }
     }
 
@@ -81,5 +87,6 @@ public class ProjectileController : BaseController
         }
 
         base.Destroy();
+        targetLayers.Clear();
     }
 }
