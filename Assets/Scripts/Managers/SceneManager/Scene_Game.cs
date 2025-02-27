@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Scene_Game : Scene_Base
@@ -31,6 +32,13 @@ public class Scene_Game : Scene_Base
 
     private void GenerateMap(int obstacleCount, int monsterCount)
     {
+        if (currentSpawner != null && nextSpawner != null)
+        {
+            Destroy(currentSpawner.gameObject);
+            currentSpawner = nextSpawner;
+            //currentSpawner.Enemies.gameObject.SetActive(true);
+        }
+
         GameObject map = Managers.Resource.Instantiate(Define.MAP, null, new(0, MAP_SIZE_Y * nextStage), Define.MAP);
         MapObjectSpawner spawner = map.GetComponent<MapObjectSpawner>();
         spawner.MapObjectSpawn(obstacleCount, monsterCount);
@@ -43,7 +51,10 @@ public class Scene_Game : Scene_Base
         {
             nextSpawner = spawner;
         }
-
+        //if(nextSpawner != null)
+        //    nextSpawner.Enemies.gameObject.SetActive(false);
+        currentStage = nextStage;
+        
         nextStage++;
     }
 }
