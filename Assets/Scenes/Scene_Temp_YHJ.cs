@@ -11,7 +11,7 @@ public class Scene_Temp_YHJ : Scene_Base
         //Managers.Resource.Instantiate("Bear", null, 1.0f * Vector2.one, Define.ENEMIES);
         //Managers.Resource.Instantiate("Zombie", null, 1.0f * Vector2.one, Define.ENEMIES);
         //Managers.Resource.Instantiate("Mushroom", null, 1.0f * Vector2.one, Define.ENEMIES);
-        
+        Managers.Resource.Instantiate("Skeleton", null, 5.0f * new Vector2(-1,-1), Define.ENEMIES);
 
     }
 }
