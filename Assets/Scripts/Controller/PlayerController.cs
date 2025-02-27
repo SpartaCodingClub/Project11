@@ -50,7 +50,11 @@ public class PlayerController : ObjectController
     protected override void Landing()
     {
         base.Landing();
-        Managers.Resource.Instantiate(LANDING_EFFECT, null, transform.position - new Vector3(0, 0.6f, 0), Define.EFFECT).GetComponent<ObjectController>().Death();
+
+        Vector2 newPosition = transform.position;
+        newPosition.y -= 0.6f;
+
+        Managers.Resource.Instantiate(LANDING_EFFECT, null, newPosition, Define.EFFECT).GetComponent<ObjectController>().Death();
     }
 
     protected override void HandleLogic()
