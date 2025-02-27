@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3158877797030638957}
   - component: {fileID: 2383925785051004607}
   - component: {fileID: 7721110248321318536}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MainRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -199,7 +199,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -247,7 +247,7 @@ MonoBehaviour:
   Damage: 1
   MoveSpeed: 3
   JumpPower: 0
-  Gravity: 9.8
+  Gravity: 0
   VelocityZ: 0
 --- !u!114 &8715028932385570429
 MonoBehaviour:

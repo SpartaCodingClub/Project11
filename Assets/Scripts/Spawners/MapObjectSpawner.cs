@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
 public class MapObjectSpawner : MonoBehaviour
 {
     public enum Obstacle
@@ -25,13 +24,15 @@ public class MapObjectSpawner : MonoBehaviour
         Count
     }
 
-    private Tilemap SpawnArea;
+    private Tilemap ObstacleSpawnArea;
+    private Tilemap EnemySpawnArea;
     private Transform Obstacles;
-    private Transform Enemies;
+    public Transform Enemies;
 
     private void Awake()
     {
-        SpawnArea = gameObject.FindComponent<Tilemap>(nameof(SpawnArea));
+        ObstacleSpawnArea = gameObject.FindComponent<Tilemap>(nameof(ObstacleSpawnArea));
+        EnemySpawnArea = gameObject.FindComponent<Tilemap>(nameof(EnemySpawnArea));
         Obstacles = gameObject.FindComponent<Transform>(nameof(Obstacles));
         Enemies = gameObject.FindComponent<Transform>(nameof(Enemies));
     }
@@ -61,7 +62,7 @@ public class MapObjectSpawner : MonoBehaviour
                 Obstacle obstacleType = randomIndex == 0 ? Obstacle.Barricade : Obstacle.Cone;
 
                 // 장애물 생성하기
-                GameObject gameObject = Managers.Resource.Instantiate(obstacleType.ToString(), null, randomPos);
+                GameObject gameObject = Managers.Resource.Instantiate(obstacleType.ToString(), Obstacles, randomPos);
                 BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
 
                 // 장애물 충돌 검사
@@ -90,7 +91,7 @@ public class MapObjectSpawner : MonoBehaviour
                 Enemy enemyType = (Enemy)Random.Range(0, (int)Enemy.Count);
 
                 // 몬스터 생성하기
-                GameObject gameObject = Managers.Resource.Instantiate(enemyType.ToString(), null, randomPos, Define.ENEMIES);
+                GameObject gameObject = Managers.Resource.Instantiate(enemyType.ToString(), Enemies, randomPos, Define.ENEMIES);
                 BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
 
                 // 몬스터 충돌 검사
@@ -110,10 +111,10 @@ public class MapObjectSpawner : MonoBehaviour
     {
         List<Vector3Int> positions = new();
 
-        BoundsInt bounds = SpawnArea.cellBounds;
+        BoundsInt bounds = ObstacleSpawnArea.cellBounds;
         foreach (var position in bounds.allPositionsWithin)
         {
-            if (SpawnArea.HasTile(position))
+            if (ObstacleSpawnArea.HasTile(position))
             {
                 positions.Add(position);
             }
@@ -125,7 +126,7 @@ public class MapObjectSpawner : MonoBehaviour
         }
 
         Vector3Int randomCell = positions[Random.Range(0, positions.Count)];
-        return SpawnArea.CellToWorld(randomCell);
+        return ObstacleSpawnArea.CellToWorld(randomCell);
     }
 
     bool IsOverLapping(Vector2 randomPosition, BoxCollider2D collider)

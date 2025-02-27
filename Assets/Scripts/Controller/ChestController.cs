@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ChestController : ObjectController
 {
-
     protected override void Initialize()
     {
         base.Initialize();
@@ -11,12 +10,15 @@ public class ChestController : ObjectController
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         if (collider.CompareTag("Player"))
         {
-            Debug.Log(collider.name);
             Death();
             Managers.Audio.Play(Clip.SoundFX_GetItem);
         }
     }
-
 }

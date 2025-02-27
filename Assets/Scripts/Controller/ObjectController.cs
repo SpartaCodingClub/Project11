@@ -16,14 +16,15 @@ public class ObjectController : BaseController
         Attack
     }
 
+    public StatHandler StatHandler { get; private set; }
+
     protected Vector2 lookDirection = Vector2.down;
     protected Vector2 moveDirection;
 
     protected Transform MainRenderer;
     protected AnimationHandler animationHandler;
-    protected StatHandler statHandler;
 
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     protected bool moving;
     protected bool jumping;
@@ -47,18 +48,29 @@ public class ObjectController : BaseController
         }
 
         animationHandler = MainRenderer.GetOrAddComponent<AnimationHandler>();
-        statHandler = gameObject.GetComponent<StatHandler>();
+        StatHandler = gameObject.GetComponent<StatHandler>();
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
     protected virtual void HandleLogic()
     {
+        if (StatHandler.CurrentHP <= 0 && !IsDead)
+        {
+            Death();
+            return;
+        }
+
         attackTimer += Time.deltaTime;
     }
 
     protected virtual void HandleAction()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         if (actionState == ActionState.Attack)
         {
             _rigidbody.velocity = Vector2.zero;
@@ -86,6 +98,11 @@ public class ObjectController : BaseController
 
     public override void Stand()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         base.Stand();
 
         actionState = ActionState.Idle;
@@ -106,32 +123,32 @@ public class ObjectController : BaseController
             return;
         }
 
-        if (attackTimer < statHandler.AttackDelay)
+        if (attackTimer < StatHandler.AttackDelay)
         {
             return;
         }
 
         actionState = ActionState.Attack;
         animationHandler.Attack(lookDirection);
-        animationHandler.Animator.SetFloat(Define.AttackSpeed, statHandler.AttackSpeed);
+        animationHandler.Animator.SetFloat(Define.AttackSpeed, StatHandler.AttackSpeed);
         attackTimer = 0.0f;
     }
 
     protected void Moving()
     {
-        moving = moveDirection.magnitude > 0.0f; ;
+        moving = moveDirection.magnitude > 0.0f;
         if (moving)
         {
             actionState = ActionState.Move;
         }
 
         animationHandler.Move(moving, moveDirection);
-        _rigidbody.velocity = statHandler.MoveSpeed * moveDirection;
+        _rigidbody.velocity = StatHandler.MoveSpeed * moveDirection;
     }
 
     protected virtual void Jumping()
     {
-        if (statHandler.JumpPower == 0.0f)
+        if (StatHandler.JumpPower == 0.0f)
         {
             return;
         }
@@ -139,12 +156,12 @@ public class ObjectController : BaseController
         float z = transform.position.z;
         jumping = z > 0.0f;
 
-        if (jumping || statHandler.VelocityZ > 0.0f)
+        if (jumping || StatHandler.VelocityZ > 0.0f)
         {
             actionState = ActionState.Jump;
-            statHandler.VelocityZ -= statHandler.Gravity * Time.deltaTime;
+            StatHandler.VelocityZ -= StatHandler.Gravity * Time.deltaTime;
 
-            z += statHandler.VelocityZ * Time.deltaTime;
+            z += StatHandler.VelocityZ * Time.deltaTime;
             if (z > 0.0f)
             {
                 transform.SetPositionZ(z);
@@ -166,7 +183,7 @@ public class ObjectController : BaseController
         transform.SetPositionZ(0.0f);
 
         MainRenderer.SetPositionZ(0.0f);
-        statHandler.VelocityZ = 0.0f;
+        StatHandler.VelocityZ = 0.0f;
         _rigidbody.excludeLayers = 0;
     }
 }

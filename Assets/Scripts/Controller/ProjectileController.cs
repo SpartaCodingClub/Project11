@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileController : BaseController
@@ -14,15 +13,16 @@ public class ProjectileController : BaseController
     private ObjectController effect;
     #endregion
 
-    private Rigidbody2D _rigidbody;
-
+    protected Rigidbody2D _rigidbody;
+    private int obstacleLayer;
     private float damage;
 
-    private readonly List<int> targetLayers = new();
+    private int targetLayer;
 
     private void Awake()
     {
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        obstacleLayer = LayerMask.NameToLayer(Define.Obstacle);
     }
 
     public void SetProjectile(bool isPlayer, float damage, Vector2 targetDirection)
@@ -31,18 +31,16 @@ public class ProjectileController : BaseController
 
         if (isPlayer)
         {
-            targetLayers.Add(LayerMask.NameToLayer(Define.Monster));
-            targetLayers.Add(LayerMask.NameToLayer(Define.Boss));
+            targetLayer = LayerMask.GetMask(Define.Monster, Define.Boss, Define.Obstacle);
         }
         else
         {
-            targetLayers.Add(LayerMask.NameToLayer(Define.Player));
+            targetLayer = LayerMask.GetMask(Define.Player, Define.Obstacle);
         }
-        targetLayers.Add(LayerMask.NameToLayer(Define.Obstacle));
 
         if (speed == 0.0f)
         {
-            DOVirtual.DelayedCall(0.5f, () =>
+            DOVirtual.DelayedCall(0.2f, () =>
             {
                 if (IsDead)
                 {
@@ -55,24 +53,34 @@ public class ProjectileController : BaseController
 
         var z = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
-        _rigidbody.velocity = targetDirection * speed;       
+        _rigidbody.velocity = targetDirection * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (targetLayers.Count == 0)
+        if (IsDead)
         {
             return;
         }
 
         GameObject targetObject = collision.gameObject;
-        foreach (var targetLayer in targetLayers)
+        int targetObjectLayer = 1 << targetObject.layer;
+        if ((targetObjectLayer & targetLayer) != 0)
         {
-            if (targetObject.layer == targetLayer)
+            if (targetObject.layer == obstacleLayer)
             {
                 Destroy();
-                break;
+                return;
             }
+
+            var @object = targetObject.GetComponent<ObjectController>();
+            if (@object.IsDead)
+            {
+                return;
+            }
+
+            @object.StatHandler.OnDamage(damage);
+            Destroy();
         }
     }
 
@@ -83,11 +91,14 @@ public class ProjectileController : BaseController
             string key = effect.name;
             Vector2 position = speed == 0.0f ? Managers.Game.Player.transform.position : transform.position;
             GameObject effectObject = Managers.Resource.Instantiate(key, null, position, Define.EFFECT);
-            var @object = effectObject.GetComponent<ObjectController>();
-            @object.Death();
+            effectObject.GetComponent<ObjectController>().Death();
+        }
+
+        if (IsDead)
+        {
+            return;
         }
 
         base.Destroy();
-        targetLayers.Clear();
     }
 }

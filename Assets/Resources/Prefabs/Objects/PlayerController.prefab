@@ -448,6 +448,7 @@ MonoBehaviour:
   weaponType: 1
   projectile: {fileID: 5968843115592883572, guid: e106777c8e296cc44ad5fb7bedb38535, type: 3}
   AttackCount: 1
+  AttakInterval: 0
   SpreadAngle: 15
   ProjectileCount: 1
 --- !u!114 &3511510058557900392
@@ -464,8 +465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDelay: 1
   AttackRange: 3
-  HP: 10
-  Damage: 1
+  HP: 100
+  Damage: 10
   MoveSpeed: 5
   JumpPower: 5
   Gravity: 15

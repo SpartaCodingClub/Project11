@@ -27,6 +27,8 @@ public class PlayerController : ObjectController
 
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
+
+        DontDestroyOnLoad(this);
     }
 
     public override void Birth()
@@ -66,7 +68,7 @@ public class PlayerController : ObjectController
                 return;
             }
 
-            statHandler.VelocityZ = statHandler.JumpPower;
+            StatHandler.VelocityZ = StatHandler.JumpPower;
 
             Vector2 newPosition = transform.position;
             newPosition.y -= 0.6f;
@@ -89,7 +91,7 @@ public class PlayerController : ObjectController
     private Collider2D GetClosestMonster()
     {
         int layerMask = LayerMask.GetMask(Define.Monster, Define.Boss);
-        Collider2D[] monsters = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, layerMask);
+        Collider2D[] monsters = Physics2D.OverlapCircleAll(transform.position, StatHandler.AttackRange, layerMask);
 
         Collider2D closestMonster = null;
         float closestDistance = Mathf.Infinity;
@@ -97,6 +99,11 @@ public class PlayerController : ObjectController
         foreach (var monster in monsters)
         {
             if (monster == null)
+            {
+                continue;
+            }
+
+            if (monster.GetComponent<ObjectController>().IsDead)
             {
                 continue;
             }

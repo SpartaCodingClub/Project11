@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ConeController : ObjectController
 {
@@ -16,7 +13,6 @@ public class ConeController : ObjectController
 
         //랜덤으로 흰색 콘인지 검은색 콘인지 결정
         random = Random.Range(0f, 1f);
-        Debug.Log($"현재 random 값: {random}");
 
         //animationHandler를 사용하면 Nullreference가 떠서 새로 받아옴
         animator = GetComponentInChildren<Animator>();
@@ -27,7 +23,7 @@ public class ConeController : ObjectController
     {
         if (collider.CompareTag(Define.Bullet))
         {
-            lookDirection = (collider.transform.position - transform.position).normalized;;
+            lookDirection = (collider.transform.position - transform.position).normalized; ;
 
             Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
 

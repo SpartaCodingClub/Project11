@@ -85,6 +85,6 @@ public class Define
     public static readonly string Bullet = nameof(Bullet);
     #endregion
     #region Value
-    public static readonly float TIMER = 3.0f;
+    public static readonly float TIMER = 10.0f;
     #endregion
 }
