@@ -1,4 +1,5 @@
 using UnityEngine;
+using VFavorites.Libs;
 
 public enum EnemyType
 {
@@ -26,6 +27,11 @@ public class EnemyController : ObjectController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (IsDead)
+        {
+            return;
+
+        }
         if (collision.CompareTag(Define.Player) == false)
         {
             return;
@@ -36,16 +42,26 @@ public class EnemyController : ObjectController
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         if (collision.CompareTag(Define.Player) == false)
         {
             return;
         }
 
-        Attack();
+        Attack(lookDirection);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         if (collision.CompareTag(Define.Player) == false)
         {
             return;
@@ -60,19 +76,39 @@ public class EnemyController : ObjectController
         animationHandler.AttackHandler.OnEnter += () => projectileHandler.RangeAttack(transform.position, lookDirection);
     }
 
+    public override void Death()
+    {
+        actionState = ActionState.Idle;
+
+        moving = false;
+        jumping = false;
+        onTriggerStay = false;
+
+        moveDirection = Vector2.zero;
+        _rigidbody.velocity = Vector2.zero;
+
+        base.Death();
+        Managers.Resource.Instantiate("EnemyDeathEffect", null, transform.position, Define.EFFECT).GetComponent<BaseController>().Death();
+    }
+
     protected override void HandleLogic()
     {
         base.HandleLogic();
+        if (IsDead)
+        {
+            return;
+        }
 
-        lookDirection = (Managers.Game.Player.transform.position - transform.position).normalized;
-        if (onTriggerStay)
+        Vector3 distance = Managers.Game.Player.transform.position - transform.position;
+        lookDirection = distance.normalized;
+
+        //만약 공격중이거나 최소 사거리에서 벗어나면 이동을 멈춘다.
+        if (onTriggerStay || distance.magnitude > 8.0f)
         {
-            //만약 공격중인 상태라면 이동을 멈춰라
             moveDirection = Vector2.zero;
+            return;
         }
-        else
-        {
-            moveDirection = lookDirection;
-        }
+
+        moveDirection = lookDirection;
     }
 }

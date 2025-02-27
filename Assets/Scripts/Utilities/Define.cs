@@ -58,8 +58,6 @@ public class Define
 
         "아자아자, 파이팅!\n" +
         "할 수 있다!",
-
-        "곧 타이머가 시작됩니다!"
     };
     #endregion
     #region Layer
@@ -85,6 +83,6 @@ public class Define
     public static readonly string Bullet = nameof(Bullet);
     #endregion
     #region Value
-    public static readonly float TIMER = 3.0f;
+    public static readonly float TIMER = 10.0f;
     #endregion
 }

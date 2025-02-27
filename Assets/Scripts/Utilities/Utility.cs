@@ -30,7 +30,7 @@ public class Utility
 
     public static Sequence RecyclableSequence()
     {
-        return DOTween.Sequence().Pause().SetAutoKill(false);
+        return DOTween.Sequence().Pause().SetAutoKill(false).SetUpdate(true);
     }
 
     public static void SetPositionX(Transform transform, float x)

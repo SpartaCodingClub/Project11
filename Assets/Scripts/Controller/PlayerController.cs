@@ -27,12 +27,18 @@ public class PlayerController : ObjectController
 
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
+
+        DontDestroyOnLoad(this);
     }
 
     public override void Birth()
     {
         base.Birth();
-        animationHandler.AttackHandler.OnEnter += () => projectileHandler.RangeAttack(HandPivot.position, lookDirection);
+        animationHandler.AttackHandler.OnEnter += () =>
+        {
+            projectileHandler.RangeAttack(HandPivot.position, lookDirection);
+            Managers.Audio.Play(Clip.SoundFX_Shooting);
+        };
     }
 
     public override void Death()
@@ -97,6 +103,11 @@ public class PlayerController : ObjectController
                 continue;
             }
 
+            if (monster.GetComponent<ObjectController>().IsDead)
+            {
+                continue;
+            }
+
             float distance = Vector2.Distance(transform.position, monster.transform.position);
             if (distance < closestDistance)
             {
@@ -115,13 +126,9 @@ public class PlayerController : ObjectController
             return;
         }
 
-        // 캐릭터 방향 설정 후
         Vector3 targetPosition = closestMonster.transform.position;
-        lookDirection = (targetPosition - transform.position).normalized;
+        Attack((targetPosition - transform.position).normalized);
         HandPivot.localPosition = lookDirection;
-
-        // 공격
-        Attack();
     }
 
     private void HandleLighting()

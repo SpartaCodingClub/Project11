@@ -3,12 +3,13 @@ using VInspector;
 
 public class StatHandler : MonoBehaviour
 {
+    #region Inspector
     [Foldout("Stats Settings")]
     [Min(0.1f)]
     public float AttackDelay = 1.0f;
     [Min(1.0f)]
     public float AttackRange = 1.0f;
-    public float HP = 10.0f;
+    public float HP = 100.0f;
     public float Damage = 1.0f;
     [EndFoldout]
 
@@ -18,16 +19,21 @@ public class StatHandler : MonoBehaviour
     public float Gravity = 9.8f;
     [EndFoldout]
 
-    [Foldout("Physic Status")]
-    [ShowInInspector, ReadOnly] public float VelocityZ;
+    [Foldout("Current Status")]
+    [ReadOnly] public float VelocityZ;
+    [ReadOnly] public float CurrentHP;
+    #endregion
 
     public float AttackSpeed { get { return initialAttackDelay / AttackDelay; } }
 
     private float initialAttackDelay;
 
+    private UI_HPBar hpBar;
+
     private void Awake()
     {
         initialAttackDelay = AttackDelay;
+        CurrentHP = HP;
     }
 
     public void ApplyStats(SkillTable.Data skill)
@@ -38,5 +44,23 @@ public class StatHandler : MonoBehaviour
         AttackDelay = Mathf.Clamp(AttackDelay, 0.1f, 10f);
         AttackRange += skill.AttackRange;
         MoveSpeed += skill.MoveSpeed;
+    }
+
+    public void OnDamage(float damage)
+    {
+        CurrentHP = Mathf.Max(CurrentHP - damage, 0.0f);
+        if (hpBar == null)
+        {
+            hpBar = Managers.UI.Show<UI_HPBar>();
+            hpBar.transform.SetParent(gameObject.FindComponent<Transform>(Define.MainRenderer));
+            hpBar.transform.localPosition = Vector2.zero;
+        }
+
+        if (CurrentHP <= 0)
+        {
+            hpBar.Death();
+        }
+
+        hpBar.UpdateUI(CurrentHP, HP);
     }
 }

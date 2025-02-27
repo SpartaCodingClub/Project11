@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 8471225668392317222}
   - component: {fileID: 572473177880622009}
   - component: {fileID: 8084369469380396242}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MainRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ MonoBehaviour:
   Damage: 1
   MoveSpeed: 1
   JumpPower: 0
-  Gravity: 9.8
+  Gravity: 0
   VelocityZ: 0
 --- !u!114 &5783127628060690798
 MonoBehaviour:

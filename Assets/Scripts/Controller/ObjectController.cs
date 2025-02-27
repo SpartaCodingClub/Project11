@@ -24,7 +24,7 @@ public class ObjectController : BaseController
     protected Transform MainRenderer;
     protected AnimationHandler animationHandler;
 
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     protected bool moving;
     protected bool jumping;
@@ -55,11 +55,32 @@ public class ObjectController : BaseController
 
     protected virtual void HandleLogic()
     {
+        if (IsDead)
+        {
+            if (animationHandler.Animator.GetCurrentAnimatorStateInfo(0).shortNameHash != Define.Death)
+            {
+                animationHandler.Death(lookDirection);
+            }
+
+            return;
+        }
+
+        if (StatHandler.CurrentHP <= 0)
+        {
+            Death();
+            return;
+        }
+
         attackTimer += Time.deltaTime;
     }
 
     protected virtual void HandleAction()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         if (actionState == ActionState.Attack)
         {
             _rigidbody.velocity = Vector2.zero;
@@ -87,6 +108,11 @@ public class ObjectController : BaseController
 
     public override void Stand()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         base.Stand();
 
         actionState = ActionState.Idle;
@@ -100,7 +126,7 @@ public class ObjectController : BaseController
         animationHandler.Death(lookDirection);
     }
 
-    public void Attack()
+    public void Attack(Vector2 direction)
     {
         if (moving || jumping)
         {
@@ -113,14 +139,15 @@ public class ObjectController : BaseController
         }
 
         actionState = ActionState.Attack;
-        animationHandler.Attack(lookDirection);
+        animationHandler.Attack(direction);
         animationHandler.Animator.SetFloat(Define.AttackSpeed, StatHandler.AttackSpeed);
         attackTimer = 0.0f;
+        lookDirection = direction;
     }
 
     protected void Moving()
     {
-        moving = moveDirection.magnitude > 0.0f; ;
+        moving = moveDirection.magnitude > 0.0f;
         if (moving)
         {
             actionState = ActionState.Move;

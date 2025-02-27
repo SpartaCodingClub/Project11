@@ -67,6 +67,8 @@ public class UI_TimeBar : UI_SubItem
 
         timerStand.Kill();
         timerWarn.Kill();
+
+        Managers.Scene.GetCurrentScene<Scene_Lobby>().GameStart();
     }
 
     private void Update()
@@ -106,7 +108,7 @@ public class UI_TimeBar : UI_SubItem
         string decimalPart = (timer % 1).ToString("F1");
         decimalPart = decimalPart[(decimalPart.IndexOf('.') + 1)..];
 
-        time.text = $"00:{(int)timer}.<size=42>{decimalPart}</size>";
+        time.text = $"00:{(int)timer:00}.<size=42>{decimalPart}</size>";
     }
 
     private void Tutorial()

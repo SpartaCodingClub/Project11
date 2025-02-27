@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -15,8 +16,8 @@ public class ChestSpawner : MonoBehaviour
 
     //콜라이더 박스 사이즈
     private readonly Vector2 boxSize = new(3.0f, 3.0f);
-
     private readonly WaitForSeconds interval = new(0.2f);
+
 
     private void Start()
     {
@@ -29,14 +30,22 @@ public class ChestSpawner : MonoBehaviour
         {
             for (int j = 0; j < 100; j++)
             {
+                int layerMask = LayerMask.GetMask(Define.Player);
                 Vector2 randomPos = GetRandomPosition();
                 if (Physics2D.OverlapBox(randomPos, boxSize, 0))
                 {
                     continue;
                 }
 
-                Managers.Resource.Instantiate(CHEST, null, randomPos);
+                if (Physics2D.OverlapCircle(randomPos, 9f, layerMask))
+                {
+                    Managers.Audio.Play(Clip.SoundFX_CreateItem);
+                }
+
+                var chestObject = Managers.Resource.Instantiate(CHEST, null, randomPos);
+                chestObject.FindComponent<SpriteRenderer>(Define.MainRenderer).DOFade(1.0f, 1.0f).From(0.0f);
                 Managers.Resource.Instantiate(CHESTEFFECT, null, randomPos, Define.EFFECT).GetComponent<ObjectController>().Death();
+
                 yield return interval;
                 break;
             }
@@ -44,7 +53,7 @@ public class ChestSpawner : MonoBehaviour
     }
 
     //랜덤 생산구역
-    public Vector2 GetRandomPosition()
+    private Vector2 GetRandomPosition()
     {
         return new Vector2(
             Random.Range(MIN_X, MAX_X),
