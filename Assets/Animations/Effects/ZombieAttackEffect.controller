@@ -219,7 +219,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CutEffect
+  m_Name: ZombieAttackEffect
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack
@@ -452,7 +452,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e17e4b921f2146d488124a634da901c0, type: 2}
+  m_Motion: {fileID: 7400000, guid: b738f7d14d25cd645ac6fc4496a34c60, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
