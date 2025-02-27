@@ -236,7 +236,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 4785344054764218336, guid: af7140e42e671df40a28ab8f9e5839e7, type: 3}
   AttackCount: 1
   SpreadAngle: 15
   ProjectileCount: 1
