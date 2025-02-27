@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_TimeBar : UI_SubItem
 {
@@ -31,7 +32,13 @@ public class UI_TimeBar : UI_SubItem
 
     private bool hasTutorial = true;
     private float timer = Define.TIMER;
+
     private TMP_Text time;
+    private Sequence timerStand;
+    private Sequence timerWarn;
+
+    private int previousSeconds;
+    private Color initialColor;
 
     protected override void Initialize()
     {
@@ -42,7 +49,24 @@ public class UI_TimeBar : UI_SubItem
         BindSequences(State.Death, Frame_Death);
 
         time = Get<TMP_Text>((int)Children.Text);
-        Tutorial();
+
+        timerStand = Utility.RecyclableSequence()
+            .Append(Get((int)Children.Text).DOPunchScale(0.2f * Vector2.one, 0.2f));
+
+        var grahpic = Get<Graphic>((int)Children.Text);
+        initialColor = grahpic.color;
+        timerWarn = Utility.RecyclableSequence()
+            .Append(grahpic.DOColor(Color.red, 0.5f).From(initialColor));
+
+        DOVirtual.DelayedCall(1.0f, Tutorial);
+    }
+
+    protected override void Deinitialize()
+    {
+        base.Deinitialize();
+
+        timerStand.Kill();
+        timerWarn.Kill();
     }
 
     private void Update()
@@ -55,6 +79,18 @@ public class UI_TimeBar : UI_SubItem
         if (timer > 0.0f)
         {
             timer -= Time.deltaTime;
+            int seconds = (int)timer;
+
+            if (seconds != previousSeconds)
+            {
+                if (seconds <= 10)
+                {
+                    timerWarn.Restart();
+                }
+
+                timerStand.Restart();
+                previousSeconds = seconds;
+            }
         }
         else
         {
@@ -77,11 +113,7 @@ public class UI_TimeBar : UI_SubItem
     {
         UI_Tutorial tutorial = Managers.UI.Show<UI_Tutorial>();
         tutorial.SetMessage(Define.Tutorial_GameStart);
-        tutorial.OnDestoryed += () =>
-        {
-            hasTutorial = false;
-            Get((int)Children.Text).DOScale(2.0f, 1.0f).From();
-        };
+        tutorial.OnDestoryed += () => hasTutorial = false;
 
         UpdateUI();
     }
