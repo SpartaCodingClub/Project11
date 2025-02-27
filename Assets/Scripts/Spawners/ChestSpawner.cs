@@ -19,6 +19,8 @@ public class ChestSpawner : MonoBehaviour
     //콜라이더 박스 사이즈
     private readonly Vector2 boxSize = new(3.0f, 3.0f);
 
+    private readonly WaitForSeconds interval = new(0.2f);
+
     private void Start()
     {
         StartCoroutine(Spawning());
@@ -31,15 +33,13 @@ public class ChestSpawner : MonoBehaviour
             for (int j = 0; j < 100; j++)
             {
                 Vector2 randomPos = GetRandomPosition();
-
-                var colliders = Physics2D.OverlapBoxAll(randomPos, boxSize, 0);
-                if (colliders.Length > 0)
+                if (Physics2D.OverlapBox(randomPos, boxSize, 0))
                 {
                     continue;
                 }
 
                 Managers.Resource.Instantiate(CHEST, null, randomPos);
-                yield return new WaitForSeconds(0.2f);
+                yield return interval;
                 break;
             }
         }
