@@ -56,6 +56,8 @@ public class ProjectileController : BaseController
         var z = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.Euler(0.0f, 0.0f, z);
         _rigidbody.velocity = targetDirection * speed;
+
+        Managers.Audio.Play(Clip.SoundFX_Shooting);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
