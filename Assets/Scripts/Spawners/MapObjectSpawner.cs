@@ -18,7 +18,6 @@ public class MapObjectSpawner : MonoBehaviour
         Bear,
         MushRoom,
         Seeder,
-        Snake,
         Spider,
         Zombie,
         Count

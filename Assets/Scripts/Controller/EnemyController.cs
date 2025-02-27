@@ -1,4 +1,5 @@
 using UnityEngine;
+using VFavorites.Libs;
 
 public enum EnemyType
 {
@@ -26,6 +27,11 @@ public class EnemyController : ObjectController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (IsDead)
+        {
+            return;
+
+        }
         if (collision.CompareTag(Define.Player) == false)
         {
             return;
@@ -51,6 +57,11 @@ public class EnemyController : ObjectController
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         if (collision.CompareTag(Define.Player) == false)
         {
             return;
@@ -76,20 +87,17 @@ public class EnemyController : ObjectController
         moveDirection = Vector2.zero;
         _rigidbody.velocity = Vector2.zero;
 
-        animationHandler.Animator.SetBool(Define.Move, false);
-        animationHandler.Animator.SetBool(Define.Jump, false);
-
         base.Death();
+        Managers.Resource.Instantiate("EnemyDeathEffect", null, transform.position, Define.EFFECT).GetComponent<BaseController>().Death();
     }
 
     protected override void HandleLogic()
     {
+        base.HandleLogic();
         if (IsDead)
         {
             return;
         }
-
-        base.HandleLogic();
 
         Vector3 distance = Managers.Game.Player.transform.position - transform.position;
         lookDirection = distance.normalized;

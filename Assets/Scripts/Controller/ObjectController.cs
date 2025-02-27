@@ -55,7 +55,17 @@ public class ObjectController : BaseController
 
     protected virtual void HandleLogic()
     {
-        if (StatHandler.CurrentHP <= 0 && !IsDead)
+        if (IsDead)
+        {
+            if (animationHandler.Animator.GetCurrentAnimatorStateInfo(0).shortNameHash != Define.Death)
+            {
+                animationHandler.Death(lookDirection);
+            }
+
+            return;
+        }
+
+        if (StatHandler.CurrentHP <= 0)
         {
             Death();
             return;
