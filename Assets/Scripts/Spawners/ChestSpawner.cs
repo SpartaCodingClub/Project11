@@ -17,6 +17,7 @@ public class ChestSpawner : MonoBehaviour
     private readonly Vector2 boxSize = new(3.0f, 3.0f);
 
     private readonly WaitForSeconds interval = new(0.2f);
+    
 
     private void Start()
     {
@@ -29,12 +30,16 @@ public class ChestSpawner : MonoBehaviour
         {
             for (int j = 0; j < 100; j++)
             {
+                int layerMask = LayerMask.GetMask(Define.Player);
                 Vector2 randomPos = GetRandomPosition();
                 if (Physics2D.OverlapBox(randomPos, boxSize, 0))
                 {
                     continue;
                 }
-
+                if (Physics2D.OverlapCircle(randomPos, 9f, layerMask))
+                {
+                    Managers.Audio.Play(Clip.SoundFX_CreateItem);
+                }
                 Managers.Resource.Instantiate(CHEST, null, randomPos);
                 Managers.Resource.Instantiate(CHESTEFFECT, null, randomPos, Define.EFFECT).GetComponent<ObjectController>().Death();
                 yield return interval;

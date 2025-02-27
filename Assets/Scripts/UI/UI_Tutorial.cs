@@ -131,7 +131,7 @@ public class UI_Tutorial : UI_SubItem
             }
             else
             {
-                Managers.Audio.Play(Clip.SoundFX_TypingSound);
+                Managers.Audio.Play(Clip.SoundFX_TypingSound02);
                 yield return shortInterval;
             }
         }
