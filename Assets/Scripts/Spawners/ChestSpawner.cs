@@ -6,10 +6,6 @@ public class ChestSpawner : MonoBehaviour
     #region Inspector
     [SerializeField]
     private int chestCount = 10;
-
-    // 중복방지 거리
-    [SerializeField]
-    private float spawnRadius = 3f;
     #endregion
 
     private readonly string CHEST = "Chest";

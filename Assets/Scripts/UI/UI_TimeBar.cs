@@ -116,7 +116,9 @@ public class UI_TimeBar : UI_SubItem
         tutorial.OnDestoryed += () =>
         {
             hasTutorial = false;
+
             Managers.Resource.Instantiate(nameof(ChestSpawner), null, Managers.Game.Player.transform.position);
+            Managers.UI.Show<UI_Lobby>();
         };
 
         UpdateUI();

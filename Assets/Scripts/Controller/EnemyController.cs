@@ -18,7 +18,7 @@ public class EnemyController : ObjectController
         //AttackRange에 따라 Collider의 크기를 변경
         CircleCollider2D collider = GetComponentInChildren<CircleCollider2D>();
         collider.isTrigger = true;
-        collider.radius = statHandler.AttackRange;
+        collider.radius = StatHandler.AttackRange;
 
         //this.gameObject.AddComponent<CircleCollider2D>();
         projectileHandler = gameObject.GetComponent<ProjectileHandler>();

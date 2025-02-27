@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ChestController : ObjectController
 {
-
     protected override void Initialize()
     {
         base.Initialize();
