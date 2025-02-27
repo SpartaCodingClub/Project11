@@ -227,7 +227,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1.98}
   m_EdgeRadius: 0
 --- !u!114 &4629644086888781365
 MonoBehaviour:
@@ -264,6 +264,7 @@ MonoBehaviour:
   weaponType: 0
   projectile: {fileID: -1525712836932946133, guid: d75dd5ea481878846a11cbf3f121c5f3, type: 3}
   AttackCount: 1
+  AttakInterval: 0
   SpreadAngle: 15
   ProjectileCount: 1
 --- !u!114 &3766921701566519786
