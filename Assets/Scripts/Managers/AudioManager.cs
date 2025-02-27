@@ -11,6 +11,7 @@ public enum Clip
     Music_Lobby,
     Music_Game,
 
+    SoundFX_Shooting,
     SoundFX_TypingSound,
     SoundFX_GetItem,
     SoundFX_Start,
@@ -24,7 +25,7 @@ public class AudioManager
     private static readonly float[] VOLUMES =
     {
         1.0f * MASTER_VOLUME,   // Ambient
-        0.2f * MASTER_VOLUME,   // Music
+        0.5f * MASTER_VOLUME,   // Music
         0.2f * MASTER_VOLUME,   // MusicFX
         0.6f * MASTER_VOLUME,   // SoundFX
     };
