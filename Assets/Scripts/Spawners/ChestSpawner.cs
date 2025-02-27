@@ -15,9 +15,13 @@ public class ChestSpawner : MonoBehaviour
     //콜라이더 박스 사이즈
     [SerializeField] private Vector2 boxSize = new Vector2(3f, 3f);
 
+    private void Start()
+    {
+        SpawnChest();
+    }
+
     public void SpawnChest()
     {
-
         for (int i = 0; i < chestCount; i++)
         {
             //유효한 장소인지 체크

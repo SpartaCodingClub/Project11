@@ -113,7 +113,11 @@ public class UI_TimeBar : UI_SubItem
     {
         UI_Tutorial tutorial = Managers.UI.Show<UI_Tutorial>();
         tutorial.SetMessage(Define.Tutorial_GameStart);
-        tutorial.OnDestoryed += () => hasTutorial = false;
+        tutorial.OnDestoryed += () =>
+        {
+            hasTutorial = false;
+            Managers.Resource.Instantiate(nameof(ChestSpawner), null, Managers.Game.Player.transform.position);
+        };
 
         UpdateUI();
     }
