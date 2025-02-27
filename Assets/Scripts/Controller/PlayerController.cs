@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerController : ObjectController
 {
+    private static readonly string JUMP_EFFECT = "JumpEffect";
+    private static readonly string LANDING_EFFECT = "LandingEffect";
+
     private Transform HandLight;
     private Transform HandPivot;
 
@@ -58,6 +61,8 @@ public class PlayerController : ObjectController
             if (transform.position.z == 0)
             {
                 statHandler.VelocityZ = statHandler.JumpPower;
+                GameObject effect = Managers.Resource.Instantiate(JUMP_EFFECT, null, transform.position, Define.EFFECT);
+                effect.GetComponent<ObjectController>().Death();
             }
 
             return;
