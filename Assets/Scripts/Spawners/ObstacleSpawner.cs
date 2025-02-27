@@ -5,39 +5,43 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
+
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] private Tilemap area;
-    [SerializeField] private GameObject[] prefabs;
-    [SerializeField] private int obstacleCount;
-
-    private void Start()
+    public enum Obstacle
     {
-        Spawn();
+        Cone,
+        Barricade,
+        Count
     }
+    public Tilemap area;
 
-    void Spawn()
+    public IEnumerator Spawn(int obstacleCount)
     {
         int attempt = 1000;
-        if (area != null && prefabs != null)
+
+        if (area != null)
         {
             for (int i = 0; i < obstacleCount; i++)
             {
                 Vector2 pos = GetRandomPositionInSpawnArea(area);
-                GameObject obj = prefabs[Random.Range(0, prefabs.Length)];
-                BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
-
-                if (!IsOverLapping(pos, collider))
-                {
-                    Instantiate(obj, pos + new Vector2(0.5f, 0.5f), Quaternion.identity);
-                }
+                
+                int ran = Random.Range(0, 3);
+                if (ran == 0)
+                    ran = (int)Obstacle.Barricade;
                 else
+                    ran = (int)Obstacle.Cone;
+                GameObject obj = Managers.Resource.Instantiate(((Obstacle)ran).ToString(), null, pos);
+                BoxCollider2D collider = obj.GetComponent<BoxCollider2D>();
+                if (IsOverLapping(pos, collider))
                 {
+                    Managers.Resource.Destroy(obj);
                     i--;
                     attempt--;
                     if (attempt <= 0)
-                        return;
+                        yield break;
                 }
+                yield return null;
             }
         }
     }
@@ -61,8 +65,9 @@ public class ObstacleSpawner : MonoBehaviour
 
     bool IsOverLapping(Vector2 pos,BoxCollider2D collider)
     {
-        Collider2D hit = Physics2D.OverlapBox(pos, collider.size,0);
+        Collider2D hit = Physics2D.OverlapBox(pos, collider.size * new Vector2(1.5f,1.5f),0);
         return hit!= null;
     }
+
 }
 

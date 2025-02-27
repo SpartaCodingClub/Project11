@@ -4,29 +4,28 @@ using UnityEngine.Tilemaps;
 
 public class MapSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject map;
-    Queue<GameObject> currentmap = new();
-    Vector2 spawnPos = new Vector2(0.5f, 0);
-    Spawner spawner;
+    Queue<GameObject> currentGround = new Queue<GameObject>();
+    Vector2 spawnPos = Vector2.zero;
+    ObstacleSpawner spawner;
 
     private void Start()
     {
         SpawnMap();
-        SpawnMap();
     }
     void SpawnMap()
     {
-        GameObject instantiateGround = Instantiate(map, spawnPos, Quaternion.identity,transform);
-        spawner = instantiateGround.GetComponentInChildren<Spawner>();
-        spawner.obstacleSpawnArea = instantiateGround.transform.Find("ObstacleArea")?.GetComponent<Tilemap>();
-        spawner.monsterSpawnArea = instantiateGround.transform.Find("MonsterArea")?.GetComponent<Tilemap>();
+        Debug.Log("asdf");
+        //spawner.area = instantiateGround.transform.Find("ObstaclesArea")?.GetComponent<Tilemap>();
+        //if (spawner.area == null)
+        //    Debug.Log("찾았다");
+        //else
+        //    Debug.Log("망했다");
 
-        spawner.ObstacleSpawn();
-
-        currentmap.Enqueue(instantiateGround);
-        spawnPos += new Vector2(0, 30f);
-
-        if(currentmap.Count > 2)
-            Destroy(currentmap.Dequeue());
+        //if (spawner.area != null)
+        //{
+        //    spawner.Spawn();
+        //    currentGround.Enqueue(instantiateGround);
+        //    spawnPos += new Vector2(0, 30f);
+        //}
     }
 }

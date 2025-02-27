@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
-public class Spawner : MonoBehaviour
+public class _Spawner : MonoBehaviour
 {
     public Tilemap obstacleSpawnArea;
     public Tilemap monsterSpawnArea;
