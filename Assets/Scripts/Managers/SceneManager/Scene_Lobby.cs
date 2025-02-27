@@ -16,6 +16,8 @@ public class Scene_Lobby : Scene_Base
 
         //NextTutorial(4.0f);
         Managers.UI.Show<UI_GameStart>();
+
+        Managers.Audio.Play(Clip.Music_Lobby);
     }
 
     private void NextTutorial(float delay)

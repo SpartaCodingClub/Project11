@@ -8,9 +8,13 @@ public enum Clip
     Ambient_Rain,
 
     Music_Title,
+    Music_Lobby,
+    Music_Game,
 
-    SoundFX_Rain,
+    SoundFX_GetItem,
     SoundFX_Start,
+    SoundFX_Rain,
+       
 }
 
 public class AudioManager
