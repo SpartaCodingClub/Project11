@@ -5,7 +5,7 @@ using VInspector;
 public class ObjectController : BaseController
 {
     #region Inspector
-    [ShowInInspector, ReadOnly] private ActionState actionState;
+    [ShowInInspector, ReadOnly] protected ActionState actionState;
     #endregion
 
     public enum ActionState
@@ -131,6 +131,11 @@ public class ObjectController : BaseController
 
     protected virtual void Jumping()
     {
+        if (statHandler.JumpPower == 0.0f)
+        {
+            return;
+        }
+
         float z = transform.position.z;
         jumping = z > 0.0f;
 
