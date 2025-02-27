@@ -125,7 +125,7 @@ MonoBehaviour:
   AttackRange: 1
   HP: 10
   Damage: 1
-  MoveSpeed: 1
+  MoveSpeed: 0
   JumpPower: 0
   Gravity: 9.8
   VelocityZ: 0

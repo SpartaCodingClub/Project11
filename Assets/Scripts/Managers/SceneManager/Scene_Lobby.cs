@@ -14,11 +14,11 @@ public class Scene_Lobby : Scene_Base
         Managers.Resource.Instantiate<PlayerController>(null, Vector2.zero);
         Managers.UI.Show<UI_PopupBackground>().Death();
 
-        //NextTutorial(4.0f);
-        Managers.UI.Show<UI_GameStart>();
+        //NextTutorial();
+        Managers.UI.Show<UI_GameStart>(); // 테스트 코드
     }
 
-    private void NextTutorial(float delay)
+    private void NextTutorial()
     {
         string[] messages = GetTutorialMessages();
         if (messages == null)
@@ -27,11 +27,11 @@ public class Scene_Lobby : Scene_Base
             return;
         }
 
-        DOVirtual.DelayedCall(delay, () =>
+        DOVirtual.DelayedCall(8.0f, () =>
         {
             tutorial = Managers.UI.Show<UI_Tutorial>();
             tutorial.SetMessage(messages);
-            tutorial.OnDestoryed += () => NextTutorial(10.0f);
+            tutorial.OnDestoryed += NextTutorial;
         });
     }
 
