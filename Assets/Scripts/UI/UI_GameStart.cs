@@ -53,5 +53,6 @@ public class UI_GameStart : UI_SubItem
     {
         base.Death();
         Managers.UI.Show<UI_TimeBar>();
+        Managers.Audio.Play(Clip.SoundFX_Start);
     }
 }
