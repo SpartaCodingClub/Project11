@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Prefabs/Maps/TestMap.prefab.meta
+guid: 1784b683e50133f4187645c1af426d79
+PrefabImporter:
+========
+guid: 5df005bb90a90a44eb9f9a25e728fb9e
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> develop:Assets/Animations/FX.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

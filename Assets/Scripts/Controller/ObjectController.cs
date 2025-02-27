@@ -52,16 +52,6 @@ public class ObjectController : BaseController
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    protected virtual void Start()
-    {
-        if (animationHandler.DestroyHandler != null)
-        {
-            animationHandler.DestroyHandler.OnEnter += Destroy;
-        }
-
-        animationHandler.AttackHandler.OnExit += Stand;
-    }
-
     protected virtual void HandleLogic()
     {
         attackTimer += Time.deltaTime;
@@ -78,6 +68,20 @@ public class ObjectController : BaseController
 
         Moving();
         Jumping();
+    }
+
+    public override void Birth()
+    {
+        base.Birth();
+
+        if (animationHandler.DestroyHandler != null)
+        {
+            animationHandler.DestroyHandler.OnEnter += Destroy;
+        }
+
+        animationHandler.AttackHandler.OnExit += Stand;
+
+        Stand();
     }
 
     public override void Stand()
