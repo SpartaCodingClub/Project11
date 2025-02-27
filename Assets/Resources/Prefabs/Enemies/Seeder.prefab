@@ -195,7 +195,7 @@ MonoBehaviour:
   Damage: 5
   MoveSpeed: 0
   JumpPower: 0
-  Gravity: 9.8
+  Gravity: 0
   VelocityZ: 0
 --- !u!114 &1534971008141206951
 MonoBehaviour:
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 8175140606423985904}
   - component: {fileID: 4468969254876312616}
   - component: {fileID: 8930104796026362140}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MainRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

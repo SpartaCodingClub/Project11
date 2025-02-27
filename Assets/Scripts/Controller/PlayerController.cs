@@ -27,6 +27,8 @@ public class PlayerController : ObjectController
 
         Managers.Camera.Target = transform;
         Managers.Game.Player = this;
+
+        DontDestroyOnLoad(this);
     }
 
     public override void Birth()
@@ -93,6 +95,11 @@ public class PlayerController : ObjectController
         foreach (var monster in monsters)
         {
             if (monster == null)
+            {
+                continue;
+            }
+
+            if (monster.GetComponent<ObjectController>().IsDead)
             {
                 continue;
             }

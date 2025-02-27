@@ -4,7 +4,6 @@ using UnityEngine;
 public class Scene_Lobby : Scene_Base
 {
     private UI_Tutorial tutorial;
-
     private int tutorialIndex;
 
     protected override void Initialize()
@@ -16,8 +15,11 @@ public class Scene_Lobby : Scene_Base
 
         //NextTutorial(4.0f);
         Managers.UI.Show<UI_GameStart>();
+    }
 
-        Managers.Audio.Play(Clip.Music_Lobby);
+    public void GameStart()
+    {
+        Managers.Scene.LoadScene<Scene_Game>();
     }
 
     private void NextTutorial(float delay)

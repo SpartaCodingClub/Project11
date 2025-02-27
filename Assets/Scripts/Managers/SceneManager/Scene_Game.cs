@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Scene_Game : Scene_Base
@@ -24,10 +23,17 @@ public class Scene_Game : Scene_Base
     {
         base.Initialize();
 
-        Managers.Resource.Instantiate<PlayerController>(null, Vector2.zero);
-
         GenerateMap(10, 10); // 현재 스테이지
         GenerateMap(10, 5); // 다음 스테이지 미리 생성
+
+        if (Managers.Game.Player == null)
+        {
+            Managers.Resource.Instantiate<PlayerController>(null, 5.0f * Vector2.down);
+            return;
+        }
+
+        Managers.Camera.Main.transform.position = new(0.0f, -7.0f, -10.0f);
+        Managers.Game.Player.transform.position = 5.0f * Vector2.down;
     }
 
     private void GenerateMap(int obstacleCount, int monsterCount)
@@ -54,7 +60,7 @@ public class Scene_Game : Scene_Base
         //if(nextSpawner != null)
         //    nextSpawner.Enemies.gameObject.SetActive(false);
         currentStage = nextStage;
-        
+
         nextStage++;
     }
 }

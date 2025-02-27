@@ -24,7 +24,7 @@ public class ObjectController : BaseController
     protected Transform MainRenderer;
     protected AnimationHandler animationHandler;
 
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     protected bool moving;
     protected bool jumping;
@@ -55,11 +55,22 @@ public class ObjectController : BaseController
 
     protected virtual void HandleLogic()
     {
+        if (StatHandler.CurrentHP <= 0 && !IsDead)
+        {
+            Death();
+            return;
+        }
+
         attackTimer += Time.deltaTime;
     }
 
     protected virtual void HandleAction()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         if (actionState == ActionState.Attack)
         {
             _rigidbody.velocity = Vector2.zero;
@@ -87,6 +98,11 @@ public class ObjectController : BaseController
 
     public override void Stand()
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         base.Stand();
 
         actionState = ActionState.Idle;
@@ -120,7 +136,7 @@ public class ObjectController : BaseController
 
     protected void Moving()
     {
-        moving = moveDirection.magnitude > 0.0f; ;
+        moving = moveDirection.magnitude > 0.0f;
         if (moving)
         {
             actionState = ActionState.Move;

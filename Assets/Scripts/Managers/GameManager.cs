@@ -13,6 +13,6 @@ public class GameManager
 #endif
 
         Application.targetFrameRate = 60;
-        DOTween.SetTweensCapacity(200, 125);
+        DOTween.SetTweensCapacity(200, 2048);
     }
 }

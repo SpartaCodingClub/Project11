@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
 public class MapObjectSpawner : MonoBehaviour
 {
     public enum Obstacle
@@ -25,13 +24,15 @@ public class MapObjectSpawner : MonoBehaviour
         Count
     }
 
-    private Tilemap SpawnArea;
+    private Tilemap ObstacleSpawnArea;
+    private Tilemap EnemySpawnArea;
     private Transform Obstacles;
     public Transform Enemies;
 
     private void Awake()
     {
-        SpawnArea = gameObject.FindComponent<Tilemap>(nameof(SpawnArea));
+        ObstacleSpawnArea = gameObject.FindComponent<Tilemap>(nameof(ObstacleSpawnArea));
+        EnemySpawnArea = gameObject.FindComponent<Tilemap>(nameof(EnemySpawnArea));
         Obstacles = gameObject.FindComponent<Transform>(nameof(Obstacles));
         Enemies = gameObject.FindComponent<Transform>(nameof(Enemies));
     }
@@ -110,10 +111,10 @@ public class MapObjectSpawner : MonoBehaviour
     {
         List<Vector3Int> positions = new();
 
-        BoundsInt bounds = SpawnArea.cellBounds;
+        BoundsInt bounds = ObstacleSpawnArea.cellBounds;
         foreach (var position in bounds.allPositionsWithin)
         {
-            if (SpawnArea.HasTile(position))
+            if (ObstacleSpawnArea.HasTile(position))
             {
                 positions.Add(position);
             }
@@ -125,12 +126,11 @@ public class MapObjectSpawner : MonoBehaviour
         }
 
         Vector3Int randomCell = positions[Random.Range(0, positions.Count)];
-        return SpawnArea.CellToWorld(randomCell);
+        return ObstacleSpawnArea.CellToWorld(randomCell);
     }
 
     bool IsOverLapping(Vector2 randomPosition, BoxCollider2D collider)
     {
         return Physics2D.OverlapBox(randomPosition, collider.size * 1.5f, 0);
     }
-
 }

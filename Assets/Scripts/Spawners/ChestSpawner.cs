@@ -15,9 +15,8 @@ public class ChestSpawner : MonoBehaviour
 
     //콜라이더 박스 사이즈
     private readonly Vector2 boxSize = new(3.0f, 3.0f);
-
     private readonly WaitForSeconds interval = new(0.2f);
-    
+
 
     private void Start()
     {
@@ -36,10 +35,12 @@ public class ChestSpawner : MonoBehaviour
                 {
                     continue;
                 }
+
                 if (Physics2D.OverlapCircle(randomPos, 9f, layerMask))
                 {
                     Managers.Audio.Play(Clip.SoundFX_CreateItem);
                 }
+
                 Managers.Resource.Instantiate(CHEST, null, randomPos);
                 Managers.Resource.Instantiate(CHESTEFFECT, null, randomPos, Define.EFFECT).GetComponent<ObjectController>().Death();
                 yield return interval;
@@ -49,7 +50,7 @@ public class ChestSpawner : MonoBehaviour
     }
 
     //랜덤 생산구역
-    public Vector2 GetRandomPosition()
+    private Vector2 GetRandomPosition()
     {
         return new Vector2(
             Random.Range(MIN_X, MAX_X),

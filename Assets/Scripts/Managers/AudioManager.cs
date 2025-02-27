@@ -8,7 +8,6 @@ public enum Clip
     Ambient_Rain,
 
     Music_Title,
-    Music_Lobby,
     Music_Game,
 
     SoundFX_GetItem,
@@ -17,8 +16,6 @@ public enum Clip
     SoundFX_Shooting,
     SoundFX_Start,
     SoundFX_TypingSound,
-    SoundFX_TypingSound02,
-
 }
 
 public class AudioManager
