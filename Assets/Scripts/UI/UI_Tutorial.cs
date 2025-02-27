@@ -122,10 +122,10 @@ public class UI_Tutorial : UI_SubItem
     private IEnumerator StartMessage()
     {
         char[] charArray = messages.Dequeue().ToCharArray();
+        Managers.Audio.Play(Clip.SoundFX_TypingSound);
         for (int i = 0; i < charArray.Length; i++)
         {
             message.text += charArray[i];
-            Managers.Audio.Play(Clip.SoundFX_TypingSound);
             if (charArray[i] == '\n')
             {
                 yield return longInterval;
