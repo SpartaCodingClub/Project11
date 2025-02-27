@@ -308,11 +308,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083e7afa7565bbc4794b3cb735421c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDelay: 1
-  AttackRange: 1
-  HP: 10
-  Damage: 1
-  MoveSpeed: 1
+  AttackDelay: 1.5
+  AttackRange: 2
+  HP: 15
+  Damage: 10
+  MoveSpeed: 2
   JumpPower: 0
   Gravity: 9.8
   VelocityZ: 0
