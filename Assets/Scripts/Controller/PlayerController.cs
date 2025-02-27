@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : ObjectController
 {
-    private static readonly string LANDING_EFFECT = "LandingEffect";
+    private static readonly string JUMP_EFFECT = "JumpEffect";
 
     private Transform HandLight;
     private Transform HandPivot;
@@ -47,16 +47,6 @@ public class PlayerController : ObjectController
         ShadowRenderer.Jump(jumping, Vector2.down);
     }
 
-    protected override void Landing()
-    {
-        base.Landing();
-
-        Vector2 newPosition = transform.position;
-        newPosition.y -= 0.6f;
-
-        Managers.Resource.Instantiate(LANDING_EFFECT, null, newPosition, Define.EFFECT).GetComponent<ObjectController>().Death();
-    }
-
     protected override void HandleLogic()
     {
         base.HandleLogic();
@@ -67,12 +57,17 @@ public class PlayerController : ObjectController
 
         if (Input.GetKey(KeyCode.Space))
         {
-            if (transform.position.z == 0)
+            if (transform.localPosition.z != 0 || actionState == ActionState.Attack)
             {
-                statHandler.VelocityZ = statHandler.JumpPower;
+                return;
             }
 
-            return;
+            statHandler.VelocityZ = statHandler.JumpPower;
+
+            Vector2 newPosition = transform.position;
+            newPosition.y -= 0.6f;
+
+            Managers.Resource.Instantiate(JUMP_EFFECT, null, newPosition, Define.EFFECT).GetComponent<ObjectController>().Death();
         }
 
         Collider2D closestMonster = GetClosestMonster();
@@ -89,7 +84,8 @@ public class PlayerController : ObjectController
 
     private Collider2D GetClosestMonster()
     {
-        Collider2D[] monsters = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, LayerMask.GetMask(Define.Monster));
+        int layerMask = LayerMask.GetMask(Define.Monster, Define.Boss);
+        Collider2D[] monsters = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, layerMask);
 
         Collider2D closestMonster = null;
         float closestDistance = Mathf.Infinity;

@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -3832,7 +3832,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_0
+      name: MushuroomAttackFx_0
       rect:
         serializedVersion: 2
         x: 0
@@ -3853,7 +3853,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_1
+      name: MushuroomAttackFx_1
       rect:
         serializedVersion: 2
         x: 64
@@ -3874,7 +3874,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_2
+      name: MushuroomAttackFx_2
       rect:
         serializedVersion: 2
         x: 128
@@ -3895,7 +3895,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_3
+      name: MushuroomAttackFx_3
       rect:
         serializedVersion: 2
         x: 192
@@ -3916,7 +3916,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_4
+      name: MushuroomAttackFx_4
       rect:
         serializedVersion: 2
         x: 256
@@ -3937,7 +3937,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_5
+      name: MushuroomAttackFx_5
       rect:
         serializedVersion: 2
         x: 320
@@ -3958,7 +3958,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_6
+      name: MushuroomAttackFx_6
       rect:
         serializedVersion: 2
         x: 384
@@ -3979,10 +3979,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_7
+      name: MushuroomAttackFx_7
       rect:
         serializedVersion: 2
-        x: 449
+        x: 448
         y: 385
         width: 64
         height: 64
@@ -4000,7 +4000,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_8
+      name: MushuroomAttackFx_8
       rect:
         serializedVersion: 2
         x: 512
@@ -4021,7 +4021,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_9
+      name: MushuroomAttackFx_9
       rect:
         serializedVersion: 2
         x: 576
@@ -4042,7 +4042,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cut_10
+      name: MushuroomAttackFx_10
       rect:
         serializedVersion: 2
         x: 640
@@ -5459,17 +5459,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cut_0: -263834706
-      Cut_1: 574165416
-      Cut_10: -311207365
-      Cut_2: -445902233
-      Cut_3: 2023231765
-      Cut_4: -278817965
-      Cut_5: -421307153
-      Cut_6: 285918029
-      Cut_7: 1012014085
-      Cut_8: 39694481
-      Cut_9: -1620585942
       Free Smoke Fx  Pixel 06_0: -489990552
       Free Smoke Fx  Pixel 06_1: 546839646
       Free Smoke Fx  Pixel 06_10: 1966969046
@@ -5712,6 +5701,17 @@ TextureImporter:
       Free Smoke Fx  Pixel 06_97: -915771260
       Free Smoke Fx  Pixel 06_98: 742467307
       Free Smoke Fx  Pixel 06_99: -1327212993
+      MushuroomAttackFx_0: -263834706
+      MushuroomAttackFx_1: 574165416
+      MushuroomAttackFx_10: -311207365
+      MushuroomAttackFx_2: -445902233
+      MushuroomAttackFx_3: 2023231765
+      MushuroomAttackFx_4: -278817965
+      MushuroomAttackFx_5: -421307153
+      MushuroomAttackFx_6: 285918029
+      MushuroomAttackFx_7: 1012014085
+      MushuroomAttackFx_8: 39694481
+      MushuroomAttackFx_9: -1620585942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

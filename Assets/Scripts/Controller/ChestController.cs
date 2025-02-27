@@ -15,6 +15,7 @@ public class ChestController : ObjectController
         {
             Debug.Log(collider.name);
             Death();
+            Managers.Audio.Play(Clip.SoundFX_GetItem);
         }
     }
 

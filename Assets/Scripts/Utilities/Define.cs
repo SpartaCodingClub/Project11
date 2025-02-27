@@ -19,7 +19,7 @@ public class Define
     public static readonly string Horizontal = nameof(Horizontal);
     public static readonly string Vertical = nameof(Vertical);
     #endregion
-    #region Message
+    #region Tutorial
     public static readonly string[] Tutorial_Move =
     {
         "안녕하세요. 생존자님\n\n" +
@@ -49,7 +49,17 @@ public class Define
 
     public static readonly string[] Tutorial_GameStart =
     {
-        "게임이 시작ㄷ",
+        "이제 곧 탐험이 시작됩니다.\n\n" +
+        "떠나시기 전에,\n" +
+        "맵 곳곳을 살펴보세요.",
+
+        "운이 좋다면,\n" +
+        "보너스를 획득할 수 있습니다.",
+
+        "아자아자, 파이팅!\n" +
+        "할 수 있다!",
+
+        "곧 타이머가 시작됩니다!"
     };
     #endregion
     #region Layer
@@ -75,6 +85,6 @@ public class Define
     public static readonly string Bullet = nameof(Bullet);
     #endregion
     #region Value
-    public static readonly float TIMER = 30.0f;
+    public static readonly float TIMER = 3.0f;
     #endregion
 }
