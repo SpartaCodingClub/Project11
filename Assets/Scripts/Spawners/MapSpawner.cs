@@ -22,7 +22,6 @@ public class MapSpawner : MonoBehaviour
         spawner.monsterSpawnArea = instantiateGround.transform.Find("MonsterArea")?.GetComponent<Tilemap>();
 
         spawner.ObstacleSpawn();
-        spawner.MonsterSpawn();
 
         currentmap.Enqueue(instantiateGround);
         spawnPos += new Vector2(0, 30f);
