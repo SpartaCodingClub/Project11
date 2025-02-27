@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 7098703777925696969}
   - component: {fileID: 1071740645908506240}
   m_Layer: 0
-  m_Name: LandingEffect
+  m_Name: JumpEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
