@@ -144,7 +144,7 @@ public class ObjectController : BaseController
             {
                 transform.SetPositionZ(z);
                 MainRenderer.SetPositionZ(z * -2.6f);
-                _rigidbody.excludeLayers = LayerMask.GetMask(LayerMask.LayerToName(6));
+                _rigidbody.excludeLayers = LayerMask.GetMask(Define.Obstacle, Define.Monster);
             }
             else
             {

@@ -89,9 +89,8 @@ public class PlayerController : ObjectController
 
     private Collider2D GetClosestMonster()
     {
-        // TODO: Å×½ºÆ®
-        //int layerMask = 1 << LayerMask.GetMask(Define.Monster) | 1 << LayerMask.GetMask(Define.Boss);
-        Collider2D[] monsters = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, LayerMask.GetMask(Define.Monster));
+        int layerMask = LayerMask.GetMask(Define.Monster, Define.Boss);
+        Collider2D[] monsters = Physics2D.OverlapCircleAll(transform.position, statHandler.AttackRange, layerMask);
 
         Collider2D closestMonster = null;
         float closestDistance = Mathf.Infinity;

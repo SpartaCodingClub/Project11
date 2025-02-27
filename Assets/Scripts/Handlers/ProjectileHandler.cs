@@ -16,6 +16,10 @@ public class ProjectileHandler : MonoBehaviour
     public int AttackCount = 1;
 
     [ShowIf("weaponType", WeaponType.Range)]
+    [Tooltip("공격 횟수 사이의 공격 속도"), Min(0)]
+    public float AttakInterval;
+
+    [ShowIf("weaponType", WeaponType.Range)]
     [Tooltip("탄 퍼짐 각도"), Range(0, 360)]
     public float SpreadAngle = 15.0f;
 
@@ -86,7 +90,7 @@ public class ProjectileHandler : MonoBehaviour
             yield break;
         }
 
-        WaitForSeconds interval = new(statHandler.AttackDelay / (AttackCount + 1));
+        WaitForSeconds interval = new(Mathf.Min(statHandler.AttackDelay / (AttackCount + 1), AttakInterval));
         for (int i = 0; i < AttackCount; i++)
         {
             if (statHandler.HP <= 0.0f)
