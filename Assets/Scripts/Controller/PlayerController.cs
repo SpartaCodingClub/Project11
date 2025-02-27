@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : ObjectController
 {
+    private static readonly string LANDING_EFFECT = "LandingEffect";
+
     private Transform HandLight;
     private Transform HandPivot;
 
@@ -43,6 +45,16 @@ public class PlayerController : ObjectController
     {
         base.Jumping();
         ShadowRenderer.Jump(jumping, Vector2.down);
+    }
+
+    protected override void Landing()
+    {
+        base.Landing();
+
+        Vector2 newPosition = transform.position;
+        newPosition.y -= 0.6f;
+
+        Managers.Resource.Instantiate(LANDING_EFFECT, null, newPosition, Define.EFFECT).GetComponent<ObjectController>().Death();
     }
 
     protected override void HandleLogic()

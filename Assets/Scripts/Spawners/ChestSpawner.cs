@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 
 public class ChestSpawner : MonoBehaviour
 {
+    private static readonly string CHEST = "Chest";
+
     [SerializeField] private GameObject chestPrefabs;
     [SerializeField] private int chestCount = 10;
     // 중복방지 거리
@@ -53,7 +55,7 @@ public class ChestSpawner : MonoBehaviour
             if (isValid)
             {
                 randomPos = GetRandomPosition();
-                Instantiate(chestPrefabs, randomPos, Quaternion.identity);
+                Managers.Resource.Instantiate(CHEST, null, randomPos);
             }
             
         }

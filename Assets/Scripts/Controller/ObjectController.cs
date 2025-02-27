@@ -143,21 +143,25 @@ public class ObjectController : BaseController
             if (z > 0.0f)
             {
                 transform.SetPositionZ(z);
-
                 MainRenderer.SetPositionZ(z * -2.6f);
                 _rigidbody.excludeLayers = LayerMask.GetMask(LayerMask.LayerToName(6));
             }
             else
             {
-                transform.SetPositionZ(0.0f);
-
-                MainRenderer.SetPositionZ(0.0f);
-                statHandler.VelocityZ = 0.0f;
-                _rigidbody.excludeLayers = 0;
+                Landing();
             }
         }
 
         MainRenderer.SetPositionY(transform.position.y + z);
         animationHandler.Jump(jumping, lookDirection);
+    }
+
+    protected virtual void Landing()
+    {
+        transform.SetPositionZ(0.0f);
+
+        MainRenderer.SetPositionZ(0.0f);
+        statHandler.VelocityZ = 0.0f;
+        _rigidbody.excludeLayers = 0;
     }
 }

@@ -589,6 +589,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Snake_Alien_Dive_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e679cd85c2f04ad43bc864d51528420b
+      internalID: 673338140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -614,6 +635,7 @@ TextureImporter:
       Snake_Alien_Dive_19: -2130247314
       Snake_Alien_Dive_2: 1878898867
       Snake_Alien_Dive_20: 2025362040
+      Snake_Alien_Dive_21: -1140824872
       Snake_Alien_Dive_3: -300002825
       Snake_Alien_Dive_4: -1063853935
       Snake_Alien_Dive_5: -506996871

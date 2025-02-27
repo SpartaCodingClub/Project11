@@ -236,7 +236,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -308,11 +308,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083e7afa7565bbc4794b3cb735421c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDelay: 1
+  AttackDelay: 0.2
   AttackRange: 1
   HP: 10
   Damage: 1
-  MoveSpeed: 1
+  MoveSpeed: 2
   JumpPower: 0
   Gravity: 9.8
   VelocityZ: 0
@@ -328,8 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd06e52734a9fd499f6fa818af661cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 1
-  projectile: {fileID: 5968843115592883572, guid: 9904215b601780d46a6e38d9ee5f92b0, type: 3}
+  weaponType: 0
+  projectile: {fileID: 1980412927100358878, guid: 8927047a10b32a34fb994898cdf84f82, type: 3}
   AttackCount: 1
   SpreadAngle: 15
   ProjectileCount: 1

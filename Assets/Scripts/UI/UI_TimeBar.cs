@@ -1,6 +1,5 @@
 using DG.Tweening;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class UI_TimeBar : UI_SubItem
@@ -77,6 +76,13 @@ public class UI_TimeBar : UI_SubItem
     private void Tutorial()
     {
         UI_Tutorial tutorial = Managers.UI.Show<UI_Tutorial>();
-        //tutorial.SetMessage(messages);
+        tutorial.SetMessage(Define.Tutorial_GameStart);
+        tutorial.OnDestoryed += () =>
+        {
+            hasTutorial = false;
+            Get((int)Children.Text).DOScale(2.0f, 1.0f).From();
+        };
+
+        UpdateUI();
     }
 }
