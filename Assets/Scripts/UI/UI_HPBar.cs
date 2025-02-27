@@ -20,7 +20,7 @@ public class UI_HPBar : UI_WorldSpace
         var child = Get((int)Children.Slider);
 
         return Utility.RecyclableSequence()
-            .Append(child.DOScale(0.0f, 0.5f).OnComplete(Destroy));
+            .Append(child.DOScale(0.0f, 0.2f).OnComplete(Destroy));
     }
     #endregion
 

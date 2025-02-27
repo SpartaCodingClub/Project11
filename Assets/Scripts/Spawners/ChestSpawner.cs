@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -41,8 +42,10 @@ public class ChestSpawner : MonoBehaviour
                     Managers.Audio.Play(Clip.SoundFX_CreateItem);
                 }
 
-                Managers.Resource.Instantiate(CHEST, null, randomPos);
+                var chestObject = Managers.Resource.Instantiate(CHEST, null, randomPos);
+                chestObject.FindComponent<SpriteRenderer>(Define.MainRenderer).DOFade(1.0f, 1.0f).From(0.0f);
                 Managers.Resource.Instantiate(CHESTEFFECT, null, randomPos, Define.EFFECT).GetComponent<ObjectController>().Death();
+
                 yield return interval;
                 break;
             }

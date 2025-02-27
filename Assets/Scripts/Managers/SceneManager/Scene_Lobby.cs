@@ -19,7 +19,8 @@ public class Scene_Lobby : Scene_Base
 
     public void GameStart()
     {
-        Managers.Scene.LoadScene<Scene_Game>();
+        Managers.UI.Show<UI_Loading>();
+        Time.timeScale = 0.0f;
     }
 
     private void NextTutorial(float delay)

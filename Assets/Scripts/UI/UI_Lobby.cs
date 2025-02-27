@@ -57,7 +57,7 @@ public class UI_Lobby : UI_Scene
         UpdateUI();
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         PlayerController player = Managers.Game.Player;
         Get<TMP_Text>((int)Children.Value_Damage).text = ((int)player.StatHandler.Damage).ToString();

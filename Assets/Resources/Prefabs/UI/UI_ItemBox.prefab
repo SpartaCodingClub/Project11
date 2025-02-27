@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5398191348341833727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -395,6 +395,8 @@ GameObject:
   - component: {fileID: 5057505574853927116}
   - component: {fileID: 5488078833164190175}
   - component: {fileID: 2230601734559010023}
+  - component: {fileID: 2343025065050494034}
+  - component: {fileID: 4733508873854411431}
   m_Layer: 5
   m_Name: UI_ItemBox
   m_TagString: Untagged
@@ -485,6 +487,33 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2343025065050494034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886981598276212783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c6b0dbf49796048923cfdae3a89fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 1c4c3d188ed217a4e88931f2bd8d6287, type: 3}
+  - {fileID: 21300000, guid: 35eafbdb27ea6a249a0ee61ca37b5aa1, type: 3}
+--- !u!225 &4733508873854411431
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886981598276212783}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3979801971803450840
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +526,7 @@ GameObject:
   - component: {fileID: 3492415780000229086}
   - component: {fileID: 7968154163401530792}
   m_Layer: 5
-  m_Name: Value_Damage
+  m_Name: Value_HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -762,8 +791,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC774\uACF3\uC5D0 \uC544\uC774\uD15C \uC124\uBA85\uC744 \uC785\uB825\uD569\uB2C8\uB2E4.\n\uAD7F\uAD7F
-    \uC544\uC8FC \uC88B\uC544\uC694."
+  m_text: "\uC544\uC774\uD15C \uC124\uBA85"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a15a51fe1bb07434e94841a147cbbe9f, type: 2}
   m_sharedMaterial: {fileID: -3908053574647060142, guid: a15a51fe1bb07434e94841a147cbbe9f, type: 2}
@@ -790,8 +818,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1053,7 +1081,7 @@ GameObject:
   - component: {fileID: 511238581502649029}
   - component: {fileID: 5767012400146614045}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: Icon_Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

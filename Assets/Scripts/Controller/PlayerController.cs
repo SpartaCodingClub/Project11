@@ -126,13 +126,9 @@ public class PlayerController : ObjectController
             return;
         }
 
-        // 캐릭터 방향 설정 후
         Vector3 targetPosition = closestMonster.transform.position;
-        lookDirection = (targetPosition - transform.position).normalized;
+        Attack((targetPosition - transform.position).normalized);
         HandPivot.localPosition = lookDirection;
-
-        // 공격
-        Attack();
     }
 
     private void HandleLighting()

@@ -13,7 +13,7 @@ public class MapController : BaseController
     protected override void Initialize()
     {
         base.Initialize();
-        tilemap = transform.GetChild(0).GetChild(0).GetComponent<Tilemap>();
+        tilemap = gameObject.FindComponent<Tilemap>("0_Tile");
 
         GenerateMap();
     }

@@ -126,7 +126,7 @@ public class ObjectController : BaseController
         animationHandler.Death(lookDirection);
     }
 
-    public void Attack()
+    public void Attack(Vector2 direction)
     {
         if (moving || jumping)
         {
@@ -139,9 +139,10 @@ public class ObjectController : BaseController
         }
 
         actionState = ActionState.Attack;
-        animationHandler.Attack(lookDirection);
+        animationHandler.Attack(direction);
         animationHandler.Animator.SetFloat(Define.AttackSpeed, StatHandler.AttackSpeed);
         attackTimer = 0.0f;
+        lookDirection = direction;
     }
 
     protected void Moving()

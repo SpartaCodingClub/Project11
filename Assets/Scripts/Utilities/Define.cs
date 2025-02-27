@@ -58,8 +58,6 @@ public class Define
 
         "아자아자, 파이팅!\n" +
         "할 수 있다!",
-
-        "곧 타이머가 시작됩니다!"
     };
     #endregion
     #region Layer

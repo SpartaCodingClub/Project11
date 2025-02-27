@@ -15,10 +15,12 @@ public class ChestController : ObjectController
             return;
         }
 
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag(Define.Player))
         {
             Death();
+
             Managers.Audio.Play(Clip.SoundFX_GetItem);
+            Managers.UI.Show<UI_ItemBox>();
         }
     }
 }

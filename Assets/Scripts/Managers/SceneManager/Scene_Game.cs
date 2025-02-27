@@ -10,14 +10,7 @@ public class Scene_Game : Scene_Base
     private int currentStage;
     private int nextStage;
 
-    // TODO: TEST CODE
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            GenerateMap(10, 5);
-        }
-    }
+    private UI_Lobby lobbyUI;
 
     protected override void Initialize()
     {
@@ -31,6 +24,8 @@ public class Scene_Game : Scene_Base
             Managers.Resource.Instantiate<PlayerController>(null, 5.0f * Vector2.down);
             return;
         }
+
+        lobbyUI = Managers.UI.CurrentSceneUI as UI_Lobby;
 
         Managers.Camera.Main.transform.position = new(0.0f, -7.0f, -10.0f);
         Managers.Game.Player.transform.position = 5.0f * Vector2.down;
@@ -57,10 +52,8 @@ public class Scene_Game : Scene_Base
         {
             nextSpawner = spawner;
         }
-        //if(nextSpawner != null)
-        //    nextSpawner.Enemies.gameObject.SetActive(false);
-        currentStage = nextStage;
 
+        currentStage = nextStage;
         nextStage++;
     }
 }

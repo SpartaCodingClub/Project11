@@ -52,7 +52,7 @@ public class EnemyController : ObjectController
             return;
         }
 
-        Attack();
+        Attack(lookDirection);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
