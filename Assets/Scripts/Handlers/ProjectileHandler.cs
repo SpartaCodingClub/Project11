@@ -9,7 +9,7 @@ public class ProjectileHandler : MonoBehaviour
     private WeaponType weaponType;
 
     [SerializeField]
-    private ProjectileController projectile;
+    public ProjectileController projectile;
 
     [ShowIf("weaponType", WeaponType.Range)]
     [Tooltip("°ø°Ý È½¼ö"), Range(0, 3)]
