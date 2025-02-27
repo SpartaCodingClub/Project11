@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump_Dust_0
+      name: Jump_Dust_Down_0
       rect:
         serializedVersion: 2
         x: 96
@@ -144,7 +144,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_1
+      name: Jump_Dust_Down_1
       rect:
         serializedVersion: 2
         x: 144
@@ -165,7 +165,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_2
+      name: Jump_Dust_Down_2
       rect:
         serializedVersion: 2
         x: 192
@@ -186,7 +186,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_3
+      name: Jump_Dust_Down_3
       rect:
         serializedVersion: 2
         x: 240
@@ -207,7 +207,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_4
+      name: Jump_Dust_Down_4
       rect:
         serializedVersion: 2
         x: 288
@@ -228,7 +228,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_5
+      name: Jump_Dust_LeftDown_0
       rect:
         serializedVersion: 2
         x: 96
@@ -249,7 +249,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_6
+      name: Jump_Dust_LeftDown_1
       rect:
         serializedVersion: 2
         x: 144
@@ -270,7 +270,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_7
+      name: Jump_Dust_LeftDown_2
       rect:
         serializedVersion: 2
         x: 192
@@ -291,7 +291,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -304,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_8
+      name: Jump_Dust_LeftDown_3
       rect:
         serializedVersion: 2
         x: 240
@@ -312,7 +312,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_9
+      name: Jump_Dust_LeftDown_4
       rect:
         serializedVersion: 2
         x: 288
@@ -333,7 +333,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_10
+      name: Jump_Dust_LeftUp_0
       rect:
         serializedVersion: 2
         x: 96
@@ -354,7 +354,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_11
+      name: Jump_Dust_LeftUp_1
       rect:
         serializedVersion: 2
         x: 144
@@ -375,7 +375,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -388,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_12
+      name: Jump_Dust_LeftUp_2
       rect:
         serializedVersion: 2
         x: 192
@@ -396,7 +396,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_13
+      name: Jump_Dust_LeftUp_3
       rect:
         serializedVersion: 2
         x: 240
@@ -417,7 +417,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_14
+      name: Jump_Dust_LeftUp_4
       rect:
         serializedVersion: 2
         x: 288
@@ -438,7 +438,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -451,7 +451,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_15
+      name: Jump_Dust_Up_0
       rect:
         serializedVersion: 2
         x: 96
@@ -459,7 +459,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -472,7 +472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_16
+      name: Jump_Dust_Up_1
       rect:
         serializedVersion: 2
         x: 144
@@ -480,7 +480,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -493,7 +493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_17
+      name: Jump_Dust_Up_2
       rect:
         serializedVersion: 2
         x: 192
@@ -501,7 +501,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -514,7 +514,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_18
+      name: Jump_Dust_Up_3
       rect:
         serializedVersion: 2
         x: 240
@@ -522,7 +522,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -535,7 +535,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_19
+      name: Jump_Dust_Up_4
       rect:
         serializedVersion: 2
         x: 288
@@ -543,7 +543,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -556,7 +556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_20
+      name: Jump_Dust_RightDown_0
       rect:
         serializedVersion: 2
         x: 96
@@ -564,7 +564,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -577,7 +577,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_21
+      name: Jump_Dust_RightDown_1
       rect:
         serializedVersion: 2
         x: 144
@@ -585,7 +585,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -598,7 +598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_22
+      name: Jump_Dust_RightDown_2
       rect:
         serializedVersion: 2
         x: 192
@@ -606,7 +606,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -619,7 +619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_23
+      name: Jump_Dust_RightDown_3
       rect:
         serializedVersion: 2
         x: 240
@@ -627,7 +627,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -640,7 +640,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_24
+      name: Jump_Dust_RightDown_4
       rect:
         serializedVersion: 2
         x: 288
@@ -648,7 +648,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -661,7 +661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_25
+      name: Jump_Dust_RightUp_0
       rect:
         serializedVersion: 2
         x: 96
@@ -669,7 +669,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -682,7 +682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_26
+      name: Jump_Dust_RightUp_1
       rect:
         serializedVersion: 2
         x: 144
@@ -690,7 +690,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -703,7 +703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_27
+      name: Jump_Dust_RightUp_2
       rect:
         serializedVersion: 2
         x: 192
@@ -711,7 +711,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -724,7 +724,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_28
+      name: Jump_Dust_RightUp_3
       rect:
         serializedVersion: 2
         x: 240
@@ -732,7 +732,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -745,7 +745,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump_Dust_29
+      name: Jump_Dust_RightUp_4
       rect:
         serializedVersion: 2
         x: 288
@@ -753,7 +753,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -776,36 +776,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Jump_Dust_0: -1323594858
-      Jump_Dust_1: -824676482
-      Jump_Dust_10: -96861196
-      Jump_Dust_11: -953070978
-      Jump_Dust_12: 709660477
-      Jump_Dust_13: -1602889502
-      Jump_Dust_14: 1084804419
-      Jump_Dust_15: -1999821484
-      Jump_Dust_16: -1972795079
-      Jump_Dust_17: 378730064
-      Jump_Dust_18: 260971008
-      Jump_Dust_19: 677297921
-      Jump_Dust_2: 459607659
-      Jump_Dust_20: 1057141755
-      Jump_Dust_21: -2107341318
-      Jump_Dust_22: 1320746959
-      Jump_Dust_23: 317000600
-      Jump_Dust_24: -2137030347
-      Jump_Dust_25: -586187644
-      Jump_Dust_26: -1553908074
-      Jump_Dust_27: -331896473
-      Jump_Dust_28: -1748415684
-      Jump_Dust_29: 648746399
-      Jump_Dust_3: 75497411
-      Jump_Dust_4: 664287881
-      Jump_Dust_5: -1832450351
-      Jump_Dust_6: -224743861
-      Jump_Dust_7: 1640208980
-      Jump_Dust_8: -1255177641
-      Jump_Dust_9: -1637613745
+      Jump_Dust_Down_0: 459607659
+      Jump_Dust_Down_1: 75497411
+      Jump_Dust_Down_2: 664287881
+      Jump_Dust_Down_3: -1832450351
+      Jump_Dust_Down_4: -224743861
+      Jump_Dust_LeftDown_0: 1640208980
+      Jump_Dust_LeftDown_1: -1255177641
+      Jump_Dust_LeftDown_2: -1637613745
+      Jump_Dust_LeftDown_3: -96861196
+      Jump_Dust_LeftDown_4: -953070978
+      Jump_Dust_LeftUp_0: 709660477
+      Jump_Dust_LeftUp_1: -1602889502
+      Jump_Dust_LeftUp_2: 1084804419
+      Jump_Dust_LeftUp_3: -1999821484
+      Jump_Dust_LeftUp_4: -1999821484
+      Jump_Dust_RightDown_0: -2107341318
+      Jump_Dust_RightDown_1: 1320746959
+      Jump_Dust_RightDown_2: 317000600
+      Jump_Dust_RightDown_3: -2137030347
+      Jump_Dust_RightDown_4: -586187644
+      Jump_Dust_RightUp_0: -586187644
+      Jump_Dust_RightUp_1: -1553908074
+      Jump_Dust_RightUp_2: -331896473
+      Jump_Dust_RightUp_3: -1748415684
+      Jump_Dust_RightUp_4: 648746399
+      Jump_Dust_Up_0: -1972795079
+      Jump_Dust_Up_1: 378730064
+      Jump_Dust_Up_2: 260971008
+      Jump_Dust_Up_3: 677297921
+      Jump_Dust_Up_4: 1057141755
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

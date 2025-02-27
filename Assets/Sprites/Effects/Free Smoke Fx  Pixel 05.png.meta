@@ -2089,7 +2089,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_93
+      name: E_Landing_FX_0
       rect:
         serializedVersion: 2
         x: 0
@@ -2110,7 +2110,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_94
+      name: E_Landing_FX_1
       rect:
         serializedVersion: 2
         x: 64
@@ -2131,7 +2131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_95
+      name: E_Landing_FX_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2152,7 +2152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_96
+      name: E_Landing_FX_3
       rect:
         serializedVersion: 2
         x: 192
@@ -2173,7 +2173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_97
+      name: E_Landing_FX_4
       rect:
         serializedVersion: 2
         x: 256
@@ -2194,7 +2194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_98
+      name: E_Landing_FX_5
       rect:
         serializedVersion: 2
         x: 320
@@ -2215,7 +2215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_99
+      name: E_Landing_FX_6
       rect:
         serializedVersion: 2
         x: 384
@@ -2236,7 +2236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_100
+      name: E_Landing_FX_7
       rect:
         serializedVersion: 2
         x: 448
@@ -2257,7 +2257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 05_101
+      name: E_Landing_FX_8
       rect:
         serializedVersion: 2
         x: 512
@@ -3032,11 +3032,18 @@ TextureImporter:
       Bullet_FX_6: -555247584
       Bullet_FX_7: -1137832526
       Bullet_FX_8: 1627613868
+      E_Landing_FX_0: 1381130080
+      E_Landing_FX_1: 1912218769
+      E_Landing_FX_2: 1202657675
+      E_Landing_FX_3: 1655532793
+      E_Landing_FX_4: -65985027
+      E_Landing_FX_5: 253913705
+      E_Landing_FX_6: -849058311
+      E_Landing_FX_7: -1206153406
+      E_Landing_FX_8: -287471733
       Free Smoke Fx  Pixel 05_0: -1029609760
       Free Smoke Fx  Pixel 05_1: 1001920858
       Free Smoke Fx  Pixel 05_10: -1167785281
-      Free Smoke Fx  Pixel 05_100: -1206153406
-      Free Smoke Fx  Pixel 05_101: -287471733
       Free Smoke Fx  Pixel 05_102: -1213030300
       Free Smoke Fx  Pixel 05_103: -1611000680
       Free Smoke Fx  Pixel 05_104: -1407828095
@@ -3153,13 +3160,6 @@ TextureImporter:
       Free Smoke Fx  Pixel 05_90: 874156545
       Free Smoke Fx  Pixel 05_91: -1451741929
       Free Smoke Fx  Pixel 05_92: -365664825
-      Free Smoke Fx  Pixel 05_93: 1381130080
-      Free Smoke Fx  Pixel 05_94: 1912218769
-      Free Smoke Fx  Pixel 05_95: 1202657675
-      Free Smoke Fx  Pixel 05_96: 1655532793
-      Free Smoke Fx  Pixel 05_97: -65985027
-      Free Smoke Fx  Pixel 05_98: 253913705
-      Free Smoke Fx  Pixel 05_99: -849058311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
