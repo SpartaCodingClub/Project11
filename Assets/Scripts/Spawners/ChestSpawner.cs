@@ -13,6 +13,7 @@ public class ChestSpawner : MonoBehaviour
     #endregion
 
     private readonly string CHEST = "Chest";
+    private readonly string CHESTEFFECT = "ChestEffect";
     private readonly float MIN_X = -20.5f, MAX_X = 24.5f;
     private readonly float MIN_Y = -4.1f, MAX_Y = 20.5f;
 
@@ -39,6 +40,7 @@ public class ChestSpawner : MonoBehaviour
                 }
 
                 Managers.Resource.Instantiate(CHEST, null, randomPos);
+                Managers.Resource.Instantiate(CHESTEFFECT, null, randomPos, Define.EFFECT).GetComponent<ObjectController>().Death();
                 yield return interval;
                 break;
             }
