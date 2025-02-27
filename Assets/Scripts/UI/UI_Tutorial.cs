@@ -122,7 +122,6 @@ public class UI_Tutorial : UI_SubItem
     private IEnumerator StartMessage()
     {
         char[] charArray = messages.Dequeue().ToCharArray();
-        Managers.Audio.Play(Clip.SoundFX_TypingSound);
         for (int i = 0; i < charArray.Length; i++)
         {
             message.text += charArray[i];
@@ -132,6 +131,7 @@ public class UI_Tutorial : UI_SubItem
             }
             else
             {
+                Managers.Audio.Play(Clip.SoundFX_TypingSound);
                 yield return shortInterval;
             }
         }

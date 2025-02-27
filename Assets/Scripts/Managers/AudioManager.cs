@@ -11,11 +11,11 @@ public enum Clip
     Music_Lobby,
     Music_Game,
 
-    SoundFX_Shooting,
-    SoundFX_TypingSound,
     SoundFX_GetItem,
-    SoundFX_Start,
     SoundFX_Rain,
+    SoundFX_Shooting,
+    SoundFX_Start,
+    SoundFX_TypingSound,
 
 }
 
