@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerController : ObjectController
 {
+    private static readonly string JUMP_EFFECT = "JumpEffect";
+    private static readonly string LANDING_EFFECT = "LandingEffect";
+
     private Transform HandLight;
     private Transform HandPivot;
 
@@ -45,6 +48,12 @@ public class PlayerController : ObjectController
         ShadowRenderer.Jump(jumping, Vector2.down);
     }
 
+    protected override void Landing()
+    {
+        base.Landing();
+        Managers.Resource.Instantiate(LANDING_EFFECT, null, transform.position, Define.EFFECT).GetComponent<ObjectController>().Death();
+    }
+
     protected override void HandleLogic()
     {
         base.HandleLogic();
@@ -58,6 +67,7 @@ public class PlayerController : ObjectController
             if (transform.position.z == 0)
             {
                 statHandler.VelocityZ = statHandler.JumpPower;
+                Managers.Resource.Instantiate(JUMP_EFFECT, null, transform.position, Define.EFFECT).GetComponent<ObjectController>().Death();
             }
 
             return;
