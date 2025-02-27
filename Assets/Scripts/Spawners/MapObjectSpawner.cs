@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,8 +26,11 @@ public class MapObjectSpawner : MonoBehaviour
 
     private Tilemap ObstacleSpawnArea;
     private Tilemap EnemySpawnArea;
+
     private Transform Obstacles;
     public Transform Enemies;
+
+    public Rigidbody2D CameraCollider;
 
     private void Awake()
     {
@@ -34,6 +38,29 @@ public class MapObjectSpawner : MonoBehaviour
         EnemySpawnArea = gameObject.FindComponent<Tilemap>(nameof(EnemySpawnArea));
         Obstacles = gameObject.FindComponent<Transform>(nameof(Obstacles));
         Enemies = gameObject.FindComponent<Transform>(nameof(Enemies));
+        CameraCollider = gameObject.FindComponent<Rigidbody2D>(nameof(CameraCollider));
+    }
+
+    public void Clear()
+    {
+        DOVirtual.DelayedCall(2.0f, () =>
+        {
+            var obstacles = Obstacles.GetComponentsInChildren<Transform>();
+            foreach (Transform child in obstacles)
+            {
+                Managers.Resource.Destroy(child.gameObject);
+            }
+
+            var objecgts = Obstacles.GetComponentsInChildren<ObjectController>();
+            foreach (ObjectController @object in objecgts)
+            {
+                @object.Destroy();
+            }
+
+            Destroy(gameObject);
+        });
+
+        CameraCollider.simulated = false;
     }
 
     public void MapObjectSpawn(int obstacleCount, int enemyCount)
@@ -46,7 +73,7 @@ public class MapObjectSpawner : MonoBehaviour
         yield return ObstacleSpawning(obstacleCount);
         yield return EnemySpawning(enemyCount);
 
-        Managers.Game.MonsterCount = Enemies.childCount;
+        Managers.Game.MonsterCount.Enqueue(Enemies.childCount);
     }
 
     private IEnumerator ObstacleSpawning(int count)

@@ -101,7 +101,10 @@ public class ObjectController : BaseController
             animationHandler.DestroyHandler.OnEnter += Destroy;
         }
 
-        animationHandler.AttackHandler.OnExit += Stand;
+        if (animationHandler.AttackHandler != null)
+        {
+            animationHandler.AttackHandler.OnExit += Stand;
+        }
 
         Stand();
     }

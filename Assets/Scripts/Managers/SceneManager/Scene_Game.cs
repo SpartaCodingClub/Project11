@@ -4,20 +4,27 @@ public class Scene_Game : Scene_Base
 {
     private readonly int MAP_SIZE_Y = 30;
 
-    private MapObjectSpawner currentSpawner;
-    private MapObjectSpawner nextSpawner;
+    private readonly int OBSTACLE_COUNT = 10;
+    private readonly int ENEMY_BASE = 5;
+
+    private readonly int POSITION_Y_BASE = -5;
+
+    private readonly int BOSS_STAGE = 3;
+
+    public MapObjectSpawner CurrentSpawner { get; private set; }
+    public MapObjectSpawner NextSpawner { get; private set; }
+
+    public UI_Lobby LobbyUI { get; private set; }
 
     private int currentStage;
     private int nextStage;
-
-    private UI_Lobby lobbyUI;
 
     protected override void Initialize()
     {
         base.Initialize();
 
-        GenerateMap(10, 10); // 현재 스테이지
-        GenerateMap(10, 5); // 다음 스테이지 미리 생성
+        GenerateMap(); // 현재 스테이지
+        GenerateMap(); // 다음 스테이지 미리 생성
 
         if (Managers.Game.Player == null)
         {
@@ -25,32 +32,46 @@ public class Scene_Game : Scene_Base
             return;
         }
 
-        lobbyUI = Managers.UI.CurrentSceneUI as UI_Lobby;
+        LobbyUI = Managers.UI.CurrentSceneUI as UI_Lobby;
 
-        Managers.Camera.Main.transform.position = new(0.0f, -7.0f, -10.0f);
-        Managers.Game.Player.transform.position = 5.0f * Vector2.down;
+        Managers.Camera.Main.transform.position = new(0.0f, -5.0f, -10.0f);
+        Managers.Game.Player.transform.position = POSITION_Y_BASE * Vector2.up;
     }
 
-    private void GenerateMap(int obstacleCount, int monsterCount)
+    public void GenerateMap()
     {
-        if (currentSpawner != null && nextSpawner != null)
+        if (NextSpawner != null)
         {
-            Destroy(currentSpawner.gameObject);
-            currentSpawner = nextSpawner;
-            //currentSpawner.Enemies.gameObject.SetActive(true);
+            CurrentSpawner.Clear();
+            CurrentSpawner = NextSpawner;
+
+            Managers.Game.Player.transform.position = (POSITION_Y_BASE + MAP_SIZE_Y * currentStage) * Vector2.up;
+        }
+
+        // 보스 스테이지 이상이라면 더 이상 맵을 생성하지 않음
+        if (nextStage == BOSS_STAGE)
+        {
+            return;
         }
 
         GameObject map = Managers.Resource.Instantiate(Define.MAP, null, new(0, MAP_SIZE_Y * nextStage), Define.MAP);
         MapObjectSpawner spawner = map.GetComponent<MapObjectSpawner>();
-        spawner.MapObjectSpawn(obstacleCount, monsterCount);
-
-        if (currentSpawner == null)
+        if (nextStage == BOSS_STAGE - 1)
         {
-            currentSpawner = spawner;
+            spawner.MapObjectSpawn(OBSTACLE_COUNT, 0);
         }
         else
         {
-            nextSpawner = spawner;
+            spawner.MapObjectSpawn(OBSTACLE_COUNT, ENEMY_BASE + nextStage);
+        }
+
+        if (CurrentSpawner == null)
+        {
+            CurrentSpawner = spawner;
+        }
+        else
+        {
+            NextSpawner = spawner;
         }
 
         currentStage = nextStage;

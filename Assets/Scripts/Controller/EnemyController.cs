@@ -1,5 +1,4 @@
 using UnityEngine;
-using VFavorites.Libs;
 
 public enum EnemyType
 {
@@ -91,10 +90,21 @@ public class EnemyController : ObjectController
         Managers.Resource.Instantiate("EnemyDeathEffect", null, transform.position, Define.EFFECT).GetComponent<BaseController>().Death();
     }
 
+    public override void Destroy()
+    {
+        base.Destroy();
+        Managers.Game.MonsterOnDead();
+    }
+
     protected override void HandleLogic()
     {
         base.HandleLogic();
         if (IsDead)
+        {
+            return;
+        }
+
+        if (Managers.Game.Player == null)
         {
             return;
         }
