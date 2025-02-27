@@ -15,6 +15,10 @@ public class Define
     public static readonly int PosY = Animator.StringToHash(nameof(PosY));
     public static readonly int HasSlow = Animator.StringToHash(nameof(HasSlow));
     #endregion
+    #region Axis
+    public static readonly string Horizontal = nameof(Horizontal);
+    public static readonly string Vertical = nameof(Vertical);
+    #endregion
     #region Message
     public static readonly string[] Tutorial_Move =
     {
@@ -48,13 +52,13 @@ public class Define
         "게임이 시작ㄷ",
     };
     #endregion
-    #region Name
-    public static readonly string Horizontal = nameof(Horizontal);
-    public static readonly string Vertical = nameof(Vertical);
+    #region Layer
+    public static readonly string Boss = nameof(Boss);
     public static readonly string Monster = nameof(Monster);
     public static readonly string Obstacle = nameof(Obstacle);
     public static readonly string Player = nameof(Player);
-    public static readonly string Bullet = nameof(Bullet);
+    #endregion
+    #region Object
     public static readonly string MainRenderer = nameof(MainRenderer);
     #endregion
     #region Path
@@ -66,6 +70,9 @@ public class Define
     public const string OBJECT = "Objects";
     public const string PROJECTILE = "Projectiles";
     public const string UI = "UI";
+    #endregion
+    #region Tag
+    public static readonly string Bullet = nameof(Bullet);
     #endregion
     #region Value
     public static readonly float TIMER = 30.0f;
