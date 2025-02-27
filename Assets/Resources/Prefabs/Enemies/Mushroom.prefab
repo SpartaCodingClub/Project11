@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 0
-  projectile: {fileID: 2020043444360509916, guid: d0c8d35d351025642badf73cf1929825, type: 3}
+  projectile: {fileID: -1525712836932946133, guid: 9a58652d5c1ceda4abcb5b51cda39c2e, type: 3}
   AttackCount: 1
   SpreadAngle: 15
   ProjectileCount: 1
