@@ -43,7 +43,7 @@ public class UI_Lobby : UI_Scene
         Frame_Damage,
         Value_Damage,
         Frame_HP,
-        Valud_HP
+        Value_HP
     }
 
     protected override void Initialize()
@@ -61,6 +61,6 @@ public class UI_Lobby : UI_Scene
     {
         PlayerController player = Managers.Game.Player;
         Get<TMP_Text>((int)Children.Value_Damage).text = ((int)player.StatHandler.Damage).ToString();
-        Get<TMP_Text>((int)Children.Valud_HP).text = ((int)player.StatHandler.HP).ToString();
+        Get<TMP_Text>((int)Children.Value_HP).text = ((int)player.StatHandler.HP).ToString();
     }
 }
