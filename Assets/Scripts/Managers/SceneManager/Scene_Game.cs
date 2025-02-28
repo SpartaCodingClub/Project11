@@ -21,6 +21,7 @@ public class Scene_Game : Scene_Base
 
     protected override void Initialize()
     {
+        
         base.Initialize();
 
         GenerateMap(); // 현재 스테이지

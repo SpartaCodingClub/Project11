@@ -471,6 +471,7 @@ MonoBehaviour:
   JumpPower: 5
   Gravity: 15
   VelocityZ: 0
+  CurrentHP: 0
 --- !u!114 &8540598411276184764
 MonoBehaviour:
   m_ObjectHideFlags: 0

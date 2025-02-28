@@ -9,7 +9,7 @@ public class Scene_Lobby : Scene_Base
     protected override void Initialize()
     {
         base.Initialize();
-
+        Managers.Resource.Instantiate("Skeleton", null, new Vector2(-2, -2), Define.ENEMIES);
         Managers.Resource.Instantiate<PlayerController>(null, Vector2.zero);
         Managers.UI.Show<UI_PopupBackground>().Death();
 
