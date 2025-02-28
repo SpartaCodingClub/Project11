@@ -119,6 +119,7 @@ public class UI_TimeBar : UI_SubItem
         {
             hasTutorial = false;
 
+            Managers.Audio.Play(Clip.Music_Lobby);
             Managers.Resource.Instantiate(nameof(ChestSpawner), null, Managers.Game.Player.transform.position);
             Managers.UI.Show<UI_Lobby>();
         };

@@ -10,7 +10,6 @@ public class Managers : MonoBehaviour
     public static readonly PoolManager Pool = new();
     public static readonly ResourceManager Resource = new();
     public static readonly SceneManager Scene = new();
-    public static readonly SheetManager Sheet = new();
     public static readonly SkillManager Skill = new();
     public static readonly UIManager UI = new();
 
@@ -31,7 +30,6 @@ public class Managers : MonoBehaviour
         Game.Initialize();
         Pool.Initialize();
         Scene.Initialize();
-        Sheet.Initialize();
         UI.Initialize();
     }
 

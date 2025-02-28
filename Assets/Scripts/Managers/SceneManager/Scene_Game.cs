@@ -9,7 +9,7 @@ public class Scene_Game : Scene_Base
 
     private readonly int POSITION_Y_BASE = -5;
 
-    private readonly int BOSS_STAGE = 3;
+    private readonly int BOSS_STAGE = 5;
 
     public MapObjectSpawner CurrentSpawner { get; private set; }
     public MapObjectSpawner NextSpawner { get; private set; }
@@ -34,6 +34,7 @@ public class Scene_Game : Scene_Base
 
         LobbyUI = Managers.UI.CurrentSceneUI as UI_Lobby;
 
+        Managers.Audio.Play(Clip.Music_Game);
         Managers.Camera.Main.transform.position = new(0.0f, -5.0f, -10.0f);
         Managers.Game.Player.transform.position = POSITION_Y_BASE * Vector2.up;
     }

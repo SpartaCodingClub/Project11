@@ -8,6 +8,7 @@ public enum Clip
     Ambient_Rain,
 
     Music_Title,
+    Music_Lobby,
     Music_Game,
 
     SoundFX_GetItem,

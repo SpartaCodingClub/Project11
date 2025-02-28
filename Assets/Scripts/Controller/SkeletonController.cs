@@ -35,7 +35,7 @@ public class SkeletonController : ObjectController
         if (collision.CompareTag(Define.Player) == false)
             return;
 
-        Attack();
+        Attack(lookDirection);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

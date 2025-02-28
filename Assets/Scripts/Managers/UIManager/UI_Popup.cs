@@ -11,13 +11,6 @@ public abstract class UI_Popup : UI_Base
             .Append(Popup.DOScale(1.0f, 0.2f).From(0.0f).SetEase(Ease.OutBack));
     }
     #endregion
-    #region Death
-    private Sequence Popup_Death()
-    {
-        return Utility.RecyclableSequence()
-            .Append(Popup.DOScale(0.0f, 0.2f).SetEase(Ease.InBack));
-    }
-    #endregion
 
     public bool Interactable { get { return canvasGroup.interactable; } }
     public int SortingOrder { get { return canvas.sortingOrder; } set { canvas.sortingOrder = value; } }
@@ -34,6 +27,11 @@ public abstract class UI_Popup : UI_Base
         canvas = GetComponent<Canvas>();
 
         BindSequences(State.Birth, Popup_Birth);
-        BindSequences(State.Death, Popup_Death);
+    }
+
+    public override void Death()
+    {
+        base.Death();
+        Destroy();
     }
 }
