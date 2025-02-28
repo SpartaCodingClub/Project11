@@ -109,6 +109,11 @@ public class ProjectileHandler : MonoBehaviour
                 projectile.GetComponent<ProjectileController>().SetProjectile(isPlayer, statHandler.Damage, bulletDirection);
             }
 
+            if (isPlayer)
+            {
+                Managers.Audio.Play(Clip.SoundFX_Shooting);
+            }
+
             yield return interval;
         }
     }

@@ -448,8 +448,8 @@ MonoBehaviour:
   weaponType: 1
   projectile: {fileID: 5968843115592883572, guid: e106777c8e296cc44ad5fb7bedb38535, type: 3}
   AttackCount: 1
-  AttakInterval: 0
-  SpreadAngle: 15
+  AttakInterval: 1
+  SpreadAngle: 10
   ProjectileCount: 1
 --- !u!114 &3511510058557900392
 MonoBehaviour:
@@ -471,6 +471,7 @@ MonoBehaviour:
   JumpPower: 5
   Gravity: 15
   VelocityZ: 0
+  CurrentHP: 0
 --- !u!114 &8540598411276184764
 MonoBehaviour:
   m_ObjectHideFlags: 0

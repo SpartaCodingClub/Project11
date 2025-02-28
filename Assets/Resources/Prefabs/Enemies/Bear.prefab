@@ -310,12 +310,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDelay: 0.2
   AttackRange: 1
-  HP: 10
+  HP: 40
   Damage: 1
   MoveSpeed: 2
   JumpPower: 0
   Gravity: 0
   VelocityZ: 0
+  CurrentHP: 0
 --- !u!114 &8639954023301896828
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,12 +15,6 @@ public class Scene_Lobby : Scene_Base
 
         //NextTutorial(4.0f);
         Managers.UI.Show<UI_GameStart>();
-
-        // TEST CODE
-        //DOVirtual.DelayedCall(4.0f, () =>
-        //{
-        //    Managers.UI.Show<UI_SkillSelect>();
-        //});
     }
 
     public void GameStart()

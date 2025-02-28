@@ -17,7 +17,7 @@ public enum Skill
     HP,
     MOV_SPD,
     ATK_DELAY,
-    ATK_RANGE
+    ATK_RANGE,
 }
 
 public class SkillManager
@@ -26,7 +26,11 @@ public class SkillManager
 
     public void Initialize()
     {
-        UnityGoogleSheet.LoadFromGoogle<int, SkillTable.Data>((list, map) => SkillTable = list, true);
+        UnityGoogleSheet.LoadFromGoogle<int, SkillTable.Data>((list, map) =>
+        {
+            SkillTable = list;
+            Debug.Log($"Succeed to Load SkillTable.");
+        }, true);
     }
 
     public SkillTable.Data GetSkillData(int index)

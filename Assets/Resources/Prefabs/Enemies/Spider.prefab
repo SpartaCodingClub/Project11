@@ -316,6 +316,7 @@ MonoBehaviour:
   JumpPower: 0
   Gravity: 0
   VelocityZ: 0
+  CurrentHP: 0
 --- !u!114 &2851510090043953974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +332,7 @@ MonoBehaviour:
   weaponType: 1
   projectile: {fileID: 1980412927100358878, guid: 8927047a10b32a34fb994898cdf84f82, type: 3}
   AttackCount: 3
-  AttakInterval: 0
+  AttakInterval: 0.3
   SpreadAngle: 15
   ProjectileCount: 1
 --- !u!114 &2216893007699576789

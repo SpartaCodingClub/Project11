@@ -24,6 +24,8 @@ public class MapObjectSpawner : MonoBehaviour
         Count
     }
 
+    private int layerMask;
+
     private Tilemap ObstacleSpawnArea;
     private Tilemap EnemySpawnArea;
 
@@ -39,6 +41,8 @@ public class MapObjectSpawner : MonoBehaviour
         Obstacles = gameObject.FindComponent<Transform>(nameof(Obstacles));
         Enemies = gameObject.FindComponent<Transform>(nameof(Enemies));
         CameraCollider = gameObject.FindComponent<Rigidbody2D>(nameof(CameraCollider));
+
+        layerMask = LayerMask.GetMask(Define.Obstacle, Define.Monster);
     }
 
     public void Clear()
@@ -116,10 +120,12 @@ public class MapObjectSpawner : MonoBehaviour
                 Vector2 randomPos = GetRandomPosition_Enemy();
 
                 // 몬스터 타입 설정하기
-                Enemy enemyType = (Enemy)Random.Range(0, (int)Enemy.Count);
+                int randomIndex = Random.Range(0, (int)Enemy.Count);
+                Enemy enemyType = (Enemy)randomIndex;
 
                 // 몬스터 생성하기
                 GameObject gameObject = Managers.Resource.Instantiate(enemyType.ToString(), Enemies, randomPos, Define.ENEMIES);
+                Debug.Log(gameObject.name);
                 BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
 
                 // 몬스터 충돌 검사
@@ -181,6 +187,6 @@ public class MapObjectSpawner : MonoBehaviour
 
     bool IsOverLapping(Vector2 randomPosition, BoxCollider2D collider)
     {
-        return Physics2D.OverlapBox(randomPosition, collider.size * 1.5f, 0);
+        return Physics2D.OverlapBox(randomPosition, collider.size * 1.5f, 0, layerMask);
     }
 }

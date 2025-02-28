@@ -30,6 +30,7 @@ public class Managers : MonoBehaviour
         Game.Initialize();
         Pool.Initialize();
         Scene.Initialize();
+        Skill.Initialize();
         UI.Initialize();
     }
 

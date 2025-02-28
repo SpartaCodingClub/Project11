@@ -10,11 +10,14 @@ public enum Clip
     Music_Title,
     Music_Lobby,
     Music_Game,
+    Music_BossScene,
 
     SoundFX_GetItem,
     SoundFX_CreateItem,
     SoundFX_Rain,
     SoundFX_Shooting,
+    SoundFX_SkillSelect,
+    SoundFX_SkillSelected,
     SoundFX_Start,
     SoundFX_TypingSound,
 }

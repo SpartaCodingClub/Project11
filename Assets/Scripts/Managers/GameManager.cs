@@ -40,14 +40,19 @@ public class GameManager
             return;
         }
 
-        DOVirtual.DelayedCall(1.0f, gameScene.GenerateMap);
+        DOVirtual.DelayedCall(1.0f, () =>
+        {
+            Managers.UI.Show<UI_SkillSelect>().OnDestoryed += () =>
+            {
+                gameScene.GenerateMap();
+                DOVirtual.DelayedCall(2.0f, () => gameScene.CurrentSpawner.CameraCollider.simulated = true);
+            };
+        });
     }
 
     private void SetNextStage()
     {
         gameScene.NextSpawner.CameraCollider.simulated = false;
         currentMonsterCount = MonsterCount.Dequeue();
-
-        DOVirtual.DelayedCall(2.0f, () => gameScene.CurrentSpawner.CameraCollider.simulated = true);
     }
 }

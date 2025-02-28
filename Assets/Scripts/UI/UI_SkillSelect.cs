@@ -1,5 +1,7 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_SkillSelect : UI_SubItem
 {
@@ -99,9 +101,9 @@ public class UI_SkillSelect : UI_SubItem
         Icon3
     }
 
-    private int indexSkill1;
-    private int indexSkill2;
-    private int indexSkill3;
+    private int index_Skill1;
+    private int index_Skill2;
+    private int index_Skill3;
 
     protected override void Initialize()
     {
@@ -114,8 +116,49 @@ public class UI_SkillSelect : UI_SubItem
         UpdateUI();
     }
 
+    public override void Birth()
+    {
+        base.Birth();
+        Managers.Audio.Play(Clip.SoundFX_SkillSelect);
+    }
+
+    public override void Death()
+    {
+        base.Death();
+        Managers.Audio.Play(Clip.SoundFX_SkillSelected);
+    }
+
     private void UpdateUI()
     {
+        Get<Button>((int)Children.Skill1).onClick.RemoveAllListeners();
+        Get<Button>((int)Children.Skill2).onClick.RemoveAllListeners();
+        Get<Button>((int)Children.Skill3).onClick.RemoveAllListeners();
 
+        index_Skill1 = Random.Range(0, 3);
+        Get<TMP_Text>((int)Children.SkillName1).text = Managers.Skill.GetSkillData(index_Skill1).SkillName;
+
+        index_Skill2 = Random.Range(3, 5);
+        Get<TMP_Text>((int)Children.SkillName2).text = Managers.Skill.GetSkillData(index_Skill2).SkillName;
+
+        index_Skill3 = Random.Range(5, 7);
+        Get<TMP_Text>((int)Children.SkillName3).text = Managers.Skill.GetSkillData(index_Skill3).SkillName;
+
+        Get<Button>((int)Children.Skill1).onClick.AddListener(() =>
+        {
+            Managers.Skill.SetSkillData(index_Skill1);
+            Death();
+        });
+
+        Get<Button>((int)Children.Skill2).onClick.AddListener(() =>
+        {
+            Managers.Skill.SetSkillData(index_Skill2);
+            Death();
+        });
+
+        Get<Button>((int)Children.Skill3).onClick.AddListener(() =>
+        {
+            Managers.Skill.SetSkillData(index_Skill3);
+            Death();
+        });
     }
 }

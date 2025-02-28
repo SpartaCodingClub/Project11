@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Scene_Game : Scene_Base
 {
@@ -37,6 +38,7 @@ public class Scene_Game : Scene_Base
         Managers.Audio.Play(Clip.Music_Game);
         Managers.Camera.Main.transform.position = new(0.0f, -5.0f, -10.0f);
         Managers.Game.Player.transform.position = POSITION_Y_BASE * Vector2.up;
+        Managers.Camera.Main.transform.GetChild(0).GetComponent<Light2D>().intensity = 0.0f;
     }
 
     public void GenerateMap()
@@ -52,6 +54,7 @@ public class Scene_Game : Scene_Base
         // 보스 스테이지 이상이라면 더 이상 맵을 생성하지 않음
         if (nextStage == BOSS_STAGE)
         {
+            Managers.Audio.Play(Clip.Music_BossScene);
             return;
         }
 
@@ -59,6 +62,7 @@ public class Scene_Game : Scene_Base
         MapObjectSpawner spawner = map.GetComponent<MapObjectSpawner>();
         if (nextStage == BOSS_STAGE - 1)
         {
+            // 이곳에 보스 생성 코드!
             spawner.MapObjectSpawn(OBSTACLE_COUNT, 0);
         }
         else
