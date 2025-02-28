@@ -22,7 +22,7 @@ public class Scene_Game : Scene_Base
 
     protected override void Initialize()
     {
-        
+
         base.Initialize();
 
         GenerateMap(); // 현재 스테이지
@@ -63,8 +63,8 @@ public class Scene_Game : Scene_Base
         MapObjectSpawner spawner = map.GetComponent<MapObjectSpawner>();
         if (nextStage == BOSS_STAGE - 1)
         {
-            // 이곳에 보스 생성 코드!
             spawner.MapObjectSpawn(OBSTACLE_COUNT, 0);
+            Managers.Resource.Instantiate("Skeleton", null, new(0, MAP_SIZE_Y * nextStage), Define.ENEMIES);
         }
         else
         {

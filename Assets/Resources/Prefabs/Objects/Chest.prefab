@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 1814431868331771306}
   - component: {fileID: 6595822365905822479}
   - component: {fileID: 676560809750010347}
-  - component: {fileID: 6739746482560225234}
   - component: {fileID: 5265169233414019552}
   m_Layer: 0
   m_Name: Chest
@@ -240,18 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc86916e53faf441ace7a1e57746960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6739746482560225234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4938303273640905768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d677cd1b51745cf40a5535d1ecd1cf18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5265169233414019552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +259,4 @@ MonoBehaviour:
   JumpPower: 0
   Gravity: 0
   VelocityZ: 0
+  CurrentHP: 0

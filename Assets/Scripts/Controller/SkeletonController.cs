@@ -1,5 +1,4 @@
 using DG.Tweening;
-using TMPro;
 using UnityEngine;
 
 public class SkeletonController : ObjectController
@@ -87,23 +86,23 @@ public class SkeletonController : ObjectController
             if (distance > statHandler.AttackRange * 1.5f)
             {
                 moveDirection += lookDirection * 0.5f;
-                statHandler.MoveSpeed = 3f;
+                statHandler.MoveSpeed = 6f;
 
             }
             else if (distance < statHandler.AttackRange * 1.2f)
             {
                 moveDirection -= lookDirection * 0.5f;
-                statHandler.MoveSpeed = 1f;
+                statHandler.MoveSpeed = 2f;
             }
             moveDirection.Normalize();
             _rigidbody.velocity = moveDirection * statHandler.MoveSpeed;
         }
         time += Time.deltaTime;
-        if(time > 5 && onTriggerStay)
-        {
-            Shout();
-            time = 0;
-        }
+        //if(time > 5 && onTriggerStay)
+        //{
+        //    Shout();
+        //    time = 0;
+        //}
 
     }
 
@@ -112,10 +111,10 @@ public class SkeletonController : ObjectController
         Vector2 direction = (Managers.Game.Player.transform.position - transform.position).normalized;
         Vector2 pushDirection = direction * 2f;
         Collider2D playerCollider = Managers.Game.Player.GetComponent<Collider2D>();
-        if(playerCollider != null )
+        if (playerCollider != null)
         {
             GameObject effect = Managers.Resource.Instantiate("JumpEffect", null, transform.position, Define.EFFECT);
-            SpriteRenderer sr = effect.GetComponentInChildren<SpriteRenderer>();;
+            SpriteRenderer sr = effect.GetComponentInChildren<SpriteRenderer>(); ;
             effect.transform.DOScale(5, 1f).SetEase(Ease.OutBack).OnComplete(() => Destroy(effect));
             animationHandler.Animator.SetTrigger("Boost");
             playerCollider.attachedRigidbody.position += (Vector2)pushDirection;

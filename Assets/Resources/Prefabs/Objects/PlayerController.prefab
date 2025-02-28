@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDelay: 1
-  AttackRange: 3
+  AttackRange: 4
   HP: 100
   Damage: 10
   MoveSpeed: 5

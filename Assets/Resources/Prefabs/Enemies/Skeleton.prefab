@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackDelay: 0.1
   AttackRange: 3
-  HP: 10000
+  HP: 9999
   Damage: 0
   MoveSpeed: 3
   JumpPower: 0
