@@ -15,6 +15,7 @@ public class MonsterController : MonoBehaviour
 
     private void Die()
     {
+
         // 몬스터 죽을 때 처리
         Destroy(gameObject);
     }

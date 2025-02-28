@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5413315835880780769}
   - component: {fileID: 2949082437158002069}
   - component: {fileID: 4377100699696700712}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MainRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.98}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &4629644086888781365
 MonoBehaviour:
@@ -242,13 +242,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDelay: 0.1
-  AttackRange: 5
-  HP: 100
-  Damage: 1
+  AttackRange: 3
+  HP: 10000
+  Damage: 0
   MoveSpeed: 3
   JumpPower: 0
   Gravity: 0
   VelocityZ: 0
+  CurrentHP: 0
 --- !u!114 &7510939001023385601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +266,8 @@ MonoBehaviour:
   projectile: {fileID: 5968843115592883572, guid: e106777c8e296cc44ad5fb7bedb38535, type: 3}
   AttackCount: 1
   AttakInterval: 0
-  SpreadAngle: 60
-  ProjectileCount: 6
+  SpreadAngle: 0.5
+  ProjectileCount: 10
 --- !u!114 &7231513201931891638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5673593720796826986}
   - component: {fileID: 6673458413874965985}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
