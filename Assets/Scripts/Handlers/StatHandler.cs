@@ -28,12 +28,22 @@ public class StatHandler : MonoBehaviour
 
     private float initialAttackDelay;
 
-    private UI_HPBar hpBar;
+    private UI_WorldSpace hpBar;
 
     private void Awake()
     {
         initialAttackDelay = AttackDelay;
         CurrentHP = HP;
+    }
+
+    private void Start()
+    {
+        if (gameObject.layer == LayerMask.GetMask(Define.Boss))
+        {
+            hpBar = Managers.UI.Show<UI_BossHP>();
+            hpBar.transform.SetParent(gameObject.FindComponent<Transform>(Define.MainRenderer));
+            hpBar.transform.localPosition = Vector2.zero;
+        }
     }
 
     public void ApplyStats(SkillTable.Data skill)
@@ -61,6 +71,13 @@ public class StatHandler : MonoBehaviour
             hpBar.Death();
         }
 
-        hpBar.UpdateUI(CurrentHP, HP);
+        if (gameObject.layer == LayerMask.GetMask(Define.Boss))
+        {
+            (hpBar as UI_BossHP).UpdateUI(CurrentHP, HP);
+        }
+        else
+        {
+            (hpBar as UI_HPBar).UpdateUI(CurrentHP, HP);
+        }
     }
 }
