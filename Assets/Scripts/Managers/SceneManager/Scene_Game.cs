@@ -10,7 +10,7 @@ public class Scene_Game : Scene_Base
 
     private readonly int POSITION_Y_BASE = -5;
 
-    private readonly int BOSS_STAGE = 5;
+    private readonly int BOSS_STAGE = 100;
 
     public MapObjectSpawner CurrentSpawner { get; private set; }
     public MapObjectSpawner NextSpawner { get; private set; }
