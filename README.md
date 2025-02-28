@@ -1,3 +1,23 @@
-![SVG 입력하기](https://readme-typing-svg.herokuapp.com?size=22&color=F75C7E&width=1000&lines=%2APost+Apocalypse%2A)
+![SVG 입력하기](https://readme-typing-svg.herokuapp.com?size=50&color=F75C7E&width=1000&height=100&lines=Post+Apocalypse)
+---
 
-# 묘사 
+# 프로젝트 소개  
+5인 팀 프로젝트 "코딩 11번가" 에서 개발한 게임은 궁수의 전설을 기반으로 한 Post Apocalypse입니다.  
+팀원들과 프로젝트의 방향성 & 진행도를 원활하게 체크하기 위해 소통을 중점으로 프로젝트를 진행했습니다.  
+팀원들이 모두 즐겁게 참여할 수 있는 것을 지향했으며 모든 필수 과제를 완성하는 것을 목표했습니다.
+# 개발기간 및 참여인원  
+- 2025.02.21(금)  ~ 2025.02.28(금)
+- **참여인원**  
+  팀장 - 송석호  
+  부팀장 - 윤혜진  
+  팀원 - 심형진  
+  팀원 - 권수민  
+  팀원 - 이중석  
+---
+# 구현한 기능
+- 캐릭터 이동 및 공격
+- 적AI 공격 패턴
+- 랜덤 방 생성
+- 스킬 및 파밍 시스템
+- 보스전
+---
