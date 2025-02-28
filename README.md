@@ -40,3 +40,5 @@
 스킬업그레이드 UI  
 ![Image](https://github.com/user-attachments/assets/ad9f5d76-e9be-4e79-8f13-e23a91e155a4)  
 ---
+# 플레이 영상  
+https://github.com/user-attachments/assets/b49bc7cf-f1c9-4199-a877-05b1c4a9feba  
