@@ -1,6 +1,9 @@
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using DG.Tweening;
 using System;
-using UnityEditor;
 using UnityEngine;
 using VInspector;
 
@@ -42,9 +45,10 @@ public abstract class BaseController : MonoBehaviour
 
     private State state;
 
-    private readonly SequenceHandler sequenceHandler = new();
+    protected readonly SequenceHandler sequenceHandler = new();
 
     private void Awake() => Initialize();
+    private void OnEnable() => Clear();
     private void OnDestroy() => Deinitialize();
     protected void BindSequences(State type, params Func<Sequence>[] sequences) => sequenceHandler.Bind(type, sequences);
 

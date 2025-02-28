@@ -20,7 +20,7 @@ public class UIManager
 
     private readonly Transform transform = new GameObject(nameof(UIManager), typeof(StandaloneInputModule)).transform;
     private readonly Transform[] children = new Transform[(int)Type.Count];
-    private readonly Stack<UI_Popup> popups = new();
+    private readonly Queue<UI_Popup> popups = new();
 
     private UI_SubItem popupBackground;
 
@@ -79,7 +79,7 @@ public class UIManager
         popupBackground.GetComponent<Canvas>().sortingOrder = backgroundSortingOrder;
 
         popup.SortingOrder = backgroundSortingOrder + 1;
-        popups.Push(popup);
+        popups.Enqueue(popup);
     }
 
     public void ClosePopup()
@@ -89,13 +89,8 @@ public class UIManager
             return;
         }
 
-        if (popups.Peek().Interactable == false)
-        {
-            return;
-        }
-
-        UI_Popup popup = popups.Pop();
-        popups.Pop().Death();
+        UI_Popup popup = popups.Dequeue();
+        popup.Death();
 
         if (popups.Count > 0)
         {
@@ -111,7 +106,12 @@ public class UIManager
     {
         while (popups.Count > 0)
         {
-            popups.Pop().Destroy();
+            popups.Dequeue().Destroy();
+        }
+
+        if (popupBackground != null)
+        {
+            popupBackground.Death();
         }
 
         popups.Clear();

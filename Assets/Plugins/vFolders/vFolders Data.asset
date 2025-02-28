@@ -16,6 +16,12 @@ MonoBehaviour:
     keys:
     - bb36d3a4469fdc54e9cf8930da06ea44
     - 38837df62576e6a4b82fb52fdde40dc4
+    - 1784b683e50133f4187645c1af426d79
+    - 54d38e572cf74464c8339f89bb21e650
+    - ab55327e1c4c4d54fa3d1d53d0128ffa
+    - c0b802ed41d08e04dbf7d6c7d13f6af8
+    - 219e6470e874fee4189e0e7b6e4e6d1d
+    - 63b33bbd925264e40ae2d71c1022cfd0
     values:
     - iconNameOrGuid: 
       colorIndex: 8
@@ -25,4 +31,28 @@ MonoBehaviour:
       colorIndex: 7
       isIconRecursive: 0
       isColorRecursive: 1
+    - iconNameOrGuid: AnimationClip Icon
+      colorIndex: 0
+      isIconRecursive: 1
+      isColorRecursive: 0
+    - iconNameOrGuid: AnimationClip Icon
+      colorIndex: 0
+      isIconRecursive: 1
+      isColorRecursive: 0
+    - iconNameOrGuid: AnimationClip Icon
+      colorIndex: 0
+      isIconRecursive: 1
+      isColorRecursive: 0
+    - iconNameOrGuid: AnimationClip Icon
+      colorIndex: 0
+      isIconRecursive: 1
+      isColorRecursive: 0
+    - iconNameOrGuid: Prefab Icon
+      colorIndex: 0
+      isIconRecursive: 1
+      isColorRecursive: 0
+    - iconNameOrGuid: RawImage Icon
+      colorIndex: 0
+      isIconRecursive: 1
+      isColorRecursive: 0
   bookmarks: []

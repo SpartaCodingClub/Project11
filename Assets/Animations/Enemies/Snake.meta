@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/Enemies/Snake.meta
+guid: e41f9019f73575b4889b9b965e6e018c
+folderAsset: yes
+DefaultImporter:
+========
+guid: 9fd9d917b72c3284a9072672bfada825
+PrefabImporter:
+>>>>>>>> develop:Assets/Resources/Prefabs/Effects/JumpEffect.prefab.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

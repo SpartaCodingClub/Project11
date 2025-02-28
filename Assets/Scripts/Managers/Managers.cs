@@ -9,9 +9,10 @@ public class Managers : MonoBehaviour
     public static readonly GameManager Game = new();
     public static readonly PoolManager Pool = new();
     public static readonly ResourceManager Resource = new();
-    public static readonly SheetManager Sheet = new();
     public static readonly SceneManager Scene = new();
+    public static readonly SkillManager Skill = new();
     public static readonly UIManager UI = new();
+
 
     private void Awake()
     {
@@ -28,8 +29,14 @@ public class Managers : MonoBehaviour
         Camera.Initialize();
         Game.Initialize();
         Pool.Initialize();
-        Sheet.Initialize();
+        Scene.Initialize();
+        Skill.Initialize();
         UI.Initialize();
+    }
+
+    private void FixedUpdate()
+    {
+        Camera.FixedUpdate();
     }
 
     public void Clear()

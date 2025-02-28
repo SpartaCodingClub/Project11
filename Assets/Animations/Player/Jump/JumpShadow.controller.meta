@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/Player/Jump/JumpShadow.controller.meta
+guid: 91a2cadcfeace5f499c0b7a1f68abbc7
+NativeFormatImporter:
+========
+guid: 126d71ee2fb4acf4187493b9a81ba2e3
+DefaultImporter:
+>>>>>>>> develop:Assets/Scenes/Scene_Lobby_LJS.unity.meta
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
